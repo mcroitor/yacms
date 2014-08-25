@@ -2,7 +2,7 @@
 
 function writeLog($data, $log_name = "default.log") {
     global $config;
-    if(isset($config["timezone"])) 
+    if (isset($config["timezone"]))
         date_default_timezone_set($config["timezone"]);
     else
         date_default_timezone_set("Europe/London");
@@ -54,8 +54,9 @@ function sqlQuery($query, $error = "Error: ", $need_fetch = true) {
     if (!$result) {
         $aux = "$error $query, " . mysql_error();
 
-        if (DEBUG == "1") writeLog($aux);
-        
+        if (DEBUG == "1")
+            writeLog($aux);
+
         writeLog($aux, "errors.log");
         exit(mysql_error());
     }
@@ -70,11 +71,11 @@ function sqlQuery($query, $error = "Error: ", $need_fetch = true) {
 
 // ------- modules -------
 function loadModules() {
-    if(file_exists(CACHE_PATH."modules.php")){
-        includeFile(CACHE_PATH."modules.php");
+    if (file_exists(CACHE_PATH . "modules.php")) {
+        includeFile(CACHE_PATH . "modules.php");
         return;
     }
-    
+
     $query = "SELECT module_name FROM modules WHERE module_enabled=1";
 
     $modules = sqlQuery($query);
@@ -82,13 +83,13 @@ function loadModules() {
 //    foreach ($modules as $module) {
 //        includeFile(MODULES_PATH . "{$module['module_name']}/{$module['module_name']}.exec.php");
 //    }
-    
+
     cacheModules($modules);
-    includeFile(CACHE_PATH."modules.php");
+    includeFile(CACHE_PATH . "modules.php");
 }
 
-function cacheModules($modules){
-    $f = fopen(CACHE_PATH."modules.php", "w");
+function cacheModules($modules) {
+    $f = fopen(CACHE_PATH . "modules.php", "w");
     fwrite($f, "<?php\n\n");
     foreach ($modules as $module) {
         fwrite($f, "includeFile(MODULE_PATH . \"{$module['module_name']}/{$module['module_name']}.exec.php\");\n");
@@ -124,12 +125,11 @@ function uninstallModule($module_name) {
     sqlQuery($query, "module uninstallation error: ", false);
 }
 
-function getNewModules(){
+function getNewModules() {
     $all_modules = array();
     $modules_name = array();
     foreach (scandir(MODULES_PATH) as $element) {
-        if(is_dir(MODULES_PATH.$element) && file_exists(MODULES_PATH."{$element}/{$element}.exec.php"))
-        {
+        if (is_dir(MODULES_PATH . $element) && file_exists(MODULES_PATH . "{$element}/{$element}.exec.php")) {
             $all_modules[] = $element;
         }
     }
@@ -143,16 +143,23 @@ function getNewModules(){
     return array_diff($all_modules, $modules_name);
 }
 
-function __hook($hook_name, $param = NULL){
+function moduleManager() {
+    $html = "";
+    
+    return $html;
+}
+
+// hooks, strbuilders
+function __hook($hook_name, $param = NULL) {
     global $modules;
     $result = null;
     foreach ($modules as $module_name) {
-        
+
         $fn = "{$module_name}_{$hook_name}";
         writeLog("test function '{$fn}'");
-        if(function_exists($fn)){
+        if (function_exists($fn)) {
             writeLog("call function '{$fn}'");
-            if($param == NULL)
+            if ($param == NULL)
                 $result = $fn();
             else {
                 $result = $fn($param);
@@ -162,13 +169,12 @@ function __hook($hook_name, $param = NULL){
     return $result;
 }
 
-
-function _style($style_name, $path){
+function _style($style_name, $path) {
     $style_name = str_replace(".css", "", $style_name);
     return "<link rel='stylesheet' href='{$path}{$style_name}.css' />";
 }
 
-function _script($script_name, $path, $type='javascript'){
+function _script($script_name, $path, $type = 'javascript') {
     $script_name = str_replace(".js", "", $script_name);
     return "<script type='text/{$type}' src='{$path}{$script_name}.js'></script>";
 }

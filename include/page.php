@@ -83,6 +83,8 @@ class Page {
         $menu = implode("\n", $this->body["menu"]);
 
         $this->html = str_replace("<!-- menu-site -->", $menu, $this->html);
+        
+        $this->html = str_replace("<!-- content-site -->", $this->body["data"], $this->html);
 
         __hook("postload_page");
         return $this->html;
@@ -90,7 +92,7 @@ class Page {
 
     function processPath($path) {
         $hook_name = str_replace("/", "_", $path);
-        __hook($hook_name);
+        $this->body["data"] = __hook($hook_name);
     }
 
 }

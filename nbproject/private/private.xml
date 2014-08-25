@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/E:/websrv/home/localhost/www/composer/index.php</file>
-        <file>file:/E:/websrv/home/localhost/www/composer/themes/adaptive/styles/main.css</file>
-        <file>file:/E:/websrv/home/localhost/www/composer/themes/adaptive/index.tpl</file>
-        <file>file:/E:/websrv/home/localhost/www/composer/modules/users/users.exec.php</file>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/websrv/home/localhost/www/yacms/include/page.php</file>
+            <file>file:/E:/websrv/home/localhost/www/yacms/TODO.txt</file>
+            <file>file:/E:/websrv/home/localhost/www/yacms/include/common.php</file>
+            <file>file:/E:/websrv/home/localhost/www/yacms/index.php</file>
+            <file>file:/E:/websrv/home/localhost/www/yacms/modules/dgbase/dgbase.exec.php</file>
+            <file>file:/E:/websrv/home/localhost/www/yacms/modules/users/users.exec.php</file>
+            <file>file:/E:/websrv/home/localhost/www/yacms/logs/default.log</file>
+        </group>
     </open-files>
 </project-private>
