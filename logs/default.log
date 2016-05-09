@@ -1,423 +1,173 @@
-2014-08-23 11:07:19	: SELECT * FROM config
-2014-08-23 13:07:19	: 'Users' module is loaded
-2014-08-23 13:07:19	: 'dgbase' module is loaded
-2014-08-23 13:07:19	: test function 'users_problems_show'
-2014-08-23 13:07:19	: test function 'dgbase_problems_show'
-2014-08-23 13:07:19	: call function 'dgbase_problems_show'
-2014-08-23 13:07:19	: show all problems
-2014-08-23 13:07:19	: start render page
-2014-08-23 13:07:19	: user access level: 0
-2014-08-23 13:07:19	: test function 'users_preload_page'
-2014-08-23 13:07:19	: test function 'dgbase_preload_page'
-2014-08-23 13:07:19	: test function 'users_start_build_header'
-2014-08-23 13:07:19	: test function 'dgbase_start_build_header'
-2014-08-23 13:07:19	: test function 'users_build_header'
-2014-08-23 13:07:19	: test function 'dgbase_build_header'
-2014-08-23 13:07:19	: test function 'users_end_build_header'
-2014-08-23 13:07:19	: test function 'dgbase_end_build_header'
-2014-08-23 13:07:19	: test function 'users_start_build_menu'
-2014-08-23 13:07:19	: test function 'dgbase_start_build_menu'
-2014-08-23 13:07:19	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 13:07:19	: test function 'users_build_menu'
-2014-08-23 13:07:20	: test function 'dgbase_build_menu'
-2014-08-23 13:07:20	: test function 'users_build_menu'
-2014-08-23 13:07:20	: test function 'dgbase_build_menu'
-2014-08-23 13:07:20	: test function 'users_end_build_menu'
-2014-08-23 13:07:20	: call function 'users_end_build_menu'
-2014-08-23 13:07:20	: test function 'dgbase_end_build_menu'
-2014-08-23 13:07:20	: test function 'users_postload_page'
-2014-08-23 13:07:20	: test function 'dgbase_postload_page'
-2014-08-23 12:03:10	: SELECT * FROM config
-2014-08-23 14:03:10	: 'Users' module is loaded
-2014-08-23 14:03:10	: 'dgbase' module is loaded
-2014-08-23 14:03:10	: test function 'users_problems_show'
-2014-08-23 14:03:10	: test function 'dgbase_problems_show'
-2014-08-23 14:03:10	: call function 'dgbase_problems_show'
-2014-08-23 14:03:10	: show all problems
-2014-08-23 14:03:10	: start render page
-2014-08-23 14:03:10	: user access level: 0
-2014-08-23 14:03:10	: test function 'users_preload_page'
-2014-08-23 14:03:10	: test function 'dgbase_preload_page'
-2014-08-23 14:03:10	: test function 'users_start_build_header'
-2014-08-23 14:03:10	: test function 'dgbase_start_build_header'
-2014-08-23 14:03:10	: test function 'users_build_header'
-2014-08-23 14:03:10	: test function 'dgbase_build_header'
-2014-08-23 14:03:10	: test function 'users_end_build_header'
-2014-08-23 14:03:10	: test function 'dgbase_end_build_header'
-2014-08-23 14:03:10	: test function 'users_start_build_menu'
-2014-08-23 14:03:10	: test function 'dgbase_start_build_menu'
-2014-08-23 14:03:10	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 14:03:10	: test function 'users_build_menu'
-2014-08-23 14:03:10	: test function 'dgbase_build_menu'
-2014-08-23 14:03:10	: test function 'users_build_menu'
-2014-08-23 14:03:10	: test function 'dgbase_build_menu'
-2014-08-23 14:03:11	: test function 'users_end_build_menu'
-2014-08-23 14:03:11	: call function 'users_end_build_menu'
-2014-08-23 14:03:11	: test function 'dgbase_end_build_menu'
-2014-08-23 14:03:11	: test function 'users_postload_page'
-2014-08-23 14:03:11	: test function 'dgbase_postload_page'
-2014-08-23 12:03:13	: SELECT * FROM config
-2014-08-23 14:03:13	: 'Users' module is loaded
-2014-08-23 14:03:13	: 'dgbase' module is loaded
-2014-08-23 14:03:13	: start render page
-2014-08-23 14:03:13	: user access level: 0
-2014-08-23 14:03:13	: test function 'users_preload_page'
-2014-08-23 14:03:13	: test function 'dgbase_preload_page'
-2014-08-23 14:03:13	: test function 'users_start_build_header'
-2014-08-23 14:03:13	: test function 'dgbase_start_build_header'
-2014-08-23 14:03:13	: test function 'users_build_header'
-2014-08-23 14:03:13	: test function 'dgbase_build_header'
-2014-08-23 14:03:13	: test function 'users_end_build_header'
-2014-08-23 14:03:13	: test function 'dgbase_end_build_header'
-2014-08-23 14:03:13	: test function 'users_start_build_menu'
-2014-08-23 14:03:13	: test function 'dgbase_start_build_menu'
-2014-08-23 14:03:13	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 14:03:13	: test function 'users_build_menu'
-2014-08-23 14:03:13	: test function 'dgbase_build_menu'
-2014-08-23 14:03:13	: test function 'users_build_menu'
-2014-08-23 14:03:13	: test function 'dgbase_build_menu'
-2014-08-23 14:03:13	: test function 'users_end_build_menu'
-2014-08-23 14:03:13	: call function 'users_end_build_menu'
-2014-08-23 14:03:13	: test function 'dgbase_end_build_menu'
-2014-08-23 14:03:13	: test function 'users_postload_page'
-2014-08-23 14:03:13	: test function 'dgbase_postload_page'
-2014-08-23 12:03:14	: SELECT * FROM config
-2014-08-23 14:03:14	: 'Users' module is loaded
-2014-08-23 14:03:14	: 'dgbase' module is loaded
-2014-08-23 14:03:14	: test function 'users_problems_show'
-2014-08-23 14:03:14	: test function 'dgbase_problems_show'
-2014-08-23 14:03:14	: call function 'dgbase_problems_show'
-2014-08-23 14:03:14	: show all problems
-2014-08-23 14:03:14	: start render page
-2014-08-23 14:03:14	: user access level: 0
-2014-08-23 14:03:14	: test function 'users_preload_page'
-2014-08-23 14:03:14	: test function 'dgbase_preload_page'
-2014-08-23 14:03:14	: test function 'users_start_build_header'
-2014-08-23 14:03:14	: test function 'dgbase_start_build_header'
-2014-08-23 14:03:14	: test function 'users_build_header'
-2014-08-23 14:03:14	: test function 'dgbase_build_header'
-2014-08-23 14:03:14	: test function 'users_end_build_header'
-2014-08-23 14:03:14	: test function 'dgbase_end_build_header'
-2014-08-23 14:03:14	: test function 'users_start_build_menu'
-2014-08-23 14:03:14	: test function 'dgbase_start_build_menu'
-2014-08-23 14:03:14	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 14:03:14	: test function 'users_build_menu'
-2014-08-23 14:03:14	: test function 'dgbase_build_menu'
-2014-08-23 14:03:14	: test function 'users_build_menu'
-2014-08-23 14:03:14	: test function 'dgbase_build_menu'
-2014-08-23 14:03:14	: test function 'users_end_build_menu'
-2014-08-23 14:03:14	: call function 'users_end_build_menu'
-2014-08-23 14:03:14	: test function 'dgbase_end_build_menu'
-2014-08-23 14:03:14	: test function 'users_postload_page'
-2014-08-23 14:03:14	: test function 'dgbase_postload_page'
-2014-08-23 12:07:32	: SELECT * FROM config
-2014-08-23 14:07:32	: 'Users' module is loaded
-2014-08-23 14:07:32	: 'dgbase' module is loaded
-2014-08-23 14:07:32	: test function 'users_problems_show'
-2014-08-23 14:07:32	: test function 'dgbase_problems_show'
-2014-08-23 14:07:32	: call function 'dgbase_problems_show'
-2014-08-23 14:07:32	: show all problems
-2014-08-23 14:07:32	: start render page
-2014-08-23 14:07:32	: user access level: 0
-2014-08-23 14:07:32	: test function 'users_preload_page'
-2014-08-23 14:07:32	: test function 'dgbase_preload_page'
-2014-08-23 14:07:32	: test function 'users_start_build_header'
-2014-08-23 14:07:32	: test function 'dgbase_start_build_header'
-2014-08-23 14:07:32	: test function 'users_build_header'
-2014-08-23 14:07:32	: test function 'dgbase_build_header'
-2014-08-23 14:07:32	: test function 'users_end_build_header'
-2014-08-23 14:07:32	: test function 'dgbase_end_build_header'
-2014-08-23 14:07:32	: test function 'users_start_build_menu'
-2014-08-23 14:07:32	: test function 'dgbase_start_build_menu'
-2014-08-23 14:07:32	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 12:07:36	: SELECT * FROM config
-2014-08-23 14:07:36	: 'Users' module is loaded
-2014-08-23 14:07:36	: 'dgbase' module is loaded
-2014-08-23 14:07:36	: test function 'users_problems_show'
-2014-08-23 14:07:36	: test function 'dgbase_problems_show'
-2014-08-23 14:07:36	: call function 'dgbase_problems_show'
-2014-08-23 14:07:36	: show all problems
-2014-08-23 14:07:37	: start render page
-2014-08-23 14:07:37	: user access level: 0
-2014-08-23 14:07:37	: test function 'users_preload_page'
-2014-08-23 14:07:37	: test function 'dgbase_preload_page'
-2014-08-23 14:07:37	: test function 'users_start_build_header'
-2014-08-23 14:07:37	: test function 'dgbase_start_build_header'
-2014-08-23 14:07:37	: test function 'users_build_header'
-2014-08-23 14:07:37	: test function 'dgbase_build_header'
-2014-08-23 14:07:37	: test function 'users_end_build_header'
-2014-08-23 14:07:37	: test function 'dgbase_end_build_header'
-2014-08-23 14:07:37	: test function 'users_start_build_menu'
-2014-08-23 14:07:37	: test function 'dgbase_start_build_menu'
-2014-08-23 14:07:37	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 12:07:52	: SELECT * FROM config
-2014-08-23 14:07:52	: 'Users' module is loaded
-2014-08-23 14:07:52	: 'dgbase' module is loaded
-2014-08-23 14:07:52	: start render page
-2014-08-23 14:07:52	: user access level: 0
-2014-08-23 14:07:52	: test function 'users_preload_page'
-2014-08-23 14:07:52	: test function 'dgbase_preload_page'
-2014-08-23 14:07:52	: test function 'users_start_build_header'
-2014-08-23 14:07:52	: test function 'dgbase_start_build_header'
-2014-08-23 14:07:52	: test function 'users_build_header'
-2014-08-23 14:07:52	: test function 'dgbase_build_header'
-2014-08-23 14:07:52	: test function 'users_end_build_header'
-2014-08-23 14:07:52	: test function 'dgbase_end_build_header'
-2014-08-23 14:07:52	: test function 'users_start_build_menu'
-2014-08-23 14:07:52	: test function 'dgbase_start_build_menu'
-2014-08-23 14:07:52	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 14:07:52	: test function 'users_build_menu'
-2014-08-23 14:07:52	: test function 'dgbase_build_menu'
-2014-08-23 14:07:52	: test function 'users_build_menu'
-2014-08-23 14:07:52	: test function 'dgbase_build_menu'
-2014-08-23 14:07:52	: test function 'users_end_build_menu'
-2014-08-23 14:07:52	: call function 'users_end_build_menu'
-2014-08-23 14:07:52	: test function 'dgbase_end_build_menu'
-2014-08-23 14:07:52	: test function 'users_postload_page'
-2014-08-23 14:07:52	: test function 'dgbase_postload_page'
-2014-08-23 12:07:54	: SELECT * FROM config
-2014-08-23 14:07:54	: 'Users' module is loaded
-2014-08-23 14:07:54	: 'dgbase' module is loaded
-2014-08-23 14:07:54	: start render page
-2014-08-23 14:07:54	: user access level: 0
-2014-08-23 14:07:54	: test function 'users_preload_page'
-2014-08-23 14:07:54	: test function 'dgbase_preload_page'
-2014-08-23 14:07:54	: test function 'users_start_build_header'
-2014-08-23 14:07:54	: test function 'dgbase_start_build_header'
-2014-08-23 14:07:54	: test function 'users_build_header'
-2014-08-23 14:07:54	: test function 'dgbase_build_header'
-2014-08-23 14:07:54	: test function 'users_end_build_header'
-2014-08-23 14:07:54	: test function 'dgbase_end_build_header'
-2014-08-23 14:07:54	: test function 'users_start_build_menu'
-2014-08-23 14:07:54	: test function 'dgbase_start_build_menu'
-2014-08-23 14:07:54	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 14:07:54	: test function 'users_build_menu'
-2014-08-23 14:07:54	: test function 'dgbase_build_menu'
-2014-08-23 14:07:54	: test function 'users_build_menu'
-2014-08-23 14:07:54	: test function 'dgbase_build_menu'
-2014-08-23 14:07:54	: test function 'users_end_build_menu'
-2014-08-23 14:07:54	: call function 'users_end_build_menu'
-2014-08-23 14:07:54	: test function 'dgbase_end_build_menu'
-2014-08-23 14:07:54	: test function 'users_postload_page'
-2014-08-23 14:07:54	: test function 'dgbase_postload_page'
-2014-08-23 12:08:16	: SELECT * FROM config
-2014-08-23 14:08:16	: 'Users' module is loaded
-2014-08-23 14:08:16	: 'dgbase' module is loaded
-2014-08-23 14:08:16	: start render page
-2014-08-23 14:08:16	: user access level: 0
-2014-08-23 14:08:16	: test function 'users_preload_page'
-2014-08-23 14:08:16	: test function 'dgbase_preload_page'
-2014-08-23 14:08:16	: test function 'users_start_build_header'
-2014-08-23 14:08:16	: test function 'dgbase_start_build_header'
-2014-08-23 14:08:16	: test function 'users_build_header'
-2014-08-23 14:08:16	: test function 'dgbase_build_header'
-2014-08-23 14:08:16	: test function 'users_end_build_header'
-2014-08-23 14:08:16	: test function 'dgbase_end_build_header'
-2014-08-23 14:08:16	: test function 'users_start_build_menu'
-2014-08-23 14:08:16	: test function 'dgbase_start_build_menu'
-2014-08-23 14:08:16	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 14:08:16	: test function 'users_build_menu'
-2014-08-23 14:08:16	: test function 'dgbase_build_menu'
-2014-08-23 14:08:16	: test function 'users_build_menu'
-2014-08-23 14:08:16	: test function 'dgbase_build_menu'
-2014-08-23 14:08:16	: test function 'users_end_build_menu'
-2014-08-23 14:08:16	: call function 'users_end_build_menu'
-2014-08-23 14:08:16	: test function 'dgbase_end_build_menu'
-2014-08-23 14:08:16	: test function 'users_postload_page'
-2014-08-23 14:08:16	: test function 'dgbase_postload_page'
-2014-08-23 12:08:55	: SELECT * FROM config
-2014-08-23 14:08:55	: 'Users' module is loaded
-2014-08-23 14:08:55	: 'dgbase' module is loaded
-2014-08-23 14:08:55	: start render page
-2014-08-23 14:08:55	: user access level: 0
-2014-08-23 14:08:55	: test function 'users_preload_page'
-2014-08-23 14:08:55	: test function 'dgbase_preload_page'
-2014-08-23 14:08:55	: test function 'users_start_build_header'
-2014-08-23 14:08:55	: test function 'dgbase_start_build_header'
-2014-08-23 14:08:55	: test function 'users_build_header'
-2014-08-23 14:08:55	: test function 'dgbase_build_header'
-2014-08-23 14:08:55	: test function 'users_end_build_header'
-2014-08-23 14:08:55	: test function 'dgbase_end_build_header'
-2014-08-23 14:08:55	: test function 'users_start_build_menu'
-2014-08-23 14:08:55	: test function 'dgbase_start_build_menu'
-2014-08-23 14:08:55	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 14:08:55	: test function 'users_build_menu'
-2014-08-23 14:08:55	: test function 'dgbase_build_menu'
-2014-08-23 14:08:55	: test function 'users_build_menu'
-2014-08-23 14:08:56	: test function 'dgbase_build_menu'
-2014-08-23 14:08:56	: test function 'users_end_build_menu'
-2014-08-23 14:08:56	: call function 'users_end_build_menu'
-2014-08-23 14:08:56	: test function 'dgbase_end_build_menu'
-2014-08-23 14:08:56	: test function 'users_postload_page'
-2014-08-23 14:08:56	: test function 'dgbase_postload_page'
-2014-08-23 12:09:01	: SELECT * FROM config
-2014-08-23 14:09:01	: 'Users' module is loaded
-2014-08-23 14:09:01	: 'dgbase' module is loaded
-2014-08-23 14:09:01	: test function 'users_problems_show'
-2014-08-23 14:09:01	: test function 'dgbase_problems_show'
-2014-08-23 14:09:01	: call function 'dgbase_problems_show'
-2014-08-23 14:09:01	: show all problems
-2014-08-23 14:09:01	: start render page
-2014-08-23 14:09:01	: user access level: 0
-2014-08-23 14:09:01	: test function 'users_preload_page'
-2014-08-23 14:09:01	: test function 'dgbase_preload_page'
-2014-08-23 14:09:01	: test function 'users_start_build_header'
-2014-08-23 14:09:01	: test function 'dgbase_start_build_header'
-2014-08-23 14:09:01	: test function 'users_build_header'
-2014-08-23 14:09:01	: test function 'dgbase_build_header'
-2014-08-23 14:09:01	: test function 'users_end_build_header'
-2014-08-23 14:09:01	: test function 'dgbase_end_build_header'
-2014-08-23 14:09:01	: test function 'users_start_build_menu'
-2014-08-23 14:09:01	: test function 'dgbase_start_build_menu'
-2014-08-23 14:09:01	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 14:09:01	: test function 'users_build_menu'
-2014-08-23 14:09:01	: test function 'dgbase_build_menu'
-2014-08-23 14:09:01	: test function 'users_build_menu'
-2014-08-23 14:09:01	: test function 'dgbase_build_menu'
-2014-08-23 14:09:01	: test function 'users_end_build_menu'
-2014-08-23 14:09:01	: call function 'users_end_build_menu'
-2014-08-23 14:09:01	: test function 'dgbase_end_build_menu'
-2014-08-23 14:09:01	: test function 'users_postload_page'
-2014-08-23 14:09:01	: test function 'dgbase_postload_page'
-2014-08-23 14:13:33	: SELECT * FROM config
-2014-08-23 16:13:33	: 'Users' module is loaded
-2014-08-23 16:13:34	: 'dgbase' module is loaded
-2014-08-23 16:13:34	: test function 'users_problems_show'
-2014-08-23 16:13:34	: test function 'dgbase_problems_show'
-2014-08-23 16:13:34	: call function 'dgbase_problems_show'
-2014-08-23 16:13:34	: show all problems
-2014-08-23 16:13:34	: start render page
-2014-08-23 16:13:34	: user access level: 0
-2014-08-23 16:13:34	: test function 'users_preload_page'
-2014-08-23 16:13:34	: test function 'dgbase_preload_page'
-2014-08-23 16:13:34	: test function 'users_start_build_header'
-2014-08-23 16:13:34	: test function 'dgbase_start_build_header'
-2014-08-23 16:13:34	: test function 'users_build_header'
-2014-08-23 16:13:34	: test function 'dgbase_build_header'
-2014-08-23 16:13:34	: test function 'users_end_build_header'
-2014-08-23 16:13:34	: test function 'dgbase_end_build_header'
-2014-08-23 16:13:34	: test function 'users_start_build_menu'
-2014-08-23 16:13:34	: test function 'dgbase_start_build_menu'
-2014-08-23 16:13:34	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-23 16:13:34	: test function 'users_build_menu'
-2014-08-23 16:13:34	: test function 'dgbase_build_menu'
-2014-08-23 16:13:34	: test function 'users_build_menu'
-2014-08-23 16:13:34	: test function 'dgbase_build_menu'
-2014-08-23 16:13:34	: test function 'users_end_build_menu'
-2014-08-23 16:13:34	: call function 'users_end_build_menu'
-2014-08-23 16:13:34	: test function 'dgbase_end_build_menu'
-2014-08-23 16:13:34	: test function 'users_postload_page'
-2014-08-23 16:13:34	: test function 'dgbase_postload_page'
-2014-08-24 16:25:54	: SELECT * FROM config
-2014-08-24 18:25:55	: 'Users' module is loaded
-2014-08-24 18:25:55	: 'dgbase' module is loaded
-2014-08-24 18:25:55	: test function 'users_problems_show'
-2014-08-24 18:25:55	: test function 'dgbase_problems_show'
-2014-08-24 18:25:55	: call function 'dgbase_problems_show'
-2014-08-24 18:25:55	: show all problems
-2014-08-24 18:25:55	: start render page
-2014-08-24 18:25:55	: user access level: 0
-2014-08-24 18:25:55	: test function 'users_preload_page'
-2014-08-24 18:25:55	: test function 'dgbase_preload_page'
-2014-08-24 18:25:55	: test function 'users_start_build_header'
-2014-08-24 18:25:55	: test function 'dgbase_start_build_header'
-2014-08-24 18:25:55	: test function 'users_build_header'
-2014-08-24 18:25:55	: test function 'dgbase_build_header'
-2014-08-24 18:25:55	: test function 'users_end_build_header'
-2014-08-24 18:25:55	: test function 'dgbase_end_build_header'
-2014-08-24 18:25:55	: test function 'users_start_build_menu'
-2014-08-24 18:25:55	: test function 'dgbase_start_build_menu'
-2014-08-24 18:25:55	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-24 18:25:56	: test function 'users_build_menu'
-2014-08-24 18:25:56	: test function 'dgbase_build_menu'
-2014-08-24 18:25:56	: test function 'users_build_menu'
-2014-08-24 18:25:56	: test function 'dgbase_build_menu'
-2014-08-24 18:25:56	: test function 'users_end_build_menu'
-2014-08-24 18:25:56	: call function 'users_end_build_menu'
-2014-08-24 18:25:56	: test function 'dgbase_end_build_menu'
-2014-08-24 18:25:56	: test function 'users_postload_page'
-2014-08-24 18:25:56	: test function 'dgbase_postload_page'
-2014-08-24 18:40:21	: SELECT * FROM config
-2014-08-24 20:40:21	: 'Users' module is loaded
-2014-08-24 20:40:21	: 'dgbase' module is loaded
-2014-08-24 20:40:21	: start render page
-2014-08-24 20:40:21	: user access level: 0
-2014-08-24 20:40:21	: test function 'users_preload_page'
-2014-08-24 20:40:21	: test function 'dgbase_preload_page'
-2014-08-24 20:40:21	: test function 'users_start_build_header'
-2014-08-24 20:40:21	: test function 'dgbase_start_build_header'
-2014-08-24 20:40:21	: test function 'users_build_header'
-2014-08-24 20:40:21	: test function 'dgbase_build_header'
-2014-08-24 20:40:21	: test function 'users_end_build_header'
-2014-08-24 20:40:21	: test function 'dgbase_end_build_header'
-2014-08-24 20:40:21	: test function 'users_start_build_menu'
-2014-08-24 20:40:21	: test function 'dgbase_start_build_menu'
-2014-08-24 20:40:21	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-24 20:40:21	: test function 'users_build_menu'
-2014-08-24 20:40:21	: test function 'dgbase_build_menu'
-2014-08-24 20:40:21	: test function 'users_build_menu'
-2014-08-24 20:40:21	: test function 'dgbase_build_menu'
-2014-08-24 20:40:21	: test function 'users_end_build_menu'
-2014-08-24 20:40:21	: call function 'users_end_build_menu'
-2014-08-24 20:40:22	: test function 'dgbase_end_build_menu'
-2014-08-24 20:40:22	: test function 'users_postload_page'
-2014-08-24 20:40:22	: test function 'dgbase_postload_page'
-2014-08-24 18:40:24	: SELECT * FROM config
-2014-08-24 20:40:24	: 'Users' module is loaded
-2014-08-24 20:40:24	: 'dgbase' module is loaded
-2014-08-24 20:40:24	: test function 'users_problems_show'
-2014-08-24 20:40:24	: test function 'dgbase_problems_show'
-2014-08-24 20:40:24	: call function 'dgbase_problems_show'
-2014-08-24 20:40:24	: show all problems
-2014-08-24 20:40:24	: start render page
-2014-08-24 20:40:24	: user access level: 0
-2014-08-24 20:40:24	: test function 'users_preload_page'
-2014-08-24 20:40:24	: test function 'dgbase_preload_page'
-2014-08-24 20:40:24	: test function 'users_start_build_header'
-2014-08-24 20:40:24	: test function 'dgbase_start_build_header'
-2014-08-24 20:40:24	: test function 'users_build_header'
-2014-08-24 20:40:24	: test function 'dgbase_build_header'
-2014-08-24 20:40:24	: test function 'users_end_build_header'
-2014-08-24 20:40:24	: test function 'dgbase_end_build_header'
-2014-08-24 20:40:24	: test function 'users_start_build_menu'
-2014-08-24 20:40:24	: test function 'dgbase_start_build_menu'
-2014-08-24 20:40:24	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-24 20:40:24	: test function 'users_build_menu'
-2014-08-24 20:40:24	: test function 'dgbase_build_menu'
-2014-08-24 20:40:24	: test function 'users_build_menu'
-2014-08-24 20:40:24	: test function 'dgbase_build_menu'
-2014-08-24 20:40:24	: test function 'users_end_build_menu'
-2014-08-24 20:40:24	: call function 'users_end_build_menu'
-2014-08-24 20:40:24	: test function 'dgbase_end_build_menu'
-2014-08-24 20:40:24	: test function 'users_postload_page'
-2014-08-24 20:40:24	: test function 'dgbase_postload_page'
-2014-08-25 04:52:51	: SELECT * FROM config
-2014-08-25 06:52:51	: 'Users' module is loaded
-2014-08-25 06:52:51	: 'dgbase' module is loaded
-2014-08-25 06:52:51	: test function 'users_problems_show'
-2014-08-25 06:52:51	: test function 'dgbase_problems_show'
-2014-08-25 06:52:51	: call function 'dgbase_problems_show'
-2014-08-25 06:52:51	: show all problems
-2014-08-25 06:52:51	: SELECT pid, fen, stipulation FROM problem_base LIMIT 12
-2014-08-25 06:52:51	: start render page
-2014-08-25 06:52:51	: user access level: 0
-2014-08-25 06:52:51	: test function 'users_preload_page'
-2014-08-25 06:52:51	: test function 'dgbase_preload_page'
-2014-08-25 06:52:51	: test function 'users_start_build_header'
-2014-08-25 06:52:51	: test function 'dgbase_start_build_header'
-2014-08-25 06:52:51	: test function 'users_build_header'
-2014-08-25 06:52:51	: test function 'dgbase_build_header'
-2014-08-25 06:52:51	: test function 'users_end_build_header'
-2014-08-25 06:52:51	: test function 'dgbase_end_build_header'
-2014-08-25 06:52:51	: test function 'users_start_build_menu'
-2014-08-25 06:52:51	: test function 'dgbase_start_build_menu'
-2014-08-25 06:52:51	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
-2014-08-25 06:52:51	: test function 'users_build_menu'
-2014-08-25 06:52:51	: test function 'dgbase_build_menu'
-2014-08-25 06:52:51	: test function 'users_build_menu'
-2014-08-25 06:52:51	: test function 'dgbase_build_menu'
-2014-08-25 06:52:51	: test function 'users_end_build_menu'
-2014-08-25 06:52:51	: call function 'users_end_build_menu'
-2014-08-25 06:52:51	: test function 'dgbase_end_build_menu'
-2014-08-25 06:52:51	: test function 'users_postload_page'
-2014-08-25 06:52:51	: test function 'dgbase_postload_page'
+2014-10-04 17:19:30	: SELECT * FROM config
+2014-10-04 19:19:30	: included ./cache/modules.php file
+2014-10-04 19:19:30	: included ./modules/users/users.exec.php file
+2014-10-04 19:19:30	: 'Users' module is loaded
+2014-10-04 19:19:30	: included ./modules/dgbase/dgbase.exec.php file
+2014-10-04 19:19:30	: 'dgbase' module is loaded
+2014-10-04 19:19:30	: start render page
+2014-10-04 19:19:30	: user access level: 0
+2014-10-04 19:19:30	: test function 'users_preload_page'
+2014-10-04 19:19:30	: test function 'dgbase_preload_page'
+2014-10-04 19:19:30	: test function 'users_start_build_header'
+2014-10-04 19:19:30	: test function 'dgbase_start_build_header'
+2014-10-04 19:19:30	: test function 'users_build_header'
+2014-10-04 19:19:30	: test function 'dgbase_build_header'
+2014-10-04 19:19:30	: call function 'dgbase_build_header' with param Array
+2014-10-04 19:19:30	: <link rel='stylesheet' href='./modules/dgbase/dgbase.css' />
+2014-10-04 19:19:30	: test function 'users_end_build_header'
+2014-10-04 19:19:30	: test function 'dgbase_end_build_header'
+2014-10-04 19:19:30	: style: 
+2014-10-04 19:19:30	: test function 'users_start_build_menu'
+2014-10-04 19:19:30	: test function 'dgbase_start_build_menu'
+2014-10-04 19:19:30	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
+2014-10-04 19:19:30	: test function 'users_build_menu'
+2014-10-04 19:19:30	: test function 'dgbase_build_menu'
+2014-10-04 19:19:30	: test function 'users_build_menu'
+2014-10-04 19:19:30	: test function 'dgbase_build_menu'
+2014-10-04 19:19:30	: test function 'users_end_build_menu'
+2014-10-04 19:19:30	: call function 'users_end_build_menu' with param 
+2014-10-04 19:19:30	: test function 'dgbase_end_build_menu'
+2014-10-04 19:19:30	: test function 'users_postload_page'
+2014-10-04 19:19:30	: test function 'dgbase_postload_page'
+2014-10-04 17:20:29	: SELECT * FROM config
+2014-10-04 19:20:29	: included ./cache/modules.php file
+2014-10-04 19:20:29	: included ./modules/users/users.exec.php file
+2014-10-04 19:20:29	: 'Users' module is loaded
+2014-10-04 19:20:29	: included ./modules/dgbase/dgbase.exec.php file
+2014-10-04 19:20:29	: 'dgbase' module is loaded
+2014-10-04 19:20:29	: test function 'users_problems_show'
+2014-10-04 19:20:29	: test function 'dgbase_problems_show'
+2014-10-04 19:20:29	: call function 'dgbase_problems_show' with param 
+2014-10-04 19:20:29	: show all problems
+2014-10-04 19:20:29	: SELECT pid, fen, stipulation FROM problem_base LIMIT 12
+2014-10-04 19:20:29	: start render page
+2014-10-04 19:20:29	: user access level: 0
+2014-10-04 19:20:29	: test function 'users_preload_page'
+2014-10-04 19:20:29	: test function 'dgbase_preload_page'
+2014-10-04 19:20:29	: test function 'users_start_build_header'
+2014-10-04 19:20:29	: test function 'dgbase_start_build_header'
+2014-10-04 19:20:29	: test function 'users_build_header'
+2014-10-04 19:20:29	: test function 'dgbase_build_header'
+2014-10-04 19:20:29	: call function 'dgbase_build_header' with param Array
+2014-10-04 19:20:29	: <link rel='stylesheet' href='./modules/dgbase/dgbase.css' />
+2014-10-04 19:20:29	: test function 'users_end_build_header'
+2014-10-04 19:20:29	: test function 'dgbase_end_build_header'
+2014-10-04 19:20:29	: style: 
+2014-10-04 19:20:29	: test function 'users_start_build_menu'
+2014-10-04 19:20:29	: test function 'dgbase_start_build_menu'
+2014-10-04 19:20:29	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
+2014-10-04 19:20:29	: test function 'users_build_menu'
+2014-10-04 19:20:29	: test function 'dgbase_build_menu'
+2014-10-04 19:20:29	: test function 'users_build_menu'
+2014-10-04 19:20:29	: test function 'dgbase_build_menu'
+2014-10-04 19:20:29	: test function 'users_end_build_menu'
+2014-10-04 19:20:29	: call function 'users_end_build_menu' with param 
+2014-10-04 19:20:29	: test function 'dgbase_end_build_menu'
+2014-10-04 19:20:29	: test function 'users_postload_page'
+2014-10-04 19:20:29	: test function 'dgbase_postload_page'
+2014-10-04 17:22:19	: SELECT * FROM config
+2014-10-04 19:22:19	: included ./cache/modules.php file
+2014-10-04 19:22:19	: included ./modules/users/users.exec.php file
+2014-10-04 19:22:19	: 'Users' module is loaded
+2014-10-04 19:22:19	: included ./modules/dgbase/dgbase.exec.php file
+2014-10-04 19:22:19	: 'dgbase' module is loaded
+2014-10-04 19:22:19	: test function 'users_problems_show'
+2014-10-04 19:22:19	: test function 'dgbase_problems_show'
+2014-10-04 19:22:19	: call function 'dgbase_problems_show' with param 
+2014-10-04 19:22:19	: show all problems
+2014-10-04 19:22:19	: SELECT pid, fen, stipulation FROM problem_base LIMIT 12
+2014-10-04 19:22:19	: start render page
+2014-10-04 19:22:19	: user access level: 0
+2014-10-04 19:22:19	: test function 'users_preload_page'
+2014-10-04 19:22:19	: test function 'dgbase_preload_page'
+2014-10-04 19:22:19	: test function 'users_start_build_header'
+2014-10-04 19:22:19	: test function 'dgbase_start_build_header'
+2014-10-04 19:22:19	: test function 'users_build_header'
+2014-10-04 19:22:19	: test function 'dgbase_build_header'
+2014-10-04 19:22:19	: call function 'dgbase_build_header' with param Array
+2014-10-04 19:22:19	: <link rel='stylesheet' href='./modules/dgbase/dgbase.css' />
+2014-10-04 19:22:19	: test function 'users_end_build_header'
+2014-10-04 19:22:19	: test function 'dgbase_end_build_header'
+2014-10-04 19:22:19	: style: 
+<link rel='stylesheet' href='./modules/dgbase/dgbase.css' />
+2014-10-04 19:22:19	: test function 'users_start_build_menu'
+2014-10-04 19:22:19	: test function 'dgbase_start_build_menu'
+2014-10-04 19:22:19	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
+2014-10-04 19:22:19	: test function 'users_build_menu'
+2014-10-04 19:22:19	: test function 'dgbase_build_menu'
+2014-10-04 19:22:19	: test function 'users_build_menu'
+2014-10-04 19:22:19	: test function 'dgbase_build_menu'
+2014-10-04 19:22:19	: test function 'users_end_build_menu'
+2014-10-04 19:22:19	: call function 'users_end_build_menu' with param 
+2014-10-04 19:22:19	: test function 'dgbase_end_build_menu'
+2014-10-04 19:22:19	: test function 'users_postload_page'
+2014-10-04 19:22:19	: test function 'dgbase_postload_page'
+2014-10-04 17:22:25	: SELECT * FROM config
+2014-10-04 19:22:25	: included ./cache/modules.php file
+2014-10-04 19:22:25	: included ./modules/users/users.exec.php file
+2014-10-04 19:22:25	: 'Users' module is loaded
+2014-10-04 19:22:25	: included ./modules/dgbase/dgbase.exec.php file
+2014-10-04 19:22:25	: 'dgbase' module is loaded
+2014-10-04 19:22:25	: test function 'users_problems_show'
+2014-10-04 19:22:25	: test function 'dgbase_problems_show'
+2014-10-04 19:22:25	: call function 'dgbase_problems_show' with param 
+2014-10-04 19:22:25	: show all problems
+2014-10-04 19:22:25	: SELECT pid, fen, stipulation FROM problem_base LIMIT 12
+2014-10-04 19:22:25	: start render page
+2014-10-04 19:22:25	: user access level: 0
+2014-10-04 19:22:25	: test function 'users_preload_page'
+2014-10-04 19:22:25	: test function 'dgbase_preload_page'
+2014-10-04 19:22:25	: test function 'users_start_build_header'
+2014-10-04 19:22:25	: test function 'dgbase_start_build_header'
+2014-10-04 19:22:25	: test function 'users_build_header'
+2014-10-04 19:22:25	: test function 'dgbase_build_header'
+2014-10-04 19:22:25	: call function 'dgbase_build_header' with param Array
+2014-10-04 19:22:25	: <link rel='stylesheet' href='./modules/dgbase/dgbase.css' />
+2014-10-04 19:22:25	: test function 'users_end_build_header'
+2014-10-04 19:22:25	: test function 'dgbase_end_build_header'
+2014-10-04 19:22:25	: style: 
+<link rel='stylesheet' href='./modules/dgbase/dgbase.css' />
+2014-10-04 19:22:25	: test function 'users_start_build_menu'
+2014-10-04 19:22:25	: test function 'dgbase_start_build_menu'
+2014-10-04 19:22:25	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
+2014-10-04 19:22:25	: test function 'users_build_menu'
+2014-10-04 19:22:25	: test function 'dgbase_build_menu'
+2014-10-04 19:22:25	: test function 'users_build_menu'
+2014-10-04 19:22:25	: test function 'dgbase_build_menu'
+2014-10-04 19:22:25	: test function 'users_end_build_menu'
+2014-10-04 19:22:25	: call function 'users_end_build_menu' with param 
+2014-10-04 19:22:25	: test function 'dgbase_end_build_menu'
+2014-10-04 19:22:25	: test function 'users_postload_page'
+2014-10-04 19:22:25	: test function 'dgbase_postload_page'
+2014-10-07 17:33:51	: SELECT * FROM config
+2014-10-07 19:33:51	: included ./cache/modules.php file
+2014-10-07 19:33:51	: included ./modules/users/users.exec.php file
+2014-10-07 19:33:51	: 'Users' module is loaded
+2014-10-07 19:33:51	: included ./modules/dgbase/dgbase.exec.php file
+2014-10-07 19:33:51	: 'dgbase' module is loaded
+2014-10-07 19:33:51	: start render page
+2014-10-07 19:33:51	: user access level: 0
+2014-10-07 19:33:51	: test function 'users_preload_page'
+2014-10-07 19:33:51	: test function 'dgbase_preload_page'
+2014-10-07 19:33:51	: test function 'users_start_build_header'
+2014-10-07 19:33:51	: test function 'dgbase_start_build_header'
+2014-10-07 19:33:51	: test function 'users_build_header'
+2014-10-07 19:33:51	: test function 'dgbase_build_header'
+2014-10-07 19:33:51	: call function 'dgbase_build_header' with param Array
+2014-10-07 19:33:51	: <link rel='stylesheet' href='./modules/dgbase/dgbase.css' />
+2014-10-07 19:33:51	: test function 'users_end_build_header'
+2014-10-07 19:33:51	: test function 'dgbase_end_build_header'
+2014-10-07 19:33:52	: style: 
+<link rel='stylesheet' href='./modules/dgbase/dgbase.css' />
+2014-10-07 19:33:52	: test function 'users_start_build_menu'
+2014-10-07 19:33:52	: test function 'dgbase_start_build_menu'
+2014-10-07 19:33:52	: SELECT * FROM menu_links WHERE menu_link_level<=0 AND menu_link_group='primary' ORDER BY menu_link_weight ASC
+2014-10-07 19:33:52	: test function 'users_build_menu'
+2014-10-07 19:33:52	: test function 'dgbase_build_menu'
+2014-10-07 19:33:52	: test function 'users_build_menu'
+2014-10-07 19:33:52	: test function 'dgbase_build_menu'
+2014-10-07 19:33:52	: test function 'users_end_build_menu'
+2014-10-07 19:33:52	: call function 'users_end_build_menu' with param 
+2014-10-07 19:33:52	: test function 'dgbase_end_build_menu'
+2014-10-07 19:33:52	: test function 'users_postload_page'
+2014-10-07 19:33:52	: test function 'dgbase_postload_page'

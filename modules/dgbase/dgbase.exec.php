@@ -1,5 +1,11 @@
 <?php
 
+function dgbase_build_header(&$h){
+    $h["style"]["dgbase"] = _style("dgbase", MODULE_PATH."dgbase/");    
+    writeLog("{$h["style"]["dgbase"]}");
+    return $h;
+}
+
 function dgbase_problems_manage(){
     
 }
@@ -14,7 +20,7 @@ function dgbase_problems_show(){
     $query_result = sqlQuery($query);
     $html = "<div>";
     foreach ($query_result as $problem) {
-        $html .= "<div class='diagram'>" .$problem["fen"] . "</div>";
+        $html .= "<div class='diagram'><img src='" .LIB_PATH . "diagram/?fen=" .$problem["fen"] . "'></div>";
     }
     $html .= "</div>";
     return $html;

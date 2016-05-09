@@ -16,13 +16,13 @@ class Page {
     function Page($theme) {
         $this->theme = $theme;
         $this->header = array();
-        $this->header["style"] = array();
-        $this->header["script"] = array();
-        $this->header["meta"] = array();
+        $this->header["style"] = array("hook"=>"");
+        $this->header["script"] = array("hook"=>"");
+        $this->header["meta"] = array("hook"=>"");
 
         $this->body["menu"] = array();
         $this->body["data"] = "";
-        
+
         $this->html = "";
     }
 
@@ -50,10 +50,10 @@ class Page {
 
         __hook("end_build_menu");
     }
-    
-    function renderHeader(){
+
+    function renderHeader() {
         __hook("start_build_header");
-        __hook("build_header");
+        $this->header = __hook("build_header", $this->header);
         /*
          * TODO #2: fix header rendering
          */
@@ -61,18 +61,24 @@ class Page {
     }
 
     function renderPage() {
-        writeLog("start render page");
-        writeLog("user access level: {$_SESSION['user_level']}");
+        if (DEBUG == "1") {
+            writeLog("start render page");
+            writeLog("user access level: {$_SESSION['user_level']}");
+        }
 
         $this->html = $this->loadTemplate($this->theme);
 
         // meta
         __hook("preload_page");
-        
+
         $this->renderHeader();
         $meta = implode("\n", $this->header["meta"]);
         $script = implode("\n", $this->header["script"]);
         $style = implode("\n", $this->header["style"]);
+
+        if (DEBUG == "1"){
+            writeLog("style: {$style}");
+        }
 
         $this->html = str_replace("<!-- meta -->", $meta, $this->html);
         $this->html = str_replace("<!-- script -->", $script, $this->html);
@@ -83,7 +89,7 @@ class Page {
         $menu = implode("\n", $this->body["menu"]);
 
         $this->html = str_replace("<!-- menu-site -->", $menu, $this->html);
-        
+
         $this->html = str_replace("<!-- content-site -->", $this->body["data"], $this->html);
 
         __hook("postload_page");

@@ -145,7 +145,7 @@ function getNewModules() {
 
 function moduleManager() {
     $html = "";
-    
+
     return $html;
 }
 
@@ -156,14 +156,15 @@ function __hook($hook_name, $param = NULL) {
     foreach ($modules as $module_name) {
 
         $fn = "{$module_name}_{$hook_name}";
-        writeLog("test function '{$fn}'");
+        if (DEBUG == "1") {
+            writeLog("test function '{$fn}'");
+        }
         if (function_exists($fn)) {
-            writeLog("call function '{$fn}'");
-            if ($param == NULL)
-                $result = $fn();
-            else {
-                $result = $fn($param);
+            if (DEBUG == "1") {
+                writeLog("call function '{$fn}' with param {$param}");
             }
+
+            $result = $fn($param);
         }
     }
     return $result;

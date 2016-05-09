@@ -1,5 +1,5 @@
 <?php
-define("DEBUG", "0");
+define("DEBUG", "1");
 define("SITE_NAME", "site");
 define("SITE_VERSION", "1.0 RC");
 
