@@ -2,11 +2,6 @@
 $top_level = TRUE;
 session_start();
 
-define("LOG_PATH", "./logs/");
-define("THEME_PATH", "./themes/");
-define("MODULE_PATH", "./modules/");
-define("DEBUG", "0");
-
 if(!file_exists('./config.php')) {
     die("site is broken: config is missing");
 }

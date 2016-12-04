@@ -42,7 +42,7 @@ if ($_SESSION["__stage"] === 1) {
     include_once '../config.php';
     parse_sqldump("install.sql");
     echo "<p>tables installed!</p>";
-    echo "<form method='post'><input type='button' value='Next' /></form>";
+    echo "<form method='post'><input type='submit' value='Next' /></form>";
     $_SESSION["__stage"] = 2;
     exit();
 }
@@ -50,7 +50,7 @@ if ($_SESSION["__stage"] === 1) {
 if ($_SESSION["__stage"] === 2) {
     echo "<h3>installing modules...</h3>";
     // insert into modules_tbl values (null, 'users', '20141205', 1);
-    echo "<form method='post'><input type='button' value='Next' /></form>";
+    echo "<form method='post'><input type='submit' value='Next' /></form>";
     $_SESSION["__stage"] = 3;
     exit();
 }
@@ -58,14 +58,14 @@ if ($_SESSION["__stage"] === 2) {
 if ($_SESSION["__stage"] === 3) {
     echo "<h3>Setting up site...</h3>";
 
-    echo "<form method='post'><input type='button' value='Next' /></form>";
+    echo "<form method='post'><input type='submit' value='Next' /></form>";
     $_SESSION["__stage"] = 4;
     exit();
 }
 
 if ($_SESSION["__stage"] === 4) {
     echo "<h3>Done!</h3>";
-    echo "<form method='post'><input type='button' value='Done' /></form>";
+    echo "<form method='post'><input type='submit' value='Done' /></form>";
     unset($_SESSION["__stage"]);
     exit();
 }

@@ -1,6 +1,11 @@
 <?php
 
-define("LOG_PATH", "./log/");
+define("URL", "./");
+define("LOG_PATH", URL."log/");
+define("THEMES_PATH", URL."themes/");
+define("MODULE_PATH", URL."modules/");
+
+define("DEBUG", "1");
 
 /**
  * Function creates html-code reference to CSS.
