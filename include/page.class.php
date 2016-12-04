@@ -2,27 +2,29 @@
 
 class Page {
 
-    var $data;
+    public static $data = [
+        "<!-- additional_metas -->" => "",
+        "<!-- theme_path -->" => "",
+        "<!-- additional_styles -->" => "",
+        "<!-- additional_scripts -->" => "",
+        "<!-- page_title -->" => "This is a page title",
+        "<!-- page_header -->" => "This is a page header",
+        "<!-- page_primary_menu -->" => "Menu",
+        "<!-- page_content -->" => "Content",
+        "<!-- page_aside_content -->" => "Addblock",
+        "<!-- page_footer -->" => "This is a page footer"
+    ];
+    var $modules;
     var $config;
 
     function __construct() {
-        $this->config = $this->load_config();
-        $this->data = [];
-        $this->data["<!-- additional_metas -->"] = "";
-        $this->data["<!-- theme_path -->"] = THEMES_PATH . $this->config["default_theme"];
-        $this->data["<!-- additional_styles -->"] = "";
-        $this->data["<!-- additional_scripts -->"] = "";
-        $this->data["<!-- page_title -->"] = "This is a page title";
-        $this->data["<!-- page_header -->"] = "This is a page header";
-        $this->data["<!-- page_primary_menu -->"] = "Menu";
-        $this->data["<!-- page_content -->"] = "Content";
-        $this->data["<!-- page_aside_content -->"] = "Addblock";
-        $this->data["<!-- page_footer -->"] = "This is a page footer";
-        
+        $this->config = $this->load_config();        
+        $this->modules = $this->load_modules();
     }
 
-    static function __hook($hook_name, $param = NULL) {
+    function __hook($hook_name, $param = NULL) {
         $result = null;
+        
         foreach ($this->modules as $module_name) {
 
             $fn = "{$module_name->name}->{$hook_name}";
@@ -53,6 +55,19 @@ class Page {
     function get_template() {
         return load_data(THEMES_PATH . $this->config["default_theme"] . "/index.tpl.php");
     }
+    
+    function load_modules(){
+        $_r = [];
+        $result = sql_query("SELECT * FROM modules_tbl");
+
+        foreach ($result as $m) {
+            write_log("load module: " . $m["module_name"]);
+            include_once(MODULE_PATH . "{$m["module_name"]}/{$m["module_name"]}.class.php");
+            $_r[] = new $m["module_name"]();
+        }
+        return $_r;
+
+    }
 
     function Html() {
         if (DEBUG) {
@@ -62,8 +77,15 @@ class Page {
         }
 
         $tpl = $this->get_template();
-
-        $html = fill_template($tpl, $this->data);
+        
+        $this->__hook("preprocess_page");
+        Page::$data["<!-- theme_path -->"] = THEMES_PATH . $this->config["default_theme"];
+        $this->__hook("postprocess_header");
+        $this->__hook("postprocess_menu");
+        //$this->__hook("process_");
+        $html = fill_template($tpl, Page::$data);
+        
+        $this->__hook("postprocess_page");
         return $html;
     }
 
