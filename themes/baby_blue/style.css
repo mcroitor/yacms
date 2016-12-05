@@ -1,0 +1,168 @@
+/* Main Stylings */
+
+* {
+	margin:0;
+	padding:0;
+	}
+
+body {
+	font-family:"Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+	font-size:12px;
+	color:#666666;
+	background:url(./themes/baby_blue/images/bg-body.png) repeat-x #3f3f3f;
+	}
+
+p {
+	margin-bottom:20px;
+	}
+
+img {
+	border:0;
+	}
+
+a {
+	text-decoration:none;
+	color:#88CBD2;
+	}
+a:hover {
+	color:#666666;
+	}
+
+/* Structure */
+
+#wrapper {
+	width:700px;
+	padding:0 15px;
+	margin:0 auto;
+	background:url(images/bg-wrapper.png) repeat-y #ffffff;
+	}
+#header {
+	height:140px;
+	border-bottom:10px solid #4d4d4d;
+	background:url(images/bg-header.jpg) no-repeat;
+	line-height:140px;
+	padding-left:20px;
+	}
+#sidebar {
+	width:190px;
+	float:left;
+	padding:5px;
+	min-height:400px;
+	background-color:#ececec;
+	}
+#body {
+	width:485px;
+	min-height:400px;
+	float:right;
+	padding:5px;
+	}
+#footer {
+	clear:both;
+	padding:15px 20px;
+	}
+
+
+/* Sidebar */
+
+#sidebar ul {
+	list-style-type:none;
+	margin-bottom:15px;
+	background-color:#ffffff;
+	padding:5px;
+	}
+#sidebar li {
+	background:url(images/sidebar-li.png) no-repeat;
+	background-position:0px 0;
+	height:20px;
+	padding-left:22px;
+	padding-top:1px;
+	}
+#sidebar img {
+	padding:5px;
+	border:1px solid #dddddd;
+	}
+#sidebar a {
+	font-weight:normal;
+	}
+
+
+/* Headings */
+
+h1 a {
+	font-size:20px;
+	font-weight:normal;
+	letter-spacing:-1px;
+	}
+h2 {
+	font-size:14px;
+	font-weight:normal;
+	background-color:#4d4d4d;
+	color:#ffffff;
+	padding:2px 5px;
+	}
+h3 a {
+	font-size:28px;
+	letter-spacing:-1px;
+	font-weight:normal;
+	color:#88CBD2;
+	}
+
+
+/* Entries */
+
+.entry {
+	margin-bottom:30px;
+	}
+.entrybody {
+	line-height:20px;
+	text-align:justify;
+	padding:5px 0;
+	}
+.entrymeta {
+	border-top:1px dotted #999999;
+	padding:5px 0;
+	}
+.date {
+	float:right;
+	font-size:20px;
+	letter-spacing:-1px;
+	color:#ccc;
+	}
+
+/* Footer */
+
+#footer-nav {
+	text-align:left;
+	}
+#footer-nav a {
+	margin-right:20px;
+	}
+#copyright {
+	text-align:center;
+	margin-top:20px;
+	}
+
+
+/* Extras */
+
+.download {
+	padding-top:5px;
+	}
+.download ul {
+	list-style-type:none;
+	}
+.download li a {
+	height:24px;
+	width:90px;
+	line-height:24px;
+	display:block;
+	float:left;
+	text-align:center;
+	margin-right:5px;
+	border:1px solid #dddddd;
+	background-color:#efefef;
+	}
+.preview {
+	background:url(./themes/baby_blue/images/magnifier.png) no-repeat;
+	background-position:top left;
+	}
