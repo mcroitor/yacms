@@ -1,6 +1,8 @@
 <?php
 session_start();
+define("LOG_PATH", "../log/");
 include_once "../include/common.lib.php";
+
 $_SESSION["__stage"] = empty($_SESSION["__stage"]) ? 0 : $_SESSION["__stage"];
 
 //includeFile("../config.php");
@@ -8,8 +10,8 @@ echo "<h2>setup</h2>";
 echo "<h3>stage {$_SESSION['__stage']}</h3>";
 
 if ($_SESSION["__stage"] === 0) {
+    unset($_SESSION["__stage"]);
     if (file_exists("../config.php")) {
-        unset($_SESSION["__stage"]);
         die("<h2>site is installed!</h2>");
     }
 
@@ -27,6 +29,7 @@ if ($_SESSION["__stage"] === 0) {
 
 if ($_SESSION["__stage"] === 1) {
     echo "<h3>configuring...</h3>";
+    unset($_SESSION["__stage"]);
     $cfgfile = file_get_contents("./config.sample.php");
 
     $data = [];
@@ -48,6 +51,7 @@ if ($_SESSION["__stage"] === 1) {
 }
 
 if ($_SESSION["__stage"] === 2) {
+    unset($_SESSION["__stage"]);
     echo "<h3>installing modules...</h3>";
     // insert into modules_tbl values (null, 'users', '20141205', 1);
     echo "<form method='post'><input type='submit' value='Next' /></form>";
@@ -56,6 +60,7 @@ if ($_SESSION["__stage"] === 2) {
 }
 
 if ($_SESSION["__stage"] === 3) {
+    unset($_SESSION["__stage"]);
     echo "<h3>Setting up site...</h3>";
 
     echo "<form method='post'><input type='submit' value='Next' /></form>";
@@ -64,8 +69,8 @@ if ($_SESSION["__stage"] === 3) {
 }
 
 if ($_SESSION["__stage"] === 4) {
+    unset($_SESSION["__stage"]);
     echo "<h3>Done!</h3>";
     echo "<form method='post'><input type='submit' value='Done' /></form>";
-    unset($_SESSION["__stage"]);
     exit();
 }

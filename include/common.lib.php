@@ -1,10 +1,15 @@
 <?php
 
 define("URL", "./");
-define("LOG_PATH", URL."log/");
-define("THEMES_PATH", URL."themes/");
-define("MODULE_PATH", URL."modules/");
-
+if(defined("LOG_PATH") === false){
+    define("LOG_PATH", URL."log/");
+}
+if(defined("THEMES_PATH") === false){
+    define("THEMES_PATH", URL."themes/");
+}
+if(defined("MODULE_PATH") === false){
+    define("MODULE_PATH", URL."modules/");
+}
 define("DEBUG", "1");
 
 /**
