@@ -13,7 +13,7 @@ class Users {
         if ($_SESSION["user_id"] === NULL) {
             Page::$data["<!-- page_primary_menu -->"] .= load_data(MODULE_PATH . $this->name . "/templates/login_form.tpl.php");
         } else {
-            Page::$data["<!-- page_primary_menu -->"] .= "<a href='./?q=user/logout'>Log out</a>";
+            Page::$data["<!-- page_primary_menu -->"] .= "<a href='./?q=user/logout' class='link'>Log out</a>";
         }
         //return $menu;
     }
@@ -35,6 +35,14 @@ class Users {
             $_SESSION["user_name"] = $result[0]["user_name"];
             $_SESSION["user_level"] = $result[0]["user_level"];
         }
+        header("location:./");
+        exit();
+    }
+
+    function process_user_logout() {
+        unset($_SESSION["user_id"]);
+        unset($_SESSION["user_name"]);
+        unset($_SESSION["user_level"]);
         header("location:./");
         exit();
     }

@@ -1,11 +1,3 @@
-/* 
-    Document   : main
-    Created on : 05.09.2011, 12:46:07
-    Author     : Administrator
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
 * {
     font-family: 'Courier New',Courier,monospace;
     border: none;
@@ -13,6 +5,10 @@
     padding: 0px;
 }
 h1, h2, h3, h4, h5, h6 {margin-bottom:5px; text-align:center; padding-bottom:5px;}
+li {margin-left: 50px;}
+ul, ol {margin:5px;}
+
+body {background-color: #def; }
 
 input, textarea, select, option {
     border:1px solid #ddd;
@@ -20,7 +16,11 @@ input, textarea, select, option {
     margin: 2px;
 }
 
-article, header, aside, section { display: inline-block;}
+blockquote {margin-left:30px;}
+
+hr {border:1px solid #ddd; width:80%;margin:5px;}
+
+/*article, header, aside, section { display: inline-block;}*/
 
 input[type='submit'] {
     border: 2px outset #ddd;
@@ -32,54 +32,58 @@ input[type='submit'] {
     left: 50%;
     margin-left: -480px;
     margin-top: 10px;
-    border: 1px solid #def;
+    border: 1px solid #ccf;
     border-radius:20px;
     display:block;
+    background-color: white;
 }
 #page-header {
     width:920px;
     margin:10px;
     height: 60px;
-    border: 1px solid #def;
+    border: 1px solid #ccf;
     border-radius:10px;
     display: inline-block;
+    text-align:right;
     font-size:32px;
     font-weight:bold;
     padding: 10px;
+    background-color: #def; 
 }
 #page-content {
-    width:700px;
+    width:710px;
     margin:10px;
+    margin-left: -1px;
     padding:10px;
     display: inline-block;
+    border-left: 1px solid #ccf;
 }
 #page-aside-content {
-    border-left: 1px solid #def;
+    border-right: 1px solid #ccf;
 /*    border-bottom: 1px solid #def;*/
-    float:right;
+    float:left;
     width:180px;
     margin:5px;
-    margin-left:0px;
+    margin-right:0px;
     margin-top: 20px;
     padding:10px;
+    padding-right: 0px;
     display: inline-block;
 }
 
 #page-primary-menu {
-    width:900px;
+    width:920px;
     display: inline-block;
-    margin-left:30px;
-    padding-left: 5px;
+    margin-left:10px;
+    padding-left: 20px;
     margin-bottom: 5px;
-    border-bottom:1px solid #def;
+    border-bottom:1px solid #ccf;
 }
 #page-primary-menu .link {
-    display: inline-block;
+    display: inline-block; 
+    width: 100px; 
     padding: 3px; 
-    margin: 1px;
-    text-decoration: none;
-    border-left: 1px solid #cde;
-    border-bottom: 1px solid #cde;
+    margin:1px;
 }
 #page-footer {
     display: inline-block;
@@ -88,20 +92,20 @@ input[type='submit'] {
     padding-top:2px;
     font-size: 11px;
     text-align: right;
-    border-top:1px solid #def;
+    border-top:1px solid #ccf;
 }
 
 .node {
-    border: 1px solid #cde;
+    border: 1px solid #ccf;
     border-radius: 10px;
     margin-bottom: 15px;
-    margin-top: 5px;
-    /* width:680px; */
+    margin-top: 20px;
+    /* width:730px; */
 }
 
 .node .node-title {
     display: inline-block;
-    border:1px solid #cde;
+    border:1px solid #ccf;
     border-radius:10px;
     width:300px;
     height:16px;
@@ -110,10 +114,23 @@ input[type='submit'] {
     margin-left:20px;
     background-color: #def;
     padding: 5px;
+    padding-left: 20px;
+    font-weight: bold;
 }
+
+.node .node-additional-info {
+    color:silver;
+    font-size: 10px;
+    margin-top: -10px;
+    border-bottom: 1px solid #ccf;
+    padding:0px 0px 1px 5px;
+    font-family: "Arial";
+}
+
 .node .node-body{
     padding:5px;
     min-width:600px;
+    position: relative;
 }
 
 .menu{
@@ -121,7 +138,8 @@ input[type='submit'] {
 }
 .primary-menu{
     width: 120px;
-    border: 1px solid #def;
+    border: 1px solid #ccf;
+    background-color: #def;
     border-bottom-width: 0px;
     text-align: center;
     margin: 2px 2px 0px 5px;
@@ -131,23 +149,24 @@ input[type='submit'] {
 }
 
 .primary-menu:hover{
-    background-color: #def;
+    background-color: #fff;
     border-color: #cde;
 }
 
 .secondary-menu{
-    width: 180px;
-    border: 1px solid #def;
-    border-left-width: 0px;
+    width: 170px;
+    border: 1px solid #ccf;
+    background-color: #def;
+    border-right-width: 0px;
     text-align: center;
-    margin: 2px 2px 0px -10px;
+    margin: 2px 0px 0px 2px;
     padding: 3px;
     text-decoration: none;
-    border-radius:0px 5px 5px 0px;
+    border-radius:5px 0px 0px 5px;
 }
 
 .secondary-menu:hover{
-    background-color: #def;
+    background-color: #fff;
     border-color: #cde;
 }
 
@@ -175,4 +194,15 @@ input[type='submit'] {
     text-align: center;
     border: 1px solid #cde;
     background-color: white;
+}
+
+.browse {
+    margin-left:30px; 
+    width:200px; 
+    border-bottom:1px solid #cde; 
+    text-align:center;
+}
+.browse a {
+    text-decoration: none;
+    font-size: 110%;
 }
