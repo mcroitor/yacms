@@ -1,14 +1,14 @@
 <?php
 
 define("URL", "./");
-if(defined("LOG_PATH") === false){
-    define("LOG_PATH", URL."log/");
+if (defined("LOG_PATH") === false) {
+    define("LOG_PATH", URL . "log/");
 }
-if(defined("THEMES_PATH") === false){
-    define("THEMES_PATH", URL."themes/");
+if (defined("THEMES_PATH") === false) {
+    define("THEMES_PATH", URL . "themes/");
 }
-if(defined("MODULE_PATH") === false){
-    define("MODULE_PATH", URL."modules/");
+if (defined("MODULE_PATH") === false) {
+    define("MODULE_PATH", URL . "modules/");
 }
 define("DEBUG", "1");
 
@@ -143,5 +143,38 @@ function parse_sqldump($dump) {
                 sql_query($query, "Installation error:", false);
             }
         }
+    }
+}
+
+/**
+ * create a function name from path. path is transmitted get parameter q 
+ * @param type $path
+ * @param type $prefix
+ * @param type $postfix
+ * @return type
+ */
+function make_hook_name($path, $prefix = "", $postfix = "") {
+    $fn = str_replace("_", "", $path);
+    $fn = str_replace("/", "_", $fn);
+    if ($prefix != "") {
+        $fn = "{$prefix}_{$fn}";
+    }
+    if ($postfix != "") {
+        $fn = "{$fn}_{$postfix}";
+    }
+    /* if (DEBUG) writeLog("test function {$fn}"); */
+    return $fn;
+}
+
+/**
+ * Test module and install
+ * @param type $module_name
+ */
+function module_install($module_name) {
+    $module_path = MODULE_PATH . "{$module_name}/{$module_name}.class.php";
+    if (file_exists($module_path)) {
+        include_once $module_path;
+        $module = new $module_name();
+        sql_query("INSERT INTO modules_tbl VALUES (NULL, '{$module->name}', '{$module->version}')", "Module {$module_name} registration error: ", false);
     }
 }

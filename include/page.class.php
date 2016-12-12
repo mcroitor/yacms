@@ -76,6 +76,8 @@ class Page {
             write_log("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
         }
 
+        $path = filter_input(INPUT_GET, "q");
+        $this->__hook(make_hook_name($path, "process"));
         $tpl = $this->get_template();
         
         $this->__hook("preprocess_page");
