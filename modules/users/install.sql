@@ -12,3 +12,6 @@ CREATE TABLE users_tbl(
 
 -- login: admin, password: password
 INSERT INTO users_tbl VALUES(null, 'admin', 'advwtv/9yU5yQ', 'Admin', 'Super', 'admin@localhost', 100, '0');
+
+-- if module menu is installed
+INSERT INTO menu_links_tbl VALUES(null, 'log out', './?q=user/logout', 1);

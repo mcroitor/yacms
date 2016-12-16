@@ -1,4 +1,7 @@
--- create database example_cms_db;
+-- CREATE DATABASE yacms_db;
+-- CREATE USER 'yacms_user'@'localhost' IDENTIFIED BY PASSWORD('yapass');
+-- grant all on yacms_db.* to 'yacms_user'@'localhost';
+ 
 create table if not exists config_tbl(
     variable_id int not null auto_increment,
     variable_name varchar(63) unique not null,

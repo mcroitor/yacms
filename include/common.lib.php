@@ -42,7 +42,7 @@ function _script(string $script_name, string $path, $type = 'javascript') {
  * @param string $style CSS style of reference.
  * @return string Html reference created.
  */
-function _link(string $link, $url = "#", $style = 'link') {
+function _link($link, $url = "#", $style = 'link') {
     return "<a href='$url' class='$style'>$link</a>";
 }
 
