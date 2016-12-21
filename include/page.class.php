@@ -9,7 +9,7 @@ class Page {
         "<!-- additional_scripts -->" => "",
         "<!-- page_title -->" => "This is a page title",
         "<!-- page_header -->" => "This is a page header",
-        "<!-- page_primary_menu -->" => "Menu",
+//        "<!-- page_primary_menu -->" => "Menu",
         "<!-- page_content -->" => "Content",
         "<!-- page_aside_content -->" => "Addblock",
         "<!-- page_footer -->" => "This is a page footer"

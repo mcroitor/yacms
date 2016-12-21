@@ -15,3 +15,15 @@ INSERT INTO users_tbl VALUES(null, 'admin', 'advwtv/9yU5yQ', 'Admin', 'Super', '
 
 -- if module menu is installed
 INSERT INTO menu_links_tbl VALUES(null, 'log out', './?q=user/logout', 1);
+
+CREATE TABLE permissions_tbl(
+    permission_id INT NOT NULL AUT_INCREMENT,
+    level_name VARCHAR(31) NOT NULL,
+    user_level INT NOT NULL,
+    PRIMARY KEY(permission_id)
+);
+
+INSERT INTO permissions_tbl(NULL, 'guest', 0);
+INSERT INTO permissions_tbl(NULL, 'administrator', 100);
+
+INSERT INTO modules_tbl VALUES(NULL, 'Users', '20161204');

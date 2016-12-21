@@ -18,14 +18,15 @@
     <!-- page_content -->
   </div>
   <div id="right">
+      <h4>Menu</h4>
     <!-- page_primary_menu -->
-    <form id="search" action="./">
+    <h4>Categories</h4>
+        <form id="search" action="./">
       <p>
         <input type="text" value="Search..." name="string" class="input" />
         <input type="submit" value="" class="submit" />
       </p>
     </form>
-    <h4>Categories</h4>
     <!-- page_aside_content -->
   </div>
   <div id="best">
@@ -40,6 +41,6 @@
     </div>
     <div class="cleaner"></div>
   </div>
-  <p class="footer"><!-- page_footer --></div>
+  <p class="footer"><!-- page_footer --></p></div>
 </body>
 </html>

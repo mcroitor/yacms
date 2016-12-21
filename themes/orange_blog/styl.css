@@ -16,7 +16,7 @@
   a:hover {
       text-decoration: none;
   }
-  .text a:hover {
+article section a:hover {
       text-decoration: none;
       background: rgb(244,208,102);
       color: rgb(0,0,0);
@@ -64,16 +64,16 @@
       line-height: 1px;
       clear: both;
   }
-  .article {
+  article {
       margin: 0 0 50px 0;
   }
-  .article .text p {
+  article section p {
       margin: 15px 0;
       line-height: 160%;
       font-size: 13px;
       color: rgb(66,66,66)
   }
-  .article .top .calendar{
+  article header .calendar{
       width: 42px;
       height: 47px;
       float: left;
@@ -84,25 +84,25 @@
       margin: 5px 8px 5px 0;
       color: rgb(255,255,255);     
   }
-  .article .top .calendar span {
+  article header .calendar span {
       display: block;
       text-align: center;      
       font-size: 18px;
       color: rgb(66,66,66);
       padding-top: 5px;      
   }
-  .article h2 {            
+  article h2 {            
       margin: 0;
       padding: 0;
       font-weight: normal;
       font-size: 23px;    
       background: url('images/border-headline.png') no-repeat bottom right;  
   }
-  .article h2 a{
+  article h2 a{
       color: rgb(66,66,66);
       text-decoration: none;
   }
-  .article h2 a:hover {
+  article h2 a:hover {
       color: rgb(255,102,0);
   } 
   .info {      
@@ -126,16 +126,6 @@
   }
   .info .category a:hover, .info .comments a:hover {
       text-decoration: underline;
-  }
-  ul#rss {
-      margin: 0;
-      padding: 10px 0 50px 100px;
-      background: url('images/rss.png') no-repeat left;
-  }
-  #rss li{
-      list-style: none;
-      color: rgb(218,112,42);
-      margin: 3px 0;
   }
   form#search {
       margin: 10px 0;
@@ -198,10 +188,10 @@
       padding: 0 0 0 30px;
       background: url('images/li-calendar.png') no-repeat left;
   }
-  .archive li a {
+ #right .link {
       color: rgb(255,255,255);
   }
-  .archive li a:hover {
+ #right .link:hover {
       color: rgb(61,61,61);
       text-decoration: underline;
   }
@@ -209,18 +199,19 @@
       margin: 0;
       padding: 0;
   }
-  .links li {
+ #right a.link {
       list-style: none;      
       padding: 3px 5px 3px 10px;
       border-bottom: 1px solid rgb(247,211,186);
   }
-  .links li a {
-      background: url('images/square.png') no-repeat left;
+ #right a.link{
+     display:block;
+      /* background: url('images/square.png') no-repeat left;*/
       padding-left: 20px;
       text-decoration: none;
       color: rgb(39,39,39)
   }
-  .links li a:hover {
+ #right a.link:hover {
       color: rgb(218,112,42);
   }
   #best {
