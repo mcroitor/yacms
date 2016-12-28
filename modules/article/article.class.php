@@ -22,4 +22,9 @@ class Article {
             Page::$data["<!-- page_content -->"] .= fill_template($template, $data);
         }
     }
+    
+    function process_add_article(){
+        $template = load_data(MODULE_PATH . $this->name . "/templates/article_form.tpl.php");
+        Page::$data["<!-- page_content -->"] = fill_template($template, []);
+    }
 }

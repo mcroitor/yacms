@@ -96,7 +96,7 @@ ul.submenu {
 	padding:0;
 }
 .submenu li {
-	marign:0;
+	margin:0px;
 	padding:0;
 	list-style:none;
 }
@@ -229,7 +229,7 @@ ul.submenu {
 	border-bottom:1px solid #eee;
 }
 #content blockquote p {
-	marign:0;
+	margin:0px;
 	padding:0 10px 0 10px;
 }
 .comment_odd {
