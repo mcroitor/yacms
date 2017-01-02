@@ -7,13 +7,14 @@ class Users {
 
     function __construct() {
         $_SESSION["user_id"] = empty($_SESSION["user_id"]) ? NULL : $_SESSION["user_id"];
+        $_SESSION["user_level"] = empty($_SESSION["user_level"]) ? 0 : $_SESSION["user_level"];
     }
 
     function postprocess_menu() {
         if ($_SESSION["user_id"] === NULL) {
             Page::$data["<!-- page_primary_menu -->"] .= load_data(MODULE_PATH . $this->name . "/templates/login_form.tpl.php");
         } else {
-            Page::$data["<!-- page_primary_menu -->"] .= "<a href='./?q=user/logout' class='link'>Log out</a>";
+            Page::$data["<!-- page_primary_menu -->"] .= "<a href='./?q=logout'>Log out</a>";
         }
         //return $menu;
     }
@@ -28,7 +29,6 @@ class Users {
         }
         $crypted = crypt($password, $login);
         $query = "SELECT * FROM users_tbl WHERE user_login='{$login}' AND user_password='{$crypted}'";
-
         $result = sql_query($query);
         if (count($result) === 1) {
             $_SESSION["user_id"] = $result[0]["user_id"];
@@ -45,6 +45,10 @@ class Users {
         unset($_SESSION["user_level"]);
         header("location:./");
         exit();
+    }
+
+    function check_level($level) {
+        return($_SESSION["user_level"] === $level);
     }
 
 }
