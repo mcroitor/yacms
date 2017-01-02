@@ -3,7 +3,7 @@ CREATE TABLE articles_tbl(
     article_title VARCHAR(255) NOT NULL,
     article_body TEXT NOT NULL,
     article_author_id INT NOT NULL,
-    article_data_published DATETIME NOT NULL,
+    article_date_published DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(article_id)
 );
 
