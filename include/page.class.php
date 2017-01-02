@@ -61,7 +61,7 @@ class Page {
         foreach ($result as $m) {
             write_log("load module: " . $m["module_name"]);
             include_once(MODULE_PATH . strtolower($m["module_name"]) . "/{$m["module_name"]}.class.php");
-            Page::$modules[] = new $m["module_name"]();
+            Page::$modules[$m["module_name"]] = new $m["module_name"]();
         }
     }
 

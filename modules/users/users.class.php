@@ -14,7 +14,7 @@ class Users {
         if ($_SESSION["user_id"] === NULL) {
             Page::$data["<!-- page_primary_menu -->"] .= load_data(MODULE_PATH . $this->name . "/templates/login_form.tpl.php");
         } else {
-            Page::$data["<!-- page_primary_menu -->"] .= "<a href='./?q=logout'>Log out</a>";
+            Page::$data["<!-- page_primary_menu -->"] .= "<a href='./?q=user/logout'>Log out</a>";
         }
         //return $menu;
     }
@@ -47,8 +47,11 @@ class Users {
         exit();
     }
 
-    function check_level($level) {
-        return($_SESSION["user_level"] === $level);
+    function check_permissions($level) {
+        if($_SESSION["user_level"] < $level){
+            header("location:./");
+            exit();
+        }
     }
 
 }
