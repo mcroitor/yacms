@@ -73,6 +73,9 @@ class Page {
         }
 
         $path = filter_input(INPUT_GET, "q");
+        if(isset(Page::$config["default_page"])){
+            Page::__hook(Page::$config["default_page"]);
+        }
         Page::__hook(make_hook_name($path, "process"));
         $tpl = Page::get_template();
         

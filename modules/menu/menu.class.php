@@ -13,7 +13,7 @@ class Menu{
         $query = "SELECT * FROM menu_links_tbl WHERE menu_level <= {$_SESSION['user_level']} ORDER BY menu_weight ASC";
         $result = sql_query($query);
         foreach ($result as $r) {
-            Page::$data["<!-- page_primary_menu -->"] .= _link($r["menu_name"], $r["menu_link"]);
+            Page::$data["<!-- page_primary_menu -->"] .= _link(strtoupper($r["menu_name"]), $r["menu_link"]);
         }
         Page::__hook("postprocess_menu");
     }
