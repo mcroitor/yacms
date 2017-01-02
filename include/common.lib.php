@@ -10,6 +10,9 @@ if (defined("THEMES_PATH") === false) {
 if (defined("MODULE_PATH") === false) {
     define("MODULE_PATH", URL . "modules/");
 }
+if (defined("LIB_PATH") === false) {
+    define("LIB_PATH", URL . "libs/");
+}
 define("DEBUG", "1");
 
 /**
