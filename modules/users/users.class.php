@@ -34,6 +34,7 @@ class Users {
             $_SESSION["user_id"] = $result[0]["user_id"];
             $_SESSION["user_name"] = $result[0]["user_name"];
             $_SESSION["user_level"] = $result[0]["user_level"];
+            Page::__hook("user_login");
         }
         header("location:./");
         exit();
@@ -43,6 +44,7 @@ class Users {
         unset($_SESSION["user_id"]);
         unset($_SESSION["user_name"]);
         unset($_SESSION["user_level"]);
+        Page::__hook("user_logout");
         header("location:./");
         exit();
     }
