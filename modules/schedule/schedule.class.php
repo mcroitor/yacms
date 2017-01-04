@@ -18,9 +18,32 @@ class Schedule {
         unset($_SESSION["faculty_id"]);
     }
 
+    function schedule_management(){
+        Page::$modules["Users"]->check_permissions(1);
+        Page::$data["<!-- page_content -->"] = load_data(MODULE_PATH . $this->name . "/templates/schedule_mngmt.tpl.php");
+    }
     // rooms and blocks
     function process_schedule_rooms_view() {
         // TODO 01: show all blocks and rooms
+        Page::$modules["Users"]->check_permissions(1);
+        $block_id = filter_input(INPUT_POST, "block_id", FILTER_VALIDATE_INT, ["options" => ["default" => 1]]);
+        Page::$data["<!-- page_content -->"] = "";
+        
+        $template = load_data(MODULE_PATH . $this->name . "/templates/rooms.tpl.php");
+        $rows = ["<!-- schedule-blocks -->" => "", "<!-- schedule-rooms -->" => ""];
+        
+        $result = sql_query("SELECT * FROM blocks");
+
+        foreach ($result as $block) {
+            $rows["<!-- schedule-blocks -->"] .= "<option value='{$block["block_id"]}'>{$block['block_name']}</option>";
+        }
+        
+        $result = sql_query("SELECT * FROM rooms WHERE block_id = {$block_id}");
+
+        foreach ($result as $room) {
+            $rows["<!-- schedule-rooms -->"] .= "<tr><td>{$room['room_name']}</td></tr>";
+        }
+        Page::$data["<!-- page_content -->"] .= fill_template($template, $rows);
     }
 
     function process_schedule_room_add() {

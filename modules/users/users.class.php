@@ -11,10 +11,8 @@ class Users {
     }
 
     function postprocess_menu() {
-        if ($_SESSION["user_id"] === NULL) {
+        if (empty($_SESSION["user_id"])) {
             Page::$data["<!-- page_primary_menu -->"] .= load_data(MODULE_PATH . $this->name . "/templates/login_form.tpl.php");
-        } else {
-            Page::$data["<!-- page_primary_menu -->"] .= "<a href='./?q=user/logout'>Log out</a>";
         }
         //return $menu;
     }

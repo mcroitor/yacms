@@ -184,3 +184,5 @@ CREATE TABLE IF NOT EXISTS schedule_tbl (
     parity VARCHAR(8) NOT NULL,
     PRIMARY KEY(id)
 );
+
+INSERT INTO modules_tbl VALUES(NULL, 'Schedule', '20170103');
