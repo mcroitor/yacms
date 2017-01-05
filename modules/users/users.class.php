@@ -47,11 +47,15 @@ class Users {
         exit();
     }
 
-    function check_permissions($level) {
+    function check_permissions($level, $redirect = true, $redirect_url = "./") {
         if($_SESSION["user_level"] < $level){
-            header("location:./");
-            exit();
+                if($redirect == true){
+                header("location:{$redirect_url}");
+                exit();
+            }
+            return false;
         }
+        return true;
     }
 
 }

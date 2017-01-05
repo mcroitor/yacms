@@ -19,8 +19,9 @@ class Schedule {
     }
 
     function schedule_management(){
-        Page::$modules["Users"]->check_permissions(1);
-        Page::$data["<!-- page_content -->"] = load_data(MODULE_PATH . $this->name . "/templates/schedule_mngmt.tpl.php");
+        if(Page::$modules["Users"]->check_permissions(1, false) == true){
+            Page::$data["<!-- page_content -->"] = load_data(MODULE_PATH . $this->name . "/templates/schedule_mngmt.tpl.php");
+        }
     }
     // rooms and blocks
     function process_schedule_rooms_view() {
@@ -32,16 +33,21 @@ class Schedule {
         $template = load_data(MODULE_PATH . $this->name . "/templates/rooms.tpl.php");
         $rows = ["<!-- schedule-blocks -->" => "", "<!-- schedule-rooms -->" => ""];
         
-        $result = sql_query("SELECT * FROM blocks");
+        $result = sql_query("SELECT * FROM blocks ORDER BY block_name ASC");
 
         foreach ($result as $block) {
-            $rows["<!-- schedule-blocks -->"] .= "<option value='{$block["block_id"]}'>{$block['block_name']}</option>";
+            $selected = $block["block_id"] == $block_id ? " selected='selected'" : "";
+            $rows["<!-- schedule-blocks -->"] .= "<option value='{$block["block_id"]}'{$selected}>{$block['block_name']}</option>";
         }
         
-        $result = sql_query("SELECT * FROM rooms WHERE block_id = {$block_id}");
+        $result = sql_query("SELECT * FROM rooms WHERE block_id = {$block_id} ORDER BY room_name ASC ");
 
+        $edit_image = MODULE_PATH . $this->name . "/images/edit.png";
+        $del_image  = MODULE_PATH . $this->name . "/images/del.png";
         foreach ($result as $room) {
-            $rows["<!-- schedule-rooms -->"] .= "<tr><td>{$room['room_name']}</td></tr>";
+            $rows["<!-- schedule-rooms -->"] .= "<tr><td>{$room['room_name']}</td>"
+            . "<td><a href='#'><img src='{$edit_image}' /></a></td>"
+            . "<td><a href='./?q=schedule/room/delete&room_id={$room['room_id']}'><img src='{$del_image}' /></a></td></tr>";
         }
         Page::$data["<!-- page_content -->"] .= fill_template($template, $rows);
     }
