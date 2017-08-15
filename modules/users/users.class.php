@@ -1,5 +1,5 @@
 <?php
-
+// TODO #: refactor this to methods process_<method>
 class Users {
 
     var $name = "Users";
@@ -30,7 +30,7 @@ class Users {
         $result = sql_query($query);
         if (count($result) === 1) {
             $_SESSION["user_id"] = $result[0]["user_id"];
-            $_SESSION["user_name"] = $result[0]["user_name"];
+            $_SESSION["user_name"] = $result[0]["user_firstname"];
             $_SESSION["user_level"] = $result[0]["user_level"];
             Page::__hook("user_login");
         }

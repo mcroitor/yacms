@@ -25,7 +25,7 @@ class Page {
         Page::load_config();
         Page::load_modules();
     }
-
+// TODO #: refactor this to methods process_<method>
     public static function __hook($hook_name, $param = NULL) {
         $result = null;
 

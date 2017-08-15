@@ -156,6 +156,7 @@ function parse_sqldump($dump) {
  * @param type $postfix
  * @return type
  */
+// TODO #: refactor this to methods process_<method>
 function make_hook_name($path, $prefix = "", $postfix = "") {
     $fn = str_replace("_", "", $path);
     $fn = str_replace("/", "_", $fn);

@@ -1,0 +1,1 @@
+2017-08-15 19:27:35	: Error:  SELECT faculty_id FROM users_ext_faculties WHERE user_id = 1, Table 'yacms_db.users_ext_faculties' doesn't exist

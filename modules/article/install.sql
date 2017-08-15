@@ -7,8 +7,8 @@ CREATE TABLE articles_tbl(
     PRIMARY KEY(article_id)
 );
 
-INSERT INTO menu_links_tbl VALUES (NULL, 'Articles', './?q=view/articles', 0, 10);
-INSERT INTO menu_links_tbl VALUES (NULL, 'Add Article', './?q=add/article', 1, 10);
+INSERT INTO menu_links_tbl VALUES (NULL, 'Articles', './?q=article/get', 0, 10);
+INSERT INTO menu_links_tbl VALUES (NULL, 'Add Article', './?q=article/post', 1, 10);
 
 INSERT INTO config_tbl VALUES (NULL, 'nr_articles', '10');
 

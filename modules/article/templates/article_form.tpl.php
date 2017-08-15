@@ -1,4 +1,4 @@
-<form method="post" action="./?q=article/add">
+<form method="post" action="./?q=article/post">
     <fieldset>
         <legend>Add an article</legend>
         <table border="0">

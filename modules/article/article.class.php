@@ -1,5 +1,5 @@
 <?php
-
+// TODO #: refactor this to methods process_<method>
 class Article {
 
     var $name = "Article";
@@ -9,7 +9,7 @@ class Article {
         $_SESSION["articles_start"] = empty($_SESSION["articles_start"]) ? 0 : $_SESSION["articles_start"];
     }
 
-    function process_view_articles() {
+    function process_article_get() {
         Page::$data["<!-- page_content -->"] = "";
         $result = sql_query("SELECT * FROM articles_tbl "
                 . "ORDER BY article_date_published DESC "
@@ -25,17 +25,17 @@ class Article {
         }
     }
 
-    function process_add_article() {
-        Page::$modules["Users"]->check_permissions(1);
-        $template = load_data(MODULE_PATH . $this->name . "/templates/article_form.tpl.php");
-        Page::$data["<!-- page_content -->"] = fill_template($template, []);
-    }
-
-    function process_article_add() {
+    function process_article_post() {
         Page::$modules["Users"]->check_permissions(1);
         $article_title = filter_input(INPUT_POST, "article_title");
         $article_body = filter_input(INPUT_POST, "article_body");
         $article_author_id = $_SESSION["user_id"];
+        
+        if(empty($article_title) && empty($article_body)){
+            $template = load_data(MODULE_PATH . $this->name . "/templates/article_form.tpl.php");
+            Page::$data["<!-- page_content -->"] = fill_template($template, []);
+            return;
+        }
 
         sql_query("INSERT INTO articles_tbl VALUES (NULL, "
                 . "'{$article_title}', "

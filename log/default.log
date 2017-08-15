@@ -1,0 +1,629 @@
+2017-08-15 18:53:54	: --- PAGE OBJECT CREATING ---
+2017-08-15 18:53:54	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 18:53:54	: SELECT * FROM modules_tbl
+2017-08-15 18:53:54	: load module: Menu
+2017-08-15 18:53:54	: load module: Article
+2017-08-15 18:53:54	: load module: Users
+2017-08-15 18:53:54	: load module: Schedule
+2017-08-15 18:53:54	: --- START PAGE GENERATING ---
+2017-08-15 18:53:54	: REQUEST_URI: /yacms/
+2017-08-15 18:53:54	: REMOTE_ADDR: ::1
+2017-08-15 18:53:54	: test function 'Menu->schedule_management'
+2017-08-15 18:53:54	: test function 'Article->schedule_management'
+2017-08-15 18:53:54	: test function 'Users->schedule_management'
+2017-08-15 18:53:54	: test function 'Schedule->schedule_management'
+2017-08-15 18:53:54	: call function 'Schedule->schedule_management' with param 
+2017-08-15 18:53:54	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 18:53:54	: test function 'Menu->preprocess_page'
+2017-08-15 18:53:54	: test function 'Article->preprocess_page'
+2017-08-15 18:53:54	: test function 'Users->preprocess_page'
+2017-08-15 18:53:54	: test function 'Schedule->preprocess_page'
+2017-08-15 18:53:54	: test function 'Menu->postprocess_header'
+2017-08-15 18:53:54	: call function 'Menu->postprocess_header' with param 
+2017-08-15 18:53:54	: SELECT * FROM menu_links_tbl WHERE menu_level <= 0 ORDER BY menu_weight ASC
+2017-08-15 18:53:54	: test function 'Menu->postprocess_menu'
+2017-08-15 18:53:54	: test function 'Article->postprocess_menu'
+2017-08-15 18:53:54	: test function 'Users->postprocess_menu'
+2017-08-15 18:53:54	: call function 'Users->postprocess_menu' with param 
+2017-08-15 18:53:54	: test function 'Schedule->postprocess_menu'
+2017-08-15 18:53:54	: test function 'Article->postprocess_header'
+2017-08-15 18:53:54	: test function 'Users->postprocess_header'
+2017-08-15 18:53:54	: test function 'Schedule->postprocess_header'
+2017-08-15 18:53:54	: test function 'Menu->postprocess_page'
+2017-08-15 18:53:54	: test function 'Article->postprocess_page'
+2017-08-15 18:53:54	: test function 'Users->postprocess_page'
+2017-08-15 18:53:54	: test function 'Schedule->postprocess_page'
+2017-08-15 18:54:54	: --- PAGE OBJECT CREATING ---
+2017-08-15 18:54:55	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 18:54:55	: SELECT * FROM modules_tbl
+2017-08-15 18:54:55	: load module: Menu
+2017-08-15 18:54:55	: load module: Article
+2017-08-15 18:54:55	: load module: Users
+2017-08-15 18:54:55	: load module: Schedule
+2017-08-15 18:54:55	: --- START PAGE GENERATING ---
+2017-08-15 18:54:55	: REQUEST_URI: /yacms/
+2017-08-15 18:54:55	: REMOTE_ADDR: ::1
+2017-08-15 18:54:55	: test function 'Menu->schedule_management'
+2017-08-15 18:54:55	: test function 'Article->schedule_management'
+2017-08-15 18:54:55	: test function 'Users->schedule_management'
+2017-08-15 18:54:55	: test function 'Schedule->schedule_management'
+2017-08-15 18:54:55	: call function 'Schedule->schedule_management' with param 
+2017-08-15 18:54:55	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 18:54:55	: test function 'Menu->preprocess_page'
+2017-08-15 18:54:55	: test function 'Article->preprocess_page'
+2017-08-15 18:54:55	: test function 'Users->preprocess_page'
+2017-08-15 18:54:55	: test function 'Schedule->preprocess_page'
+2017-08-15 18:54:55	: test function 'Menu->postprocess_header'
+2017-08-15 18:54:55	: call function 'Menu->postprocess_header' with param 
+2017-08-15 18:54:55	: SELECT * FROM menu_links_tbl WHERE menu_level <= 0 ORDER BY menu_weight ASC
+2017-08-15 18:54:55	: test function 'Menu->postprocess_menu'
+2017-08-15 18:54:55	: test function 'Article->postprocess_menu'
+2017-08-15 18:54:55	: test function 'Users->postprocess_menu'
+2017-08-15 18:54:55	: call function 'Users->postprocess_menu' with param 
+2017-08-15 18:54:55	: test function 'Schedule->postprocess_menu'
+2017-08-15 18:54:55	: test function 'Article->postprocess_header'
+2017-08-15 18:54:55	: test function 'Users->postprocess_header'
+2017-08-15 18:54:55	: test function 'Schedule->postprocess_header'
+2017-08-15 18:54:55	: test function 'Menu->postprocess_page'
+2017-08-15 18:54:55	: test function 'Article->postprocess_page'
+2017-08-15 18:54:55	: test function 'Users->postprocess_page'
+2017-08-15 18:54:55	: test function 'Schedule->postprocess_page'
+2017-08-15 18:54:55	: --- PAGE OBJECT CREATING ---
+2017-08-15 18:54:55	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 18:54:55	: SELECT * FROM modules_tbl
+2017-08-15 18:54:55	: load module: Menu
+2017-08-15 18:54:55	: load module: Article
+2017-08-15 18:54:55	: load module: Users
+2017-08-15 18:54:55	: load module: Schedule
+2017-08-15 18:54:55	: --- START PAGE GENERATING ---
+2017-08-15 18:54:55	: REQUEST_URI: /yacms/
+2017-08-15 18:54:55	: REMOTE_ADDR: ::1
+2017-08-15 18:54:55	: test function 'Menu->schedule_management'
+2017-08-15 18:54:55	: test function 'Article->schedule_management'
+2017-08-15 18:54:55	: test function 'Users->schedule_management'
+2017-08-15 18:54:55	: test function 'Schedule->schedule_management'
+2017-08-15 18:54:55	: call function 'Schedule->schedule_management' with param 
+2017-08-15 18:54:55	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 18:54:55	: test function 'Menu->preprocess_page'
+2017-08-15 18:54:55	: test function 'Article->preprocess_page'
+2017-08-15 18:54:55	: test function 'Users->preprocess_page'
+2017-08-15 18:54:55	: test function 'Schedule->preprocess_page'
+2017-08-15 18:54:55	: test function 'Menu->postprocess_header'
+2017-08-15 18:54:55	: call function 'Menu->postprocess_header' with param 
+2017-08-15 18:54:55	: SELECT * FROM menu_links_tbl WHERE menu_level <= 0 ORDER BY menu_weight ASC
+2017-08-15 18:54:55	: test function 'Menu->postprocess_menu'
+2017-08-15 18:54:55	: test function 'Article->postprocess_menu'
+2017-08-15 18:54:55	: test function 'Users->postprocess_menu'
+2017-08-15 18:54:55	: call function 'Users->postprocess_menu' with param 
+2017-08-15 18:54:55	: test function 'Schedule->postprocess_menu'
+2017-08-15 18:54:55	: test function 'Article->postprocess_header'
+2017-08-15 18:54:55	: test function 'Users->postprocess_header'
+2017-08-15 18:54:55	: test function 'Schedule->postprocess_header'
+2017-08-15 18:54:55	: test function 'Menu->postprocess_page'
+2017-08-15 18:54:55	: test function 'Article->postprocess_page'
+2017-08-15 18:54:55	: test function 'Users->postprocess_page'
+2017-08-15 18:54:55	: test function 'Schedule->postprocess_page'
+2017-08-15 19:27:04	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:27:04	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:27:05	: SELECT * FROM modules_tbl
+2017-08-15 19:27:05	: load module: Menu
+2017-08-15 19:27:05	: load module: Article
+2017-08-15 19:27:05	: load module: Users
+2017-08-15 19:27:05	: load module: Schedule
+2017-08-15 19:27:05	: --- START PAGE GENERATING ---
+2017-08-15 19:27:05	: REQUEST_URI: /yacms/?q=view/articles
+2017-08-15 19:27:05	: REMOTE_ADDR: ::1
+2017-08-15 19:27:05	: test function 'Menu->process_view_articles'
+2017-08-15 19:27:05	: test function 'Article->process_view_articles'
+2017-08-15 19:27:05	: test function 'Users->process_view_articles'
+2017-08-15 19:27:05	: test function 'Schedule->process_view_articles'
+2017-08-15 19:27:05	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:27:05	: test function 'Menu->preprocess_page'
+2017-08-15 19:27:05	: test function 'Article->preprocess_page'
+2017-08-15 19:27:05	: test function 'Users->preprocess_page'
+2017-08-15 19:27:05	: test function 'Schedule->preprocess_page'
+2017-08-15 19:27:05	: test function 'Menu->postprocess_header'
+2017-08-15 19:27:05	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:27:05	: SELECT * FROM menu_links_tbl WHERE menu_level <= 0 ORDER BY menu_weight ASC
+2017-08-15 19:27:05	: test function 'Menu->postprocess_menu'
+2017-08-15 19:27:05	: test function 'Article->postprocess_menu'
+2017-08-15 19:27:05	: test function 'Users->postprocess_menu'
+2017-08-15 19:27:05	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:27:05	: test function 'Schedule->postprocess_menu'
+2017-08-15 19:27:05	: test function 'Article->postprocess_header'
+2017-08-15 19:27:05	: test function 'Users->postprocess_header'
+2017-08-15 19:27:05	: test function 'Schedule->postprocess_header'
+2017-08-15 19:27:05	: test function 'Menu->postprocess_page'
+2017-08-15 19:27:05	: test function 'Article->postprocess_page'
+2017-08-15 19:27:05	: test function 'Users->postprocess_page'
+2017-08-15 19:27:05	: test function 'Schedule->postprocess_page'
+2017-08-15 19:27:05	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:27:05	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:27:05	: SELECT * FROM modules_tbl
+2017-08-15 19:27:05	: load module: Menu
+2017-08-15 19:27:05	: load module: Article
+2017-08-15 19:27:05	: load module: Users
+2017-08-15 19:27:05	: load module: Schedule
+2017-08-15 19:27:05	: --- START PAGE GENERATING ---
+2017-08-15 19:27:05	: REQUEST_URI: /yacms/
+2017-08-15 19:27:05	: REMOTE_ADDR: ::1
+2017-08-15 19:27:05	: test function 'Menu->schedule_management'
+2017-08-15 19:27:05	: test function 'Article->schedule_management'
+2017-08-15 19:27:05	: test function 'Users->schedule_management'
+2017-08-15 19:27:05	: test function 'Schedule->schedule_management'
+2017-08-15 19:27:05	: call function 'Schedule->schedule_management' with param 
+2017-08-15 19:27:05	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:27:05	: test function 'Menu->preprocess_page'
+2017-08-15 19:27:05	: test function 'Article->preprocess_page'
+2017-08-15 19:27:05	: test function 'Users->preprocess_page'
+2017-08-15 19:27:05	: test function 'Schedule->preprocess_page'
+2017-08-15 19:27:05	: test function 'Menu->postprocess_header'
+2017-08-15 19:27:05	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:27:05	: SELECT * FROM menu_links_tbl WHERE menu_level <= 0 ORDER BY menu_weight ASC
+2017-08-15 19:27:05	: test function 'Menu->postprocess_menu'
+2017-08-15 19:27:05	: test function 'Article->postprocess_menu'
+2017-08-15 19:27:05	: test function 'Users->postprocess_menu'
+2017-08-15 19:27:05	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:27:05	: test function 'Schedule->postprocess_menu'
+2017-08-15 19:27:05	: test function 'Article->postprocess_header'
+2017-08-15 19:27:05	: test function 'Users->postprocess_header'
+2017-08-15 19:27:05	: test function 'Schedule->postprocess_header'
+2017-08-15 19:27:05	: test function 'Menu->postprocess_page'
+2017-08-15 19:27:05	: test function 'Article->postprocess_page'
+2017-08-15 19:27:05	: test function 'Users->postprocess_page'
+2017-08-15 19:27:05	: test function 'Schedule->postprocess_page'
+2017-08-15 19:27:12	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:27:12	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:27:12	: SELECT * FROM modules_tbl
+2017-08-15 19:27:12	: load module: Menu
+2017-08-15 19:27:12	: load module: Article
+2017-08-15 19:27:12	: load module: Users
+2017-08-15 19:27:12	: load module: Schedule
+2017-08-15 19:27:12	: --- START PAGE GENERATING ---
+2017-08-15 19:27:12	: REQUEST_URI: /yacms/?q=user/login
+2017-08-15 19:27:12	: REMOTE_ADDR: ::1
+2017-08-15 19:27:12	: test function 'Menu->process_user_login'
+2017-08-15 19:27:12	: test function 'Article->process_user_login'
+2017-08-15 19:27:12	: test function 'Users->process_user_login'
+2017-08-15 19:27:12	: call function 'Users->process_user_login' with param 
+2017-08-15 19:27:12	: SELECT * FROM users_tbl WHERE user_login='root' AND user_password='rox7Jdqy.byUU'
+2017-08-15 19:27:12	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:27:12	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:27:12	: SELECT * FROM modules_tbl
+2017-08-15 19:27:12	: load module: Menu
+2017-08-15 19:27:12	: load module: Article
+2017-08-15 19:27:12	: load module: Users
+2017-08-15 19:27:12	: load module: Schedule
+2017-08-15 19:27:12	: --- START PAGE GENERATING ---
+2017-08-15 19:27:12	: REQUEST_URI: /yacms/
+2017-08-15 19:27:12	: REMOTE_ADDR: ::1
+2017-08-15 19:27:12	: test function 'Menu->schedule_management'
+2017-08-15 19:27:12	: test function 'Article->schedule_management'
+2017-08-15 19:27:12	: test function 'Users->schedule_management'
+2017-08-15 19:27:12	: test function 'Schedule->schedule_management'
+2017-08-15 19:27:12	: call function 'Schedule->schedule_management' with param 
+2017-08-15 19:27:12	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:27:12	: test function 'Menu->preprocess_page'
+2017-08-15 19:27:12	: test function 'Article->preprocess_page'
+2017-08-15 19:27:12	: test function 'Users->preprocess_page'
+2017-08-15 19:27:12	: test function 'Schedule->preprocess_page'
+2017-08-15 19:27:12	: test function 'Menu->postprocess_header'
+2017-08-15 19:27:12	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:27:12	: SELECT * FROM menu_links_tbl WHERE menu_level <= 0 ORDER BY menu_weight ASC
+2017-08-15 19:27:12	: test function 'Menu->postprocess_menu'
+2017-08-15 19:27:12	: test function 'Article->postprocess_menu'
+2017-08-15 19:27:12	: test function 'Users->postprocess_menu'
+2017-08-15 19:27:12	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:27:12	: test function 'Schedule->postprocess_menu'
+2017-08-15 19:27:12	: test function 'Article->postprocess_header'
+2017-08-15 19:27:12	: test function 'Users->postprocess_header'
+2017-08-15 19:27:12	: test function 'Schedule->postprocess_header'
+2017-08-15 19:27:12	: test function 'Menu->postprocess_page'
+2017-08-15 19:27:12	: test function 'Article->postprocess_page'
+2017-08-15 19:27:12	: test function 'Users->postprocess_page'
+2017-08-15 19:27:12	: test function 'Schedule->postprocess_page'
+2017-08-15 19:27:34	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:27:34	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:27:34	: SELECT * FROM modules_tbl
+2017-08-15 19:27:34	: load module: Menu
+2017-08-15 19:27:34	: load module: Article
+2017-08-15 19:27:34	: load module: Users
+2017-08-15 19:27:34	: load module: Schedule
+2017-08-15 19:27:34	: --- START PAGE GENERATING ---
+2017-08-15 19:27:34	: REQUEST_URI: /yacms/?q=user/login
+2017-08-15 19:27:34	: REMOTE_ADDR: ::1
+2017-08-15 19:27:34	: test function 'Menu->process_user_login'
+2017-08-15 19:27:34	: test function 'Article->process_user_login'
+2017-08-15 19:27:34	: test function 'Users->process_user_login'
+2017-08-15 19:27:34	: call function 'Users->process_user_login' with param 
+2017-08-15 19:27:34	: SELECT * FROM users_tbl WHERE user_login='admin' AND user_password='advwtv/9yU5yQ'
+2017-08-15 19:27:35	: test function 'Menu->user_login'
+2017-08-15 19:27:35	: test function 'Article->user_login'
+2017-08-15 19:27:35	: test function 'Users->user_login'
+2017-08-15 19:27:35	: test function 'Schedule->user_login'
+2017-08-15 19:27:35	: call function 'Schedule->user_login' with param 
+2017-08-15 19:27:35	: SELECT faculty_id FROM users_ext_faculties WHERE user_id = 1
+2017-08-15 19:27:35	: Error:  SELECT faculty_id FROM users_ext_faculties WHERE user_id = 1, Table 'yacms_db.users_ext_faculties' doesn't exist
+2017-08-15 19:28:57	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:28:57	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:28:57	: SELECT * FROM modules_tbl
+2017-08-15 19:28:57	: load module: Menu
+2017-08-15 19:28:57	: load module: Article
+2017-08-15 19:28:57	: load module: Users
+2017-08-15 19:28:57	: --- START PAGE GENERATING ---
+2017-08-15 19:28:57	: REQUEST_URI: /yacms/?q=user/login
+2017-08-15 19:28:57	: REMOTE_ADDR: ::1
+2017-08-15 19:28:57	: test function 'Menu->process_user_login'
+2017-08-15 19:28:57	: test function 'Article->process_user_login'
+2017-08-15 19:28:57	: test function 'Users->process_user_login'
+2017-08-15 19:28:57	: call function 'Users->process_user_login' with param 
+2017-08-15 19:28:57	: SELECT * FROM users_tbl WHERE user_login='admin' AND user_password='advwtv/9yU5yQ'
+2017-08-15 19:28:57	: test function 'Menu->user_login'
+2017-08-15 19:28:57	: test function 'Article->user_login'
+2017-08-15 19:28:57	: test function 'Users->user_login'
+2017-08-15 19:28:57	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:28:57	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:28:57	: SELECT * FROM modules_tbl
+2017-08-15 19:28:57	: load module: Menu
+2017-08-15 19:28:57	: load module: Article
+2017-08-15 19:28:57	: load module: Users
+2017-08-15 19:28:57	: --- START PAGE GENERATING ---
+2017-08-15 19:28:57	: REQUEST_URI: /yacms/
+2017-08-15 19:28:57	: REMOTE_ADDR: ::1
+2017-08-15 19:28:57	: test function 'Menu->schedule_management'
+2017-08-15 19:28:57	: test function 'Article->schedule_management'
+2017-08-15 19:28:57	: test function 'Users->schedule_management'
+2017-08-15 19:28:57	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:28:57	: test function 'Menu->preprocess_page'
+2017-08-15 19:28:57	: test function 'Article->preprocess_page'
+2017-08-15 19:28:57	: test function 'Users->preprocess_page'
+2017-08-15 19:28:57	: test function 'Menu->postprocess_header'
+2017-08-15 19:28:57	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:28:57	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:28:58	: test function 'Menu->postprocess_menu'
+2017-08-15 19:28:58	: test function 'Article->postprocess_menu'
+2017-08-15 19:28:58	: test function 'Users->postprocess_menu'
+2017-08-15 19:28:58	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:28:58	: test function 'Article->postprocess_header'
+2017-08-15 19:28:58	: test function 'Users->postprocess_header'
+2017-08-15 19:28:58	: test function 'Menu->postprocess_page'
+2017-08-15 19:28:58	: test function 'Article->postprocess_page'
+2017-08-15 19:28:58	: test function 'Users->postprocess_page'
+2017-08-15 19:32:19	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:32:19	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:32:19	: SELECT * FROM modules_tbl
+2017-08-15 19:32:19	: load module: Menu
+2017-08-15 19:32:19	: load module: Article
+2017-08-15 19:32:19	: load module: Users
+2017-08-15 19:32:19	: --- START PAGE GENERATING ---
+2017-08-15 19:32:19	: REQUEST_URI: /yacms/?q=article/post
+2017-08-15 19:32:19	: REMOTE_ADDR: ::1
+2017-08-15 19:32:19	: test function 'Menu->process_article_post'
+2017-08-15 19:32:19	: test function 'Article->process_article_post'
+2017-08-15 19:32:20	: call function 'Article->process_article_post' with param 
+2017-08-15 19:32:20	: test function 'Users->process_article_post'
+2017-08-15 19:32:20	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:32:20	: test function 'Menu->preprocess_page'
+2017-08-15 19:32:20	: test function 'Article->preprocess_page'
+2017-08-15 19:32:20	: test function 'Users->preprocess_page'
+2017-08-15 19:32:20	: test function 'Menu->postprocess_header'
+2017-08-15 19:32:20	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:32:20	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:32:20	: test function 'Menu->postprocess_menu'
+2017-08-15 19:32:20	: test function 'Article->postprocess_menu'
+2017-08-15 19:32:20	: test function 'Users->postprocess_menu'
+2017-08-15 19:32:20	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:32:20	: test function 'Article->postprocess_header'
+2017-08-15 19:32:20	: test function 'Users->postprocess_header'
+2017-08-15 19:32:20	: test function 'Menu->postprocess_page'
+2017-08-15 19:32:20	: test function 'Article->postprocess_page'
+2017-08-15 19:32:20	: test function 'Users->postprocess_page'
+2017-08-15 19:32:27	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:32:27	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:32:27	: SELECT * FROM modules_tbl
+2017-08-15 19:32:27	: load module: Menu
+2017-08-15 19:32:27	: load module: Article
+2017-08-15 19:32:27	: load module: Users
+2017-08-15 19:32:27	: --- START PAGE GENERATING ---
+2017-08-15 19:32:27	: REQUEST_URI: /yacms/?q=article/post
+2017-08-15 19:32:27	: REMOTE_ADDR: ::1
+2017-08-15 19:32:27	: test function 'Menu->process_article_post'
+2017-08-15 19:32:27	: test function 'Article->process_article_post'
+2017-08-15 19:32:27	: call function 'Article->process_article_post' with param 
+2017-08-15 19:32:27	: INSERT INTO articles_tbl VALUES (NULL, 'test', 'tested', 1, NOW())
+2017-08-15 19:32:27	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:32:27	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:32:27	: SELECT * FROM modules_tbl
+2017-08-15 19:32:28	: load module: Menu
+2017-08-15 19:32:28	: load module: Article
+2017-08-15 19:32:28	: load module: Users
+2017-08-15 19:32:28	: --- START PAGE GENERATING ---
+2017-08-15 19:32:28	: REQUEST_URI: /yacms/
+2017-08-15 19:32:28	: REMOTE_ADDR: ::1
+2017-08-15 19:32:28	: test function 'Menu->schedule_management'
+2017-08-15 19:32:28	: test function 'Article->schedule_management'
+2017-08-15 19:32:28	: test function 'Users->schedule_management'
+2017-08-15 19:32:28	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:32:28	: test function 'Menu->preprocess_page'
+2017-08-15 19:32:28	: test function 'Article->preprocess_page'
+2017-08-15 19:32:28	: test function 'Users->preprocess_page'
+2017-08-15 19:32:28	: test function 'Menu->postprocess_header'
+2017-08-15 19:32:28	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:32:28	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:32:28	: test function 'Menu->postprocess_menu'
+2017-08-15 19:32:28	: test function 'Article->postprocess_menu'
+2017-08-15 19:32:28	: test function 'Users->postprocess_menu'
+2017-08-15 19:32:28	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:32:28	: test function 'Article->postprocess_header'
+2017-08-15 19:32:28	: test function 'Users->postprocess_header'
+2017-08-15 19:32:28	: test function 'Menu->postprocess_page'
+2017-08-15 19:32:28	: test function 'Article->postprocess_page'
+2017-08-15 19:32:28	: test function 'Users->postprocess_page'
+2017-08-15 19:32:30	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:32:30	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:32:30	: SELECT * FROM modules_tbl
+2017-08-15 19:32:30	: load module: Menu
+2017-08-15 19:32:30	: load module: Article
+2017-08-15 19:32:30	: load module: Users
+2017-08-15 19:32:30	: --- START PAGE GENERATING ---
+2017-08-15 19:32:30	: REQUEST_URI: /yacms/?q=article/get
+2017-08-15 19:32:30	: REMOTE_ADDR: ::1
+2017-08-15 19:32:30	: test function 'Menu->process_article_get'
+2017-08-15 19:32:30	: test function 'Article->process_article_get'
+2017-08-15 19:32:30	: test function 'Users->process_article_get'
+2017-08-15 19:32:30	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:32:30	: test function 'Menu->preprocess_page'
+2017-08-15 19:32:30	: test function 'Article->preprocess_page'
+2017-08-15 19:32:30	: test function 'Users->preprocess_page'
+2017-08-15 19:32:30	: test function 'Menu->postprocess_header'
+2017-08-15 19:32:30	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:32:30	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:32:30	: test function 'Menu->postprocess_menu'
+2017-08-15 19:32:30	: test function 'Article->postprocess_menu'
+2017-08-15 19:32:30	: test function 'Users->postprocess_menu'
+2017-08-15 19:32:30	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:32:30	: test function 'Article->postprocess_header'
+2017-08-15 19:32:30	: test function 'Users->postprocess_header'
+2017-08-15 19:32:30	: test function 'Menu->postprocess_page'
+2017-08-15 19:32:30	: test function 'Article->postprocess_page'
+2017-08-15 19:32:30	: test function 'Users->postprocess_page'
+2017-08-15 19:33:26	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:33:26	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:33:26	: SELECT * FROM modules_tbl
+2017-08-15 19:33:26	: load module: Menu
+2017-08-15 19:33:26	: load module: Article
+2017-08-15 19:33:26	: load module: Users
+2017-08-15 19:33:26	: --- START PAGE GENERATING ---
+2017-08-15 19:33:26	: REQUEST_URI: /yacms/?q=article/get
+2017-08-15 19:33:26	: REMOTE_ADDR: ::1
+2017-08-15 19:33:26	: test function 'Menu->process_article_get'
+2017-08-15 19:33:26	: test function 'Article->process_article_get'
+2017-08-15 19:33:26	: call function 'Article->process_article_get' with param 
+2017-08-15 19:33:26	: SELECT * FROM articles_tbl ORDER BY article_date_published DESC LIMIT 0, 10
+2017-08-15 19:33:26	: test function 'Users->process_article_get'
+2017-08-15 19:33:26	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:33:26	: test function 'Menu->preprocess_page'
+2017-08-15 19:33:26	: test function 'Article->preprocess_page'
+2017-08-15 19:33:26	: test function 'Users->preprocess_page'
+2017-08-15 19:33:26	: test function 'Menu->postprocess_header'
+2017-08-15 19:33:26	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:33:26	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:33:26	: test function 'Menu->postprocess_menu'
+2017-08-15 19:33:26	: test function 'Article->postprocess_menu'
+2017-08-15 19:33:26	: test function 'Users->postprocess_menu'
+2017-08-15 19:33:26	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:33:26	: test function 'Article->postprocess_header'
+2017-08-15 19:33:26	: test function 'Users->postprocess_header'
+2017-08-15 19:33:26	: test function 'Menu->postprocess_page'
+2017-08-15 19:33:26	: test function 'Article->postprocess_page'
+2017-08-15 19:33:26	: test function 'Users->postprocess_page'
+2017-08-15 19:33:26	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:33:26	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:33:26	: SELECT * FROM modules_tbl
+2017-08-15 19:33:26	: load module: Menu
+2017-08-15 19:33:26	: load module: Article
+2017-08-15 19:33:26	: load module: Users
+2017-08-15 19:33:26	: --- START PAGE GENERATING ---
+2017-08-15 19:33:26	: REQUEST_URI: /yacms/?q=article/get
+2017-08-15 19:33:26	: REMOTE_ADDR: ::1
+2017-08-15 19:33:26	: test function 'Menu->process_article_get'
+2017-08-15 19:33:26	: test function 'Article->process_article_get'
+2017-08-15 19:33:26	: call function 'Article->process_article_get' with param 
+2017-08-15 19:33:26	: SELECT * FROM articles_tbl ORDER BY article_date_published DESC LIMIT 0, 10
+2017-08-15 19:33:26	: test function 'Users->process_article_get'
+2017-08-15 19:33:27	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:33:27	: test function 'Menu->preprocess_page'
+2017-08-15 19:33:27	: test function 'Article->preprocess_page'
+2017-08-15 19:33:27	: test function 'Users->preprocess_page'
+2017-08-15 19:33:27	: test function 'Menu->postprocess_header'
+2017-08-15 19:33:27	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:33:27	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:33:27	: test function 'Menu->postprocess_menu'
+2017-08-15 19:33:27	: test function 'Article->postprocess_menu'
+2017-08-15 19:33:27	: test function 'Users->postprocess_menu'
+2017-08-15 19:33:27	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:33:27	: test function 'Article->postprocess_header'
+2017-08-15 19:33:27	: test function 'Users->postprocess_header'
+2017-08-15 19:33:27	: test function 'Menu->postprocess_page'
+2017-08-15 19:33:27	: test function 'Article->postprocess_page'
+2017-08-15 19:33:27	: test function 'Users->postprocess_page'
+2017-08-15 19:33:27	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:33:27	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:33:27	: SELECT * FROM modules_tbl
+2017-08-15 19:33:27	: load module: Menu
+2017-08-15 19:33:27	: load module: Article
+2017-08-15 19:33:27	: load module: Users
+2017-08-15 19:33:27	: --- START PAGE GENERATING ---
+2017-08-15 19:33:27	: REQUEST_URI: /yacms/?q=article/get
+2017-08-15 19:33:27	: REMOTE_ADDR: ::1
+2017-08-15 19:33:27	: test function 'Menu->process_article_get'
+2017-08-15 19:33:27	: test function 'Article->process_article_get'
+2017-08-15 19:33:27	: call function 'Article->process_article_get' with param 
+2017-08-15 19:33:27	: SELECT * FROM articles_tbl ORDER BY article_date_published DESC LIMIT 0, 10
+2017-08-15 19:33:27	: test function 'Users->process_article_get'
+2017-08-15 19:33:27	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:33:27	: test function 'Menu->preprocess_page'
+2017-08-15 19:33:27	: test function 'Article->preprocess_page'
+2017-08-15 19:33:27	: test function 'Users->preprocess_page'
+2017-08-15 19:33:27	: test function 'Menu->postprocess_header'
+2017-08-15 19:33:27	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:33:27	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:33:27	: test function 'Menu->postprocess_menu'
+2017-08-15 19:33:27	: test function 'Article->postprocess_menu'
+2017-08-15 19:33:27	: test function 'Users->postprocess_menu'
+2017-08-15 19:33:27	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:33:27	: test function 'Article->postprocess_header'
+2017-08-15 19:33:27	: test function 'Users->postprocess_header'
+2017-08-15 19:33:27	: test function 'Menu->postprocess_page'
+2017-08-15 19:33:27	: test function 'Article->postprocess_page'
+2017-08-15 19:33:27	: test function 'Users->postprocess_page'
+2017-08-15 19:33:27	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:33:27	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:33:27	: SELECT * FROM modules_tbl
+2017-08-15 19:33:27	: load module: Menu
+2017-08-15 19:33:27	: load module: Article
+2017-08-15 19:33:27	: load module: Users
+2017-08-15 19:33:27	: --- START PAGE GENERATING ---
+2017-08-15 19:33:27	: REQUEST_URI: /yacms/?q=article/get
+2017-08-15 19:33:27	: REMOTE_ADDR: ::1
+2017-08-15 19:33:27	: test function 'Menu->process_article_get'
+2017-08-15 19:33:27	: test function 'Article->process_article_get'
+2017-08-15 19:33:27	: call function 'Article->process_article_get' with param 
+2017-08-15 19:33:27	: SELECT * FROM articles_tbl ORDER BY article_date_published DESC LIMIT 0, 10
+2017-08-15 19:33:27	: test function 'Users->process_article_get'
+2017-08-15 19:33:27	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:33:27	: test function 'Menu->preprocess_page'
+2017-08-15 19:33:27	: test function 'Article->preprocess_page'
+2017-08-15 19:33:27	: test function 'Users->preprocess_page'
+2017-08-15 19:33:27	: test function 'Menu->postprocess_header'
+2017-08-15 19:33:27	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:33:27	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:33:27	: test function 'Menu->postprocess_menu'
+2017-08-15 19:33:27	: test function 'Article->postprocess_menu'
+2017-08-15 19:33:27	: test function 'Users->postprocess_menu'
+2017-08-15 19:33:27	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:33:27	: test function 'Article->postprocess_header'
+2017-08-15 19:33:27	: test function 'Users->postprocess_header'
+2017-08-15 19:33:27	: test function 'Menu->postprocess_page'
+2017-08-15 19:33:27	: test function 'Article->postprocess_page'
+2017-08-15 19:33:27	: test function 'Users->postprocess_page'
+2017-08-15 19:33:27	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:33:27	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:33:27	: SELECT * FROM modules_tbl
+2017-08-15 19:33:27	: load module: Menu
+2017-08-15 19:33:27	: load module: Article
+2017-08-15 19:33:27	: load module: Users
+2017-08-15 19:33:27	: --- START PAGE GENERATING ---
+2017-08-15 19:33:27	: REQUEST_URI: /yacms/?q=article/get
+2017-08-15 19:33:27	: REMOTE_ADDR: ::1
+2017-08-15 19:33:27	: test function 'Menu->process_article_get'
+2017-08-15 19:33:27	: test function 'Article->process_article_get'
+2017-08-15 19:33:27	: call function 'Article->process_article_get' with param 
+2017-08-15 19:33:27	: SELECT * FROM articles_tbl ORDER BY article_date_published DESC LIMIT 0, 10
+2017-08-15 19:33:27	: test function 'Users->process_article_get'
+2017-08-15 19:33:27	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:33:27	: test function 'Menu->preprocess_page'
+2017-08-15 19:33:27	: test function 'Article->preprocess_page'
+2017-08-15 19:33:27	: test function 'Users->preprocess_page'
+2017-08-15 19:33:27	: test function 'Menu->postprocess_header'
+2017-08-15 19:33:27	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:33:28	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:33:28	: test function 'Menu->postprocess_menu'
+2017-08-15 19:33:28	: test function 'Article->postprocess_menu'
+2017-08-15 19:33:28	: test function 'Users->postprocess_menu'
+2017-08-15 19:33:28	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:33:28	: test function 'Article->postprocess_header'
+2017-08-15 19:33:28	: test function 'Users->postprocess_header'
+2017-08-15 19:33:28	: test function 'Menu->postprocess_page'
+2017-08-15 19:33:28	: test function 'Article->postprocess_page'
+2017-08-15 19:33:28	: test function 'Users->postprocess_page'
+2017-08-15 19:33:28	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:33:28	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:33:28	: SELECT * FROM modules_tbl
+2017-08-15 19:33:28	: load module: Menu
+2017-08-15 19:33:28	: load module: Article
+2017-08-15 19:33:28	: load module: Users
+2017-08-15 19:33:28	: --- START PAGE GENERATING ---
+2017-08-15 19:33:28	: REQUEST_URI: /yacms/?q=article/get
+2017-08-15 19:33:28	: REMOTE_ADDR: ::1
+2017-08-15 19:33:28	: test function 'Menu->process_article_get'
+2017-08-15 19:33:28	: test function 'Article->process_article_get'
+2017-08-15 19:33:28	: call function 'Article->process_article_get' with param 
+2017-08-15 19:33:28	: SELECT * FROM articles_tbl ORDER BY article_date_published DESC LIMIT 0, 10
+2017-08-15 19:33:28	: test function 'Users->process_article_get'
+2017-08-15 19:33:28	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:33:28	: test function 'Menu->preprocess_page'
+2017-08-15 19:33:28	: test function 'Article->preprocess_page'
+2017-08-15 19:33:28	: test function 'Users->preprocess_page'
+2017-08-15 19:33:28	: test function 'Menu->postprocess_header'
+2017-08-15 19:33:28	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:33:28	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:33:28	: test function 'Menu->postprocess_menu'
+2017-08-15 19:33:28	: test function 'Article->postprocess_menu'
+2017-08-15 19:33:28	: test function 'Users->postprocess_menu'
+2017-08-15 19:33:28	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:33:28	: test function 'Article->postprocess_header'
+2017-08-15 19:33:28	: test function 'Users->postprocess_header'
+2017-08-15 19:33:28	: test function 'Menu->postprocess_page'
+2017-08-15 19:33:28	: test function 'Article->postprocess_page'
+2017-08-15 19:33:28	: test function 'Users->postprocess_page'
+2017-08-15 19:33:28	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:33:28	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:33:28	: SELECT * FROM modules_tbl
+2017-08-15 19:33:28	: load module: Menu
+2017-08-15 19:33:28	: load module: Article
+2017-08-15 19:33:28	: load module: Users
+2017-08-15 19:33:28	: --- START PAGE GENERATING ---
+2017-08-15 19:33:28	: REQUEST_URI: /yacms/?q=article/get
+2017-08-15 19:33:28	: REMOTE_ADDR: ::1
+2017-08-15 19:33:28	: test function 'Menu->process_article_get'
+2017-08-15 19:33:28	: test function 'Article->process_article_get'
+2017-08-15 19:33:28	: call function 'Article->process_article_get' with param 
+2017-08-15 19:33:28	: SELECT * FROM articles_tbl ORDER BY article_date_published DESC LIMIT 0, 10
+2017-08-15 19:33:28	: test function 'Users->process_article_get'
+2017-08-15 19:33:28	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:33:28	: test function 'Menu->preprocess_page'
+2017-08-15 19:33:28	: test function 'Article->preprocess_page'
+2017-08-15 19:33:28	: test function 'Users->preprocess_page'
+2017-08-15 19:33:28	: test function 'Menu->postprocess_header'
+2017-08-15 19:33:28	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:33:28	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:33:28	: test function 'Menu->postprocess_menu'
+2017-08-15 19:33:28	: test function 'Article->postprocess_menu'
+2017-08-15 19:33:28	: test function 'Users->postprocess_menu'
+2017-08-15 19:33:28	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:33:28	: test function 'Article->postprocess_header'
+2017-08-15 19:33:28	: test function 'Users->postprocess_header'
+2017-08-15 19:33:28	: test function 'Menu->postprocess_page'
+2017-08-15 19:33:28	: test function 'Article->postprocess_page'
+2017-08-15 19:33:28	: test function 'Users->postprocess_page'
+2017-08-15 19:33:28	: --- PAGE OBJECT CREATING ---
+2017-08-15 19:33:28	: SELECT variable_name, variable_value FROM config_tbl
+2017-08-15 19:33:28	: SELECT * FROM modules_tbl
+2017-08-15 19:33:28	: load module: Menu
+2017-08-15 19:33:28	: load module: Article
+2017-08-15 19:33:28	: load module: Users
+2017-08-15 19:33:28	: --- START PAGE GENERATING ---
+2017-08-15 19:33:28	: REQUEST_URI: /yacms/?q=article/get
+2017-08-15 19:33:28	: REMOTE_ADDR: ::1
+2017-08-15 19:33:28	: test function 'Menu->process_article_get'
+2017-08-15 19:33:28	: test function 'Article->process_article_get'
+2017-08-15 19:33:28	: call function 'Article->process_article_get' with param 
+2017-08-15 19:33:28	: SELECT * FROM articles_tbl ORDER BY article_date_published DESC LIMIT 0, 10
+2017-08-15 19:33:28	: test function 'Users->process_article_get'
+2017-08-15 19:33:28	: --- PAGE TEMPLATE: orange_blog ---
+2017-08-15 19:33:28	: test function 'Menu->preprocess_page'
+2017-08-15 19:33:28	: test function 'Article->preprocess_page'
+2017-08-15 19:33:28	: test function 'Users->preprocess_page'
+2017-08-15 19:33:28	: test function 'Menu->postprocess_header'
+2017-08-15 19:33:28	: call function 'Menu->postprocess_header' with param 
+2017-08-15 19:33:28	: SELECT * FROM menu_links_tbl WHERE menu_level <= 100 ORDER BY menu_weight ASC
+2017-08-15 19:33:28	: test function 'Menu->postprocess_menu'
+2017-08-15 19:33:28	: test function 'Article->postprocess_menu'
+2017-08-15 19:33:28	: test function 'Users->postprocess_menu'
+2017-08-15 19:33:28	: call function 'Users->postprocess_menu' with param 
+2017-08-15 19:33:28	: test function 'Article->postprocess_header'
+2017-08-15 19:33:28	: test function 'Users->postprocess_header'
+2017-08-15 19:33:28	: test function 'Menu->postprocess_page'
+2017-08-15 19:33:28	: test function 'Article->postprocess_page'
+2017-08-15 19:33:28	: test function 'Users->postprocess_page'
