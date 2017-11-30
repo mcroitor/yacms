@@ -6,8 +6,8 @@
  * module registration line: INSERT INTO modules_tbl VALUES(NULL, 'Nicedit', '20170102');
  */
 
-class Nicedit{
-    var $name = "Nicedit";
+class nicedit{
+    var $name = "nicedit";
     var $version = "20170102";
     
     function __construct() {

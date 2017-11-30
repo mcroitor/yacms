@@ -9,4 +9,4 @@ CREATE TABLE menu_links_tbl (
 
 INSERT INTO menu_links_tbl VALUES (NULL, 'home', './', 0, 1);
 
-INSERT INTO modules_tbl VALUES(NULL, 'Menu', '20161216');
+-- INSERT INTO modules_tbl VALUES(NULL, 'Menu', '20161216');

@@ -1,8 +1,8 @@
 <?php
 // TODO #: refactor this to methods process_<method>
-class Users {
+class users {
 
-    var $name = "Users";
+    var $name = "users";
     var $version = "20161204";
 
     function __construct() {

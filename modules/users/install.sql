@@ -26,4 +26,4 @@ CREATE TABLE permissions_tbl(
 INSERT INTO permissions_tbl VALUES (NULL, 'guest', 0);
 INSERT INTO permissions_tbl VALUES (NULL, 'administrator', 100);
 
-INSERT INTO modules_tbl VALUES(NULL, 'Users', '20161204');
+-- INSERT INTO modules_tbl VALUES(NULL, 'Users', '20161204');

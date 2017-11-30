@@ -1,6 +1,7 @@
 <?php
 session_start();
 define("LOG_PATH", "../log/");
+define("MODULE_PATH", "../modules/");
 include_once "../include/common.lib.php";
 
 $_SESSION["__stage"] = empty($_SESSION["__stage"]) ? 0 : $_SESSION["__stage"];
@@ -34,10 +35,10 @@ if ($_SESSION["__stage"] === 1) {
 
     $data = [];
     $data["// "] = "";
-    $data["localhost"] = filter_input(INPUT_POST, "host");
-    $data["root"] = filter_input(INPUT_POST, "user");
-    $data["password"] = filter_input(INPUT_POST, "password");
-    $data["db_name"] = filter_input(INPUT_POST, "dbname");
+    $data["localhost_"] = filter_input(INPUT_POST, "host");
+    $data["root_"] = filter_input(INPUT_POST, "user");
+    $data["password_"] = filter_input(INPUT_POST, "password");
+    $data["db_name_"] = filter_input(INPUT_POST, "dbname");
 
     file_put_contents("../config.php", fill_template($cfgfile, $data));
     echo "<p>done!</p>";
@@ -54,6 +55,14 @@ if ($_SESSION["__stage"] === 2) {
     unset($_SESSION["__stage"]);
     echo "<h3>installing modules...</h3>";
     // insert into modules_tbl values (null, 'users', '20141205', 1);
+    $modules = ["menu", "users", "article"];
+    include_once '../config.php';
+    foreach ($modules as $module) {
+        echo "<ul>install module '{$module}'";
+        $result = module_install($module);
+        $tmp = $result ? "done!" : "failed!";
+        echo " ... {$tmp}</ul>";
+    }
     echo "<form method='post'><input type='submit' value='Next' /></form>";
     $_SESSION["__stage"] = 3;
     exit();
@@ -62,6 +71,7 @@ if ($_SESSION["__stage"] === 2) {
 if ($_SESSION["__stage"] === 3) {
     unset($_SESSION["__stage"]);
     echo "<h3>Setting up site...</h3>";
+    include_once '../config.php';
 
     echo "<form method='post'><input type='submit' value='Next' /></form>";
     $_SESSION["__stage"] = 4;

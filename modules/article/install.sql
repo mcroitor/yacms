@@ -20,4 +20,4 @@ INSERT INTO articles_tbl VALUES(
     NOW()
 );
 
-INSERT INTO modules_tbl VALUES(NULL, 'Article', '20161221');
+-- INSERT INTO modules_tbl VALUES(NULL, 'Article', '20161221');

@@ -1,8 +1,8 @@
 <?php
 // TODO #: refactor this to methods process_<method>
-class Article {
+class article {
 
-    var $name = "Article";
+    var $name = "article";
     var $version = "20161221";
 
     function __construct() {
@@ -26,7 +26,7 @@ class Article {
     }
 
     function process_article_post() {
-        Page::$modules["Users"]->check_permissions(1);
+        Page::$modules["users"]->check_permissions(1);
         $article_title = filter_input(INPUT_POST, "article_title");
         $article_body = filter_input(INPUT_POST, "article_body");
         $article_author_id = $_SESSION["user_id"];

@@ -117,7 +117,7 @@ function sql_query($query, $error = "Error: ", $need_fetch = true) {
 
     $array = array();
     $result = $db->query($query);
-    if (!$result) {
+    if ($result === false) {
         $aux = "$error $query, " . $db->error;
         debug_log($aux);
         write_log($aux, "errors.log");
@@ -125,8 +125,8 @@ function sql_query($query, $error = "Error: ", $need_fetch = true) {
     }
 
     if ($need_fetch) {
-        while ($fetch = $result->fetch_array()) {
-            $array[] = $fetch;
+        foreach ($result as $row) {
+            $array[] = $row;
         }
     }
     return $array;
@@ -175,10 +175,25 @@ function make_hook_name($path, $prefix = "", $postfix = "") {
  * @param type $module_name
  */
 function module_install($module_name) {
-    $module_path = MODULE_PATH . "{$module_name}/{$module_name}.class.php";
-    if (file_exists($module_path)) {
-        include_once $module_path;
-        $module = new $module_name();
-        sql_query("INSERT INTO modules_tbl VALUES (NULL, '{$module->name}', '{$module->version}')", "Module {$module_name} registration error: ", false);
+    $module_folder = MODULE_PATH . "{$module_name}/";
+    $module_path = $module_folder . "{$module_name}.class.php";
+    $module_install_sql = $module_folder . "install.sql";
+
+    if (file_exists($module_path) === FALSE) {
+        return false;
     }
+    if (file_exists($module_install_sql) === TRUE) {
+        try {
+            parse_sqldump($module_install_sql);
+        } catch (Exception $e) {
+            write_log($e->getMessage(), "errors.log");
+            write_log("failed execute {$module_install_sql}", "errors.log");
+            return false;
+        }
+    }
+
+    include_once $module_path;
+    $module = new $module_name();
+    sql_query("INSERT INTO modules_tbl VALUES (NULL, '{$module->name}', '{$module->version}')", "Module {$module_name} registration error: ", false);
+    return true;
 }

@@ -1,7 +1,7 @@
 <?php
 
-class Menu{
-    var $name = "Menu";
+class menu{
+    var $name = "menu";
     var $version = "20161216";
     
     function __construct(){
