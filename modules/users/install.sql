@@ -15,6 +15,7 @@ INSERT INTO users_tbl VALUES(null, 'admin', 'advwtv/9yU5yQ', 'Admin', 'Super', '
 
 -- if module menu is installed
 INSERT INTO menu_links_tbl VALUES(null, 'log out', './?q=user/logout', 1, 10);
+INSERT INTO menu_links_tbl VALUES(null, 'manage properties', './?q=properties/manage', 100, 10);
 
 CREATE TABLE permissions_tbl(
     permission_id INT NOT NULL AUTO_INCREMENT,
@@ -24,6 +25,7 @@ CREATE TABLE permissions_tbl(
 );
 
 INSERT INTO permissions_tbl VALUES (NULL, 'guest', 0);
+INSERT INTO permissions_tbl VALUES (NULL, 'user', 1);
 INSERT INTO permissions_tbl VALUES (NULL, 'administrator', 100);
 
 -- INSERT INTO modules_tbl VALUES(NULL, 'Users', '20161204');

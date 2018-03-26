@@ -112,22 +112,20 @@ function load_data($file_name) {
  * @return type
  */
 function sql_query($query, $error = "Error: ", $need_fetch = true) {
-    global $db;
+    global $pdo;
     write_log($query);
 
     $array = array();
-    $result = $db->query($query);
+    $result = $pdo->query($query);
     if ($result === false) {
-        $aux = "$error $query, " . $db->error;
+        $aux = "$error $query, " . $pdo->error;
         debug_log($aux);
         write_log($aux, "errors.log");
-        exit($db->error);
+        exit($pdo->error);
     }
 
     if ($need_fetch) {
-        foreach ($result as $row) {
-            $array[] = $row;
-        }
+        $array = $result->fetchAll();
     }
     return $array;
 }

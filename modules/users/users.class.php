@@ -1,7 +1,12 @@
 <?php
 // TODO #: refactor this to methods process_<method>
 class users {
-
+    // user level
+    const LEVEL_GUEST = 0;
+    const LEVEL_USER = 1;
+    const LEVEL_ADMINISTRATOR = 100;
+    
+    // main definition
     var $name = "users";
     var $version = "20161204";
 
@@ -57,5 +62,11 @@ class users {
         }
         return true;
     }
-
+    
+    function process_properties_manage() {
+        $this->check_permissions(users::LEVEL_ADMINISTRATOR);
+        $template = load_data(MODULE_PATH . $this->name . "/templates/properties.tpl.php");
+        $data = [];
+        Page::$data["<!-- page_content -->"] = fill_template($template, $data);
+    }
 }
