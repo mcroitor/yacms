@@ -14,7 +14,7 @@ CREATE TABLE users_tbl(
 INSERT INTO users_tbl VALUES(null, 'admin', 'advwtv/9yU5yQ', 'Admin', 'Super', 'admin@localhost', 100, '0');
 
 -- if module menu is installed
-INSERT INTO menu_links_tbl VALUES(null, 'log out', './?q=user/logout', 1, 10);
+INSERT INTO menu_links_tbl VALUES(null, 'log out', './?q=user/logout', 1, 1000);
 INSERT INTO menu_links_tbl VALUES(null, 'manage properties', './?q=properties/manage', 100, 10);
 
 CREATE TABLE permissions_tbl(
