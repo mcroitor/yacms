@@ -66,7 +66,13 @@ class users {
     function process_properties_manage() {
         $this->check_permissions(users::LEVEL_ADMINISTRATOR);
         $template = load_data(MODULE_PATH . $this->name . "/templates/properties.tpl.php");
-        $data = [];
+        $query = "SELECT variable_id, variable_name, variable_value, variable_type FROM config_tbl";
+        $result = sql_query($query);
+        $data = ["<!-- properties-list -->" => "<table><tr><th class='width-200 right'>Variable Name</th><th class='width-200 right'>Variable Value</th></tr>"];
+        foreach ($result as $value) {
+            $data["<!-- properties-list -->"] .= "<tr><td class='right'>{$value['variable_name']}</td><td class='right'>{$value['variable_value']}</td></tr>";
+        }
+        $data["<!-- properties-list -->"] .= "</table>";
         Page::$data["<!-- page_content -->"] = fill_template($template, $data);
     }
 }
