@@ -6,10 +6,15 @@ create table if not exists config_tbl(
     variable_id int not null auto_increment,
     variable_name varchar(63) unique not null,
     variable_value varchar(63) not null,
+    variable_type varchar(63) not null default 'string',
     primary key(variable_id)
 );
 
-INSERT INTO config_tbl VALUES (null, 'default_theme', 'default');
+/*
+ * accepted variable types: integer, float, string
+ */
+
+INSERT INTO config_tbl VALUES (null, 'default_theme', 'default', 'string');
 
 create table if not exists modules_tbl(
     module_id int not null auto_increment,

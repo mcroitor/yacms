@@ -10,7 +10,7 @@ CREATE TABLE articles_tbl(
 INSERT INTO menu_links_tbl VALUES (NULL, 'Articles', './?q=article/get', 0, 10);
 INSERT INTO menu_links_tbl VALUES (NULL, 'Add Article', './?q=article/post', 1, 10);
 
-INSERT INTO config_tbl VALUES (NULL, 'nr_articles', '10');
+INSERT INTO config_tbl VALUES (NULL, 'nr_articles', '10', 'integer');
 
 INSERT INTO articles_tbl VALUES(
     NULL,
