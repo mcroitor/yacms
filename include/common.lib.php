@@ -1,17 +1,17 @@
 <?php
 
-define("URL", "./");
+define("URL", $_SERVER["DOCUMENT_ROOT"] . "\\");
 if (defined("LOG_PATH") === false) {
-    define("LOG_PATH", URL . "log/");
+    define("LOG_PATH", URL . "log\\");
 }
 if (defined("THEMES_PATH") === false) {
-    define("THEMES_PATH", URL . "themes/");
+    define("THEMES_PATH", URL . "themes\\");
 }
 if (defined("MODULE_PATH") === false) {
-    define("MODULE_PATH", URL . "modules/");
+    define("MODULE_PATH", URL . "modules\\");
 }
 if (defined("LIB_PATH") === false) {
-    define("LIB_PATH", URL . "libs/");
+    define("LIB_PATH", URL . "libs\\");
 }
 define("DEBUG", "1");
 

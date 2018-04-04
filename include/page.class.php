@@ -86,7 +86,7 @@ class Page {
         $tpl = Page::get_template();
 
         Page::__hook("preprocess_page");
-        Page::$data["<!-- theme_path -->"] = THEMES_PATH . Page::$config["default_theme"];
+        Page::$data["<!-- theme_path -->"] = "./themes/" . Page::$config["default_theme"];
         Page::__hook("postprocess_header");
         //$this->__hook("process_");
         $html = fill_template($tpl, Page::$data);
