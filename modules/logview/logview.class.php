@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * TODO #1: add pagination
+ * TODO #2: realize access to log
+ */
 class logview{
     var $name = "logview";
     var $version = "20180403";
