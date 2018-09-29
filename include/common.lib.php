@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @author Croitor Mihail <mcroitor@gmail.com>
+ */
 define("URL", $_SERVER["DOCUMENT_ROOT"] . "\\");
 if (defined("LOG_PATH") === false) {
     define("LOG_PATH", URL . "log\\");
@@ -104,7 +107,8 @@ function load_data($file_name) {
 }
 
 /**
- * 
+ * Simple wrapper for sql queries. The use of popular frameworks
+ * may be better solution
  * @global type $db
  * @param type $query
  * @param type $error
@@ -192,6 +196,12 @@ function module_install($module_name) {
 
     include_once $module_path;
     $module = new $module_name();
-    sql_query("INSERT INTO modules_tbl VALUES (NULL, '{$module->name}', '{$module->version}')", "Module {$module_name} registration error: ", false);
+    sql_query(
+            "INSERT INTO modules_tbl VALUES ("
+                . "NULL, "
+                . "'{$module->name}', "
+                . "'{$module->version}')",
+            "Module {$module_name} registration error: ",
+            false);
     return true;
 }
