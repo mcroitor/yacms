@@ -5,7 +5,7 @@ Yet another php+mysql CMS
 
 The 3rd iteration.
 
-Rewriten, uses classes.
+Rewritten, uses classes.
 ============================
 For installing do following steps:
     0) unpack / copy site in folder <DIR>

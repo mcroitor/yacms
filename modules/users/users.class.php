@@ -1,11 +1,13 @@
 <?php
+
 // TODO #: refactor this to methods process_<method>
 class users {
+
     // user level
     const LEVEL_GUEST = 0;
     const LEVEL_USER = 1;
     const LEVEL_ADMINISTRATOR = 100;
-    
+
     // main definition
     var $name = "users";
     var $version = "20161204";
@@ -53,8 +55,8 @@ class users {
     }
 
     function check_permissions($level, $redirect = true, $redirect_url = "./") {
-        if($_SESSION["user_level"] < $level){
-                if($redirect == true){
+        if ($_SESSION["user_level"] < $level) {
+            if ($redirect == true) {
                 header("location:{$redirect_url}");
                 exit();
             }
@@ -62,17 +64,29 @@ class users {
         }
         return true;
     }
-    
+
     function process_properties_manage() {
         $this->check_permissions(users::LEVEL_ADMINISTRATOR);
         $template = load_data(MODULE_PATH . $this->name . "/templates/properties.tpl.php");
         $query = "SELECT variable_id, variable_name, variable_value, variable_type FROM config_tbl";
         $result = sql_query($query);
-        $data = ["<!-- properties-list -->" => "<table><tr><th class='width-200 right'>Variable Name</th><th class='width-200 right'>Variable Value</th></tr>"];
+        $data = ["<!-- properties-list -->" => "<form method='post' action='./?q=properties/update'>"
+            . "<table><tr>"
+            . "<th class='width-200 right'>Variable Name</th>"
+            . "<th class='width-200 right'>Variable Value</th></tr>"];
         foreach ($result as $value) {
-            $data["<!-- properties-list -->"] .= "<tr><td class='right'>{$value['variable_name']}</td><td class='right'>{$value['variable_value']}</td></tr>";
+            $data["<!-- properties-list -->"] .= "<tr><td class='right'>{$value['variable_name']}</td>"
+                    . "<td class='right'><input type='text' name='{$value['variable_name']}' value='{$value['variable_value']}' /></td></tr>";
         }
-        $data["<!-- properties-list -->"] .= "</table>";
+        $data["<!-- properties-list -->"] .= "<tr><td colspan='2'><input type='submit'></td></tr></table>";
         Page::$data["<!-- page_content -->"] = fill_template($template, $data);
     }
+
+    function process_properties_update() {
+        $config = filter_input_array(INPUT_POST);
+        Page::update_config($config);
+        header("location:./?q=properties/manage");
+        exit();
+    }
+
 }

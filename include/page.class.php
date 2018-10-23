@@ -52,6 +52,16 @@ class Page {
             Page::$config[$value["variable_name"]] = $value["variable_value"];
         }
     }
+    
+    static function update_config(array $config) {
+        foreach ($config as $param_name => $param_value){
+            if(isset(Page::$config[$param_name])){
+                Page::$config[$param_name] = $param_value;
+                $query = "UPDATE config_tbl SET variable_value='{$param_value}' WHERE variable_name='{$param_name}'";
+                sql_query($query, false);
+            }
+        }
+    }
 
     static function get_template() {
         if (DEBUG) {
