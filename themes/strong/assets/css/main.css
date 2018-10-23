@@ -115,14 +115,14 @@ h2 {
     font-size: 1.65em;
     font-weight: 400;
     letter-spacing: 4px;
-    margin: 0 0 1.5em 0;
+    margin: 0 0 0.5em 0;
     line-height: 1.75em;
 }
 
 h3 {
     font-size: 1em;
     letter-spacing: 2px;
-    margin: 0 0 1.25em 0;
+    margin: 0 0 0.25em 0;
 }
 
 a {
@@ -179,17 +179,17 @@ hr {
 
 blockquote {
     border-left: solid 0.5em #ddd;
-    padding: 1em 0 1em 2em;
+    padding: 0.5em 0 0.5em 1em;
     font-style: italic;
 }
 
 p {
     text-align: justify;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 ul, ol, dl, table, blockquote {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 br.clear {
@@ -1454,7 +1454,7 @@ br.clear {
 /* Sections/Article */
 
 section, article {
-    margin-bottom: 3em;
+    margin-bottom: 1em;
 }
 
 section > :last-child,
@@ -1464,6 +1464,12 @@ article:last-child {
     margin-bottom: 0;
 }
 
+p.info {
+    text-align: justify;
+    margin: 0 1em 0.5em 1em;
+    font-size: 90%;
+    /* border-bottom: 1px solid #888; */
+}
 /* Image */
 
 .image {
@@ -1492,19 +1498,19 @@ article:last-child {
 .image.featured {
     display: block;
     width: 100%;
-    margin: 0 0 3.5em 0;
+    margin: 0 0 1.5em 0;
 }
 
 .image.left {
     float: left;
-    margin: 0 1.5em 1.5em 0;
+    margin: 0 1em 1em 0;
     position: relative;
     top: 0.5em;
 }
 
 .image.centered {
     display: block;
-    margin: 0 0 2em 0;
+    margin: 0 0 1em 0;
 }
 
 .image.centered img {
@@ -1552,8 +1558,8 @@ ul.links {
 ul.links li {
     display: inline;
     border-left: solid 1px #d0d0d0;
-    padding-left: 1em;
-    margin: 0 0 0 1em;
+    padding-left: 0.5em;
+    margin: 0 0 0 0.5em;
 }
 
 ul.links li:first-child {
@@ -1564,7 +1570,7 @@ ul.links li:first-child {
 /* Actions */
 
 ul.actions {
-    margin-top: 2.5em;
+    margin-top: 1.5em;
     clear: both;
     list-style: none;
     padding-left: 0;
@@ -1573,7 +1579,7 @@ ul.actions {
 ul.actions li {
     padding-left: 0;
     display: inline-block;
-    margin: 0 0 0 1em;
+    margin: 0 0 0 0.5em;
 }
 
 ul.actions li:first-child {
@@ -1590,8 +1596,8 @@ ul.divided {
 ul.divided li {
     border-top: solid 2px #e5e5e5;
     padding-left: 0;
-    margin: 2.5em 0 0 0;
-    padding: 2.5em 0 0 0;
+    margin: 1.5em 0 0 0;
+    padding: 1.5em 0 0 0;
 }
 
 ul.divided li:first-child {
@@ -1609,14 +1615,14 @@ ul.icons {
 
 ul.icons > li {
     position: relative;
-    padding: 2em 0 0 3em;
+    padding: 1em 0 0 1.5em;
     margin: 0;
 }
 
 ul.icons > li:before {
     position: absolute;
     left: 0;
-    top: 2em;
+    top: 1em;
     display: block;
     background: #878787;
     color: #e4e4e4;
@@ -1643,7 +1649,7 @@ form label {
     text-transform: uppercase;
     color: #888;
     display: block;
-    margin: 0 0 1em 0;
+    margin: 0 0 0.5em 0;
 }
 
 form input[type="text"],
@@ -1908,7 +1914,7 @@ button.alt:active,
 
 #nav {
     position: absolute;
-    top: 2em;
+    top: 1.8em;
     left: 0;
     width: 100%;
     cursor: default;
@@ -2138,8 +2144,8 @@ button.alt:active,
 #content > article {
     border-top: solid 2px #e5e5e5;
     box-shadow: inset 0px 8px 0px 0px #fff, inset 0px 10px 0px 0px #e5e5e5;
-    margin: 5em 0 0 0;
-    padding: 5em 0 0 0;
+    margin: 2em 0 0 0;
+    padding: 2em 0 0 0;
 }
 
 #content > section:first-child,
@@ -2175,7 +2181,7 @@ button.alt:active,
     overflow: hidden;
     border-top: solid 2px #e5e5e5;
     background: #f0f0f0;
-    padding: 6em 0 8em 0;
+    padding: 1em 0 1em 0;
 }
 
 #footer form input[type="text"],
@@ -2203,8 +2209,8 @@ button.alt:active,
 #copyright {
     border-top: solid 2px #e5e5e5;
     text-align: center;
-    margin-top: 6em;
-    padding-top: 4em;
+    margin-top: 1em;
+    padding-top: 1em;
 }
 
 /* XLarge */
@@ -2246,7 +2252,7 @@ button.alt:active,
     /* Header */
 
     #header > .container {
-        padding: 12em 0 5em 0;
+        padding: 6em 0 2.5em 0;
     }
 
     #header h1 {
@@ -2262,17 +2268,17 @@ button.alt:active,
     /* Features */
 
     #features {
-        padding: 4em 0;
+        padding: 2em 0;
     }
 
     /* Banner */
 
     #banner {
-        padding: 8em 0;
+        padding: 4em 0;
     }
 
     #banner > .container {
-        padding: 0 4em;
+        padding: 0 2em;
     }
 
     #banner > .container br {
@@ -2282,20 +2288,20 @@ button.alt:active,
     /* Main */
 
     #main {
-        padding: 4em 0;
+        padding: 2em 0;
     }
 
     /* Footer */
 
     #footer {
-        padding: 4em 0;
+        padding: 2em 0;
     }
 
     /* Copyright */
 
     #copyright {
-        margin-top: 2em;
-        padding-top: 2em;
+        margin-top: 1em;
+        padding-top: 1em;
     }
 
 }
@@ -2317,7 +2323,7 @@ button.alt:active,
     /* Header */
 
     #header > .container {
-        padding: 10em 0 7em 0;
+        padding: 5em 0 3.5em 0;
     }
 
     /* Nav */
@@ -2498,7 +2504,7 @@ button.alt:active,
     /* Sidebar */
 
     #sidebar {
-        padding-top: 6em;
+        padding-top: 3em;
     }
 
 }
@@ -2571,7 +2577,7 @@ button.alt:active,
     /* Header */
 
     #header > .container {
-        padding: 6em 0 4em 0;
+        padding: 3em 0 2em 0;
     }
 
     #header h1 {
@@ -2581,14 +2587,14 @@ button.alt:active,
     }
 
     #header p {
-        margin: 1.25em 0 0 0;
+        margin: 1em 0 0 0;
         letter-spacing: 2px;
     }
 
     /* Banner */
 
     #banner {
-        padding: 5em 0;
+        padding: 2.5em 0;
     }
 
     #banner > .container {
@@ -2606,7 +2612,7 @@ button.alt:active,
     /* Features */
 
     #features {
-        padding: 2em 0;
+        padding: 1em 0;
     }
 
     #features ul.actions {
@@ -2616,33 +2622,33 @@ button.alt:active,
     /* Main */
 
     #main {
-        padding: 2em 0;
+        padding: 1em 0;
     }
 
     /* Content */
 
     #content > section,
     #content > article {
-        margin: 3em 0 0 0;
-        padding: 3em 0 0 0;
+        margin: 1em 0 0 0;
+        padding: 1em 0 0 0;
     }
 
     /* Sidebar */
 
     #sidebar {
-        padding-top: 3em;
+        padding-top: 1.5em;
     }
 
     #sidebar > section,
     #sidebar > article {
-        margin: 3em 0 0 0;
-        padding: 3em 0 0 0;
+        margin: 1em 0 0 0;
+        padding: 1em 0 0 0;
     }
 
     /* Footer */
 
     #footer {
-        padding: 2em 0;
+        padding: 1em 0;
     }
 
     #footer ul.icons {

@@ -23,10 +23,10 @@
             <section id="main">
                 <div class="container">
                     <div class="row">                        
-                        <div id="content" class="col-10 col-12-medium imp-medium">
+                        <div id="content" class="col-12 col-12-medium imp-medium">
                             <!-- page_content -->
                         </div>
-                        <div id="sidebar" class="col-2 col-12-medium">
+                        <div id="sidebar" class="col-12 col-12-medium">
                             <section>
                                 <!-- page_aside_content -->
                             </section>
