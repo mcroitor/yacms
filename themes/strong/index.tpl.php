@@ -47,13 +47,5 @@
             </section>
 
         </div>
-
-        <script src="<!-- theme_path -->/assets/js/jquery.min.js"></script>
-        <script src="<!-- theme_path -->/assets/js/jquery.dropotron.min.js"></script>
-        <script src="<!-- theme_path -->/assets/js/browser.min.js"></script>
-        <script src="<!-- theme_path -->/assets/js/breakpoints.min.js"></script>
-        <script src="<!-- theme_path -->/assets/js/util.js"></script>
-        <script src="<!-- theme_path -->/assets/js/main.js"></script>
-
     </body>
 </html>

@@ -24,6 +24,12 @@ class Page {
         }
         Page::load_config();
         Page::load_modules();
+        if(!empty(Page::$config["page_title"])){
+            Page::$data["<!-- page_title -->"] = Page::$config["page_title"];
+        }
+        if(!empty(Page::$config["page_header"])){
+            Page::$data["<!-- page_header -->"] = Page::$config["page_header"];
+        }
     }
 // TODO #: refactor this to methods process_<method>
     public static function __hook($hook_name, $param = NULL) {

@@ -70,15 +70,15 @@ class users {
         $template = load_data(MODULE_PATH . $this->name . "/templates/properties.tpl.php");
         $query = "SELECT variable_id, variable_name, variable_value, variable_type FROM config_tbl";
         $result = sql_query($query);
-        $data = ["<!-- properties-list -->" => "<form method='post' action='./?q=properties/update'>"
-            . "<table><tr>"
+        $data = ["<!-- properties-list -->" => "<form method='post' action='./?q=properties/update'>\n"
+            . "<table>\n<tr>"
             . "<th class='width-200 right'>Variable Name</th>"
-            . "<th class='width-200 right'>Variable Value</th></tr>"];
+            . "<th class='width-200 right'>Variable Value</th></tr>\n"];
         foreach ($result as $value) {
             $data["<!-- properties-list -->"] .= "<tr><td class='right'>{$value['variable_name']}</td>"
-                    . "<td class='right'><input type='text' name='{$value['variable_name']}' value='{$value['variable_value']}' /></td></tr>";
+                    . "<td class='right'><input type='text' name='{$value['variable_name']}' value='{$value['variable_value']}' /></td></tr>\n";
         }
-        $data["<!-- properties-list -->"] .= "<tr><td colspan='2'><input type='submit'></td></tr></table>";
+        $data["<!-- properties-list -->"] .= "<tr><td colspan='2'><input type='submit'></td></tr>\n</table>";
         Page::$data["<!-- page_content -->"] = fill_template($template, $data);
     }
 

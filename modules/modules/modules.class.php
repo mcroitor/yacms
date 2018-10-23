@@ -11,13 +11,21 @@ class modules {
     function process_modules_manage(){
         Page::$modules["users"]->check_permissions(users::LEVEL_ADMINISTRATOR);
         $template = load_data(MODULE_PATH . $this->name . "/templates/modules.tpl.php");
-        $data = ["<!-- modules-list -->" => "<table>"];
+        $data = ["<!-- modules-list -->" => "<table>\n"];
         $query = "SELECT * FROM modules_tbl";
         // installed modules
-        $data["<!-- modules-list -->"] .= "<tr><th class='width-200 left'>Module Name</th><th class='width-200 left'>Module Version</th></tr>";
+        $data["<!-- modules-list -->"] .= "<tr>"
+                . "<th class='width-400 left'>Module Name</th>"
+                . "<th class='width-200 left'>Module Version</th>"
+                . "<th class='width-50 left'>Remove</th>\n"
+                . "<th class='left'>&nbsp;</th></tr>\n";
         $modules = sql_query($query);    
         foreach ($modules as $module) {
-            $data["<!-- modules-list -->"] .= "<tr><td>{$module['module_name']}</td><td>{$module['module_version']}</td></tr>";
+            $data["<!-- modules-list -->"] .= "<tr>"
+                    . "<td>{$module['module_name']}</td>"
+                    . "<td>{$module['module_version']}</td>"
+                    . "<td><a href='./q=module/remove/{$module['module_id']}'><div class='icon fa-remove'>&nbsp;</div></a></td>"
+                    . "<td>&nbsp;</td></tr>\n";
         }
         $data["<!-- modules-list -->"] .= "</table>";
 
