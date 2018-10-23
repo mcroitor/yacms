@@ -5,7 +5,7 @@ CREATE TABLE articles_tbl(
     article_author_id INT NOT NULL,
     article_date_published DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(article_id)
-);
+) DEFAULT CHARSET=utf8;
 
 INSERT INTO menu_links_tbl VALUES (NULL, 'Articles', './?q=article/get', 0, 10);
 INSERT INTO menu_links_tbl VALUES (NULL, 'Add Article', './?q=article/post', 1, 10);

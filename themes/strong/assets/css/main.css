@@ -1648,7 +1648,7 @@ form label {
 
 form input[type="text"],
 form input[type="email"]
-input[type="password"],
+form input[type="password"],
 form select,
 form textarea {
     -moz-transition: background-color 0.25s ease-in-out;
@@ -1908,7 +1908,7 @@ button.alt:active,
 
 #nav {
     position: absolute;
-    top: 3em;
+    top: 2em;
     left: 0;
     width: 100%;
     cursor: default;
@@ -1942,6 +1942,19 @@ button.alt:active,
     -ms-transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
     transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
 }
+
+#nav > form {
+    display: inline-block;
+}
+#nav > form > input[type="text"],
+#nav > form > input[type="button"],
+#nav > form > input[type="submit"],
+#nav > form > input[type="reset"]{
+    width: auto;
+    display: inline-block;
+    padding: 0.5em 0.75em 0.5em 0.75em;
+}
+
 
 #nav > ul > li > a > span {
     -moz-transition: color 0.25s ease-in-out;

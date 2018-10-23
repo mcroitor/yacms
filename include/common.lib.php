@@ -122,10 +122,15 @@ function sql_query($query, $error = "Error: ", $need_fetch = true) {
     $array = array();
     $result = $pdo->query($query);
     if ($result === false) {
-        $aux = "$error $query, " . $pdo->error;
+        $aux = "{$error} {$query}: "
+                . $pdo->errorInfo()[0]
+                . " : "
+                . $pdo->errorInfo()[1]
+                . ", message = "
+                . $pdo->errorInfo()[2];
         debug_log($aux);
         write_log($aux, "errors.log");
-        exit($pdo->error);
+        exit($aux);
     }
 
     if ($need_fetch) {
@@ -198,9 +203,9 @@ function module_install($module_name) {
     $module = new $module_name();
     sql_query(
             "INSERT INTO modules_tbl VALUES ("
-                . "NULL, "
-                . "'{$module->name}', "
-                . "'{$module->version}')",
+            . "NULL, "
+            . "'{$module->name}', "
+            . "'{$module->version}')",
             "Module {$module_name} registration error: ",
             false);
     return true;

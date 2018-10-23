@@ -5,7 +5,7 @@ CREATE TABLE menu_links_tbl (
     menu_level INT NOT NULL DEFAULT '0',
     menu_weight INT NOT NULL DEFAULT '10',
     PRIMARY KEY(menu_id)
-);
+) DEFAULT CHARSET=utf8;
 
 INSERT INTO menu_links_tbl VALUES (NULL, 'home', './', 0, 1);
 

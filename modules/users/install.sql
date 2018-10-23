@@ -8,7 +8,7 @@ CREATE TABLE users_tbl(
     user_level INT NOT NULL,
     user_registration INT NOT NULL,
     PRIMARY KEY(user_id)
-);
+) DEFAULT CHARSET=utf8;
 
 -- login: admin, password: password
 INSERT INTO users_tbl VALUES(null, 'admin', 'advwtv/9yU5yQ', 'Admin', 'Super', 'admin@localhost', 100, '0');
@@ -22,7 +22,7 @@ CREATE TABLE permissions_tbl(
     level_name VARCHAR(31) NOT NULL,
     user_level INT NOT NULL,
     PRIMARY KEY(permission_id)
-);
+) DEFAULT CHARSET=utf8;
 
 INSERT INTO permissions_tbl VALUES (NULL, 'guest', 0);
 INSERT INTO permissions_tbl VALUES (NULL, 'user', 1);

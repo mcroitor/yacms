@@ -8,7 +8,7 @@ create table if not exists config_tbl(
     variable_value varchar(63) not null,
     variable_type varchar(63) not null default 'string',
     primary key(variable_id)
-);
+) DEFAULT CHARSET=utf8;
 
 /*
  * accepted variable types: integer, float, string
@@ -21,4 +21,4 @@ create table if not exists modules_tbl(
     module_name varchar(63) unique not null,
     module_version varchar(15) not null,
     primary key(module_id)
-);
+) DEFAULT CHARSET=utf8;
