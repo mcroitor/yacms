@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-
 <head>
         <meta encoding=UTF-8" />
         <!-- additional_metas -->
