@@ -1953,6 +1953,7 @@ button.alt:active,
     display: inline-block;
 }
 #nav > form > input[type="text"],
+#nav > form > input[type="password"],
 #nav > form > input[type="button"],
 #nav > form > input[type="submit"],
 #nav > form > input[type="reset"]{

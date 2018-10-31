@@ -15,8 +15,8 @@ class nicedit{
     }
     
     function postprocess_header() {
-        Page::$data["<!-- additional_scripts -->"] .= _script("nicedit", LIB_PATH . "nicedit/");
-        Page::$data["<!-- additional_scripts -->"] .= _script("addnicedit", MODULE_PATH . $this->name . "/");
+        Page::$data["<!-- additional_scripts -->"] .= '<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>'; //_script("nicedit", LIB_PATH . "nicedit/");
+        Page::$data["<!-- additional_scripts -->"] .= _script("addnicedit", "./modules/{$this->name}/");
         
     }
 }

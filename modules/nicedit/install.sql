@@ -1,0 +1,1 @@
+INSERT INTO modules_tbl VALUES(NULL, 'nicedit', '20170102');

@@ -28,7 +28,9 @@ class article {
     function process_article_post() {
         Page::$modules["users"]->check_permissions(users::LEVEL_USER);
         $article_title = filter_input(INPUT_POST, "article_title", FILTER_SANITIZE_STRING);
-        $article_body = filter_input(INPUT_POST, "article_body", FILTER_SANITIZE_STRING);
+        $article_body = strip_tags(
+                filter_input(INPUT_POST, "article_body", FILTER_DEFAULT), 
+                "<p><b><i><em><strong><h1><h2><h3><h4>");
         $article_author_id = $_SESSION["user_id"];
         
         if(empty($article_title) && empty($article_body)){
