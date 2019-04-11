@@ -3,18 +3,25 @@
 /**
  * @author Croitor Mihail <mcroitor@gmail.com>
  */
-define("URL", $_SERVER["DOCUMENT_ROOT"] . "\\");
+
+if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+    define("SEP", "\\");
+} else {
+    define("SEP", "/");
+}
+
+define("URL", $_SERVER["DOCUMENT_ROOT"] . SEP);
 if (defined("LOG_PATH") === false) {
-    define("LOG_PATH", URL . "log\\");
+    define("LOG_PATH", URL . "log" . SEP);
 }
 if (defined("THEMES_PATH") === false) {
-    define("THEMES_PATH", URL . "themes\\");
+    define("THEMES_PATH", URL . "themes" . SEP);
 }
 if (defined("MODULE_PATH") === false) {
-    define("MODULE_PATH", URL . "modules\\");
+    define("MODULE_PATH", URL . "modules" . SEP);
 }
 if (defined("LIB_PATH") === false) {
-    define("LIB_PATH", URL . "libs\\");
+    define("LIB_PATH", URL . "libs" . SEP);
 }
 define("DEBUG", "1");
 

@@ -212,3 +212,25 @@ textarea#article_body {
         margin:10px;
     }
 }
+
+@media screen and (min-width: 1600px){
+    #page-container {
+        width: 1600px;
+        left: 50%;
+        margin-left: -800px;
+    }
+    #page-header {
+        width:1540px;
+    }
+    #page-content {
+        width:1350px;
+    }
+    #page-primary-menu {
+        width:1400px;
+        margin-left:100px;
+    }
+    #page-footer {
+        width:1580px;
+        margin:10px;
+    }
+}
