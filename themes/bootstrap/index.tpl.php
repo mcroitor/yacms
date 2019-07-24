@@ -13,7 +13,7 @@
         <title><!-- page_title --></title>
     </head>
     <body>
-        <div id="page-container">
+        <div id="page-container" class="container-fluid">
             <header id="page-header"><!-- page_header --></header>
             <menu id="page-primary-menu"><!-- page_primary_menu --></menu>
             <section id="page-content"><!-- page_content --></section>
