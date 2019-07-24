@@ -13,11 +13,11 @@
         <title><!-- page_title --></title>
     </head>
     <body>
-        <div id="page-container" class="container-fluid bg-dark">
-            <header id="page-header" class="page-item"><!-- page_header --></header>
+        <div id="page-container" class="container-fluid bg-white">
+            <header id="page-header" class="bg-dark"><!-- page_header --></header>
             <menu id="page-primary-menu" class="nav navbar"><!-- page_primary_menu --></menu>
-            <section id="page-content" class="bg-primary"><!-- page_content --></section>
-            <aside id="page-aside-content" class="bg-info"><!-- page_aside_content --></aside>
+            <section id="page-content" class="jumbotron"><!-- page_content --></section>
+            <aside id="page-aside-content" class="jumbotron"><!-- page_aside_content --></aside>
             <footer id="page-footer" class="footer bg-dark"><!-- page_footer --></footer>
         </div>
     </body>
