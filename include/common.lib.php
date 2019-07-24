@@ -146,6 +146,11 @@ function sql_query($query, $error = "Error: ", $need_fetch = true) {
     return $array;
 }
 
+function strip_sqlcomment ($string = '') {
+    $RXSQLComments = '@(--[^\r\n]*)|(\#[^\r\n]*)|(/\*[\w\W]*?(?=\*/)\*/)@ms';
+    return (($string == '') ?  '' : preg_replace( $RXSQLComments, '', $string ));
+}
+
 /**
  * Parse and execute sql dump.
  * @param type $dump
@@ -158,7 +163,7 @@ function parse_sqldump($dump) {
         $sql = str_replace("\n\n", "\n", $sql);
         $queries = explode(";", $sql);
         foreach ($queries as $query) {
-            $query = trim($query);
+            $query = strip_sqlcomment($query);
             if ($query != '') {
                 sql_query($query, "Installation error:", false);
             }
