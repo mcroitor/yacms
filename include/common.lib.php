@@ -153,6 +153,9 @@ function sql_query($query, $error = "Error: ", $need_fetch = true) {
 function parse_sqldump($dump) {
     if (file_exists($dump)) {
         $sql = load_data($dump);
+        $sql = str_replace("\n\r", "\n", $sql);
+        $sql = str_replace("\r\n", "\n", $sql);
+        $sql = str_replace("\n\n", "\n", $sql);
         $queries = explode(";", $sql);
         foreach ($queries as $query) {
             $query = trim($query);
