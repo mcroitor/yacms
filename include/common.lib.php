@@ -163,7 +163,7 @@ function parse_sqldump($dump) {
         $sql = str_replace("\n\n", "\n", $sql);
         $queries = explode(";", $sql);
         foreach ($queries as $query) {
-            $query = strip_sqlcomment($query);
+            $query = strip_sqlcomment(trim($query));
             if ($query != '') {
                 sql_query($query, "Installation error:", false);
             }
