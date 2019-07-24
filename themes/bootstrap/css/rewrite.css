@@ -1,0 +1,15 @@
+.container {
+  padding: 80px 120px;
+}
+  .bg-1 { 
+    background-color: green; /* Green */
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: darkblue; /* Dark Blue */
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: white; /* White */
+    color: #555555;
+  }
