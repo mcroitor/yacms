@@ -2,8 +2,8 @@ CREATE TABLE menu_links_tbl (
     menu_id INT NOT NULL AUTO_INCREMENT,
     menu_name VARCHAR(63) NOT NULL,
     menu_link VARCHAR(255) NOT NULL DEFAULT '#',
-    menu_level INT NOT NULL DEFAULT 0,
-    menu_weight INT NOT NULL DEFAULT 10,
+    menu_level INT NOT NULL DEFAULT '0',
+    menu_weight INT NOT NULL DEFAULT '10',
     PRIMARY KEY(menu_id)
 ) DEFAULT CHARSET=utf8;
 

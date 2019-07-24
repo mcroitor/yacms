@@ -147,7 +147,7 @@ function sql_query($query, $error = "Error: ", $need_fetch = true) {
 }
 
 function strip_sqlcomment ($string = '') {
-    $RXSQLComments = '@(--[^\r\n]*)|(\#[^\r\n]*)|(/\*[\w\W]*?(?=\*/)\*/)@ms';
+    $RXSQLComments = '@(--[^\r\n]*)|(/\*[\w\W]*?(?=\*/)\*/)@ms';
     return (($string == '') ?  '' : preg_replace( $RXSQLComments, '', $string ));
 }
 
