@@ -54,7 +54,7 @@ if ($_SESSION["__stage"] === 2) {
     unset($_SESSION["__stage"]);
     echo "<h3>installing modules...</h3>";
     // insert into modules_tbl values (null, 'users', '20141205', 1);
-    $modules = ["menu", "users", "article"];
+    $modules = ["menu", "users", "article", "modules"];
     include_once '../config.php';
     foreach ($modules as $module) {
         echo "<ul>install module '{$module}'";
