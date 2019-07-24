@@ -13,12 +13,12 @@
         <title><!-- page_title --></title>
     </head>
     <body>
-        <div id="page-container" class="container-fluid">
-            <header id="page-header"><!-- page_header --></header>
-            <menu id="page-primary-menu"><!-- page_primary_menu --></menu>
-            <section id="page-content"><!-- page_content --></section>
-            <aside id="page-aside-content"><!-- page_aside_content --></aside>
-            <footer id="page-footer"><!-- page_footer --></footer>
+        <div id="page-container" class="container-fluid page-item">
+            <header id="page-header" class="page-item"><!-- page_header --></header>
+            <menu id="page-primary-menu" class="menu"><!-- page_primary_menu --></menu>
+            <section id="page-content" class="page-item"><!-- page_content --></section>
+            <aside id="page-aside-content" class="page-item"><!-- page_aside_content --></aside>
+            <footer id="page-footer" class="footer"><!-- page_footer --></footer>
         </div>
     </body>
 </html>
