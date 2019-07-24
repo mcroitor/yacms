@@ -6,9 +6,9 @@ $_SESSION["__stage"] = empty($_SESSION["__stage"]) ? 0 : $_SESSION["__stage"];
     <head>
         <script type="text/javascript">
             var http = new XMLHttpRequest();
-            http.open("POST", "/install/stages.php");
-            
+
             function getStage() {
+                http.open("POST", "/install/stages.php");
                 http.send();
                 http.onload = function () {
                     document.getElementById("stage").innerHTML = http.responseText;
@@ -17,7 +17,8 @@ $_SESSION["__stage"] = empty($_SESSION["__stage"]) ? 0 : $_SESSION["__stage"];
                     alert("network error");
                 };
             }
-            function sendForm(){
+            function sendForm() {
+                http.open("POST", "/install/stages.php");
                 http.send(new FormData(document.forms.stageform));
                 http.onload = function () {
                     document.getElementById("stage").innerHTML = http.responseText;
