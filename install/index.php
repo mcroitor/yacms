@@ -11,10 +11,10 @@ $_SESSION["__stage"] = empty($_SESSION["__stage"]) ? 0 : $_SESSION["__stage"];
                 http.send();
                 http.onload = function() {
                     document.getElementById("stage").innerHTML = http.responseText;
-                }
+                };
                 http.onerror = function(){
                     alert("network error");
-                }
+                };
             }
         </script>
     </head>
