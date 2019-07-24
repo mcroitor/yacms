@@ -17,12 +17,12 @@ if ($_SESSION["__stage"] === 0) {
 
     echo "<h3>Configuring...</h3>";
     echo "<fieldset><legend>database configuration</legend>";
-    echo "<form method='post'><table>";
+    echo "<form method='post' name='stageform'><table>";
     echo "<tr><td>host</td><td><input type='text' name='host' value='localhost' required='required' /></td></tr>";
     echo "<tr><td>user</td><td><input type='text' name='user' required='required' /></td></tr>";
     echo "<tr><td>password</td><td><input type='text' name='password' required='required' /></td></tr>";
     echo "<tr><td>DB name</td><td><input type='text' name='dbname' required='required' /></td></tr>";
-    echo "<tr><td colspan='2'><input type='submit' value='install' /></td></tr>";
+    echo "<tr><td colspan='2'><input type='button' value='install' onclick='sendForm();' /></td></tr>";
     $_SESSION["__stage"] = 1;
     exit();
 }
@@ -45,7 +45,7 @@ if ($_SESSION["__stage"] === 1) {
     include_once '../config.php';
     parse_sqldump("install.sql");
     echo "<p>tables installed!</p>";
-    echo "<form method='post'><input type='submit' value='Next' /></form>";
+    echo "<form method='post' name='stageform'><input type='button' value='Next' onclick='sendForm();' /></form>";
     $_SESSION["__stage"] = 2;
     exit();
 }
@@ -62,7 +62,7 @@ if ($_SESSION["__stage"] === 2) {
         $tmp = $result ? "done!" : "failed!";
         echo " ... {$tmp}</ul>";
     }
-    echo "<form method='post'><input type='submit' value='Next' /></form>";
+    echo "<form method='post' name='stageform'><input type='button' value='Next' onclick='sendForm();' /></form>";
     $_SESSION["__stage"] = 3;
     exit();
 }
@@ -72,7 +72,7 @@ if ($_SESSION["__stage"] === 3) {
     echo "<h3>Setting up site...</h3>";
     include_once '../config.php';
 
-    echo "<form method='post'><input type='submit' value='Next' /></form>";
+    echo "<form method='post' name='stageform'><input type='button' value='Next' onclick='sendForm();' /></form>";
     $_SESSION["__stage"] = 4;
     exit();
 }
@@ -80,6 +80,6 @@ if ($_SESSION["__stage"] === 3) {
 if ($_SESSION["__stage"] === 4) {
     unset($_SESSION["__stage"]);
     echo "<h3>Done!</h3>";
-    echo "<form method='post'><input type='submit' value='Done' /></form>";
+    echo "<form method='post' name='stageform'><input type='submit' value='Done' /></form>";
     exit();
 }
