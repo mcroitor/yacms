@@ -16,8 +16,14 @@
         <div id="page-container" class="container-fluid bg-white">
             <header id="page-header" class="jumbotron text-center"><!-- page_header --></header>
             <menu id="page-primary-menu" class="navbar text-center"><!-- page_primary_menu --></menu>
-            <section id="page-content" class="container"><!-- page_content --></section>
-            <aside id="page-aside-content" class="container"><!-- page_aside_content --></aside>
+            <div class="row content">
+                <div class="col-sm-9">
+                    <section id="page-content" class="container"><!-- page_content --></section>
+                </div>
+                <div class="col-sm-3 sidenav">
+                <aside id="page-aside-content" class="container"><!-- page_aside_content --></aside>
+                </div>
+            </div>
             <footer id="page-footer" class="footer bg-dark"><!-- page_footer --></footer>
         </div>
     </body>
