@@ -18,7 +18,7 @@
             <menu id="page-primary-menu" class="navbar text-center"><!-- page_primary_menu --></menu>
             <div class="row content">
                 <section id="page-content" class="container col-sm-9"><!-- page_content --></section>
-                <aside id="page-aside-content" class="container col-sm-3 sidenav well"><!-- page_aside_content --></aside>
+                <aside id="page-aside-content" class="container col-sm-3 well bg-primary"><!-- page_aside_content --></aside>
             </div>
             <footer id="page-footer" class="footer bg-dark"><!-- page_footer --></footer>
         </div>
