@@ -70,7 +70,8 @@ class users {
         $template = load_data(MODULE_PATH . $this->name . "/templates/properties.tpl.php");
         $query = "SELECT variable_id, variable_name, variable_value, variable_type FROM config_tbl";
         $result = sql_query($query);
-        $data = ["<!-- properties-list -->" => "<form method='post' action='./?q=properties/update'>\n"
+        $data = ["<!-- properties-list -->" => "<a href='./?q=property/create'>Create property</a>"
+            . "<form method='post' action='./?q=properties/update'>\n"
             . "<table>\n<tr>"
             . "<th class='width-200 right'>Variable Name</th>"
             . "<th class='width-200 right'>Variable Value</th></tr>\n"];
@@ -79,6 +80,13 @@ class users {
                     . "<td class='right'><input type='text' name='{$value['variable_name']}' value='{$value['variable_value']}' /></td></tr>\n";
         }
         $data["<!-- properties-list -->"] .= "<tr><td colspan='2'><input type='submit'></td></tr>\n</table>";
+        Page::$data["<!-- page_content -->"] = fill_template($template, $data);
+    }
+    
+    function process_property_create() {
+        $this->check_permissions(users::LEVEL_ADMINISTRATOR);
+        $template = load_data(MODULE_PATH . $this->name . "/templates/property_create.tpl.php");
+        $data = [];
         Page::$data["<!-- page_content -->"] = fill_template($template, $data);
     }
 
