@@ -14,7 +14,7 @@
     </head>
     <body>
         <div id="page-container" class="container-fluid bg-white">
-            <header id="page-header" class="jumbotron text-center bg-2"><!-- page_header --></header>
+            <header id="page-header" class="jumbotron text-center bg-2 page-header"><!-- page_header --></header>
             <menu id="page-primary-menu" class="navbar text-center"><!-- page_primary_menu --></menu>
             <div class="row content">
                 <section id="page-content" class="container col-sm-9"><!-- page_content --></section>
