@@ -4,12 +4,12 @@
         <table>
             <tr><td>variable name</td><td><input type="text" name="variable_name" /></td></tr>
             <tr><td>variable value</td><td><input type="text" name="variable_value" /></td></tr>
-            <tr><td>variable value</td><td><select name="variable_value">
+            <tr><td>variable type</td><td><select name="variable_type">
                         <option>number</option>
                         <option selected="selected">text</option>
                         <option>enumerate</option>
                     </select></td></tr>
         </table>
-        <input type="submit" value="Create" class="form-button-submit" />
+        <input type="submit" value="Create" />
     </form>
 </fieldset>

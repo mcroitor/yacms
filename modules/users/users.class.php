@@ -82,12 +82,22 @@ class users {
         $data["<!-- properties-list -->"] .= "<tr><td colspan='2'><input type='submit'></td></tr>\n</table>";
         Page::$data["<!-- page_content -->"] = fill_template($template, $data);
     }
-    
+
     function process_property_create() {
         $this->check_permissions(users::LEVEL_ADMINISTRATOR);
-        $template = load_data(MODULE_PATH . $this->name . "/templates/property_create.tpl.php");
-        $data = [];
-        Page::$data["<!-- page_content -->"] = fill_template($template, $data);
+        $variable_name = filter_input(INPUT_POST, "variable_name", FILTER_SANITIZE_STRING);
+        $variable_value = filter_input(INPUT_POST, "variable_value", FILTER_SANITIZE_STRING);
+        $variable_type = filter_input(INPUT_POST, "variable_type", FILTER_SANITIZE_STRING);
+        if (empty($variable_name) || empty($variable_value) || empty($variable_type)) {
+            $template = load_data(MODULE_PATH . $this->name . "/templates/property_create.tpl.php");
+            $data = [];
+            Page::$data["<!-- page_content -->"] = fill_template($template, $data);
+            return;
+        }
+        $query = "INSERT INTO config_tbl VALUES (null, '{$variable_name}', '{$variable_value}', '{$variable_type}')";
+        sql_query($query, $error = "site property creation error: ", false);
+        header("location:./?q=properties/manage");
+        exit();
     }
 
     function process_properties_update() {
