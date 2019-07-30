@@ -12,6 +12,7 @@
     text-align: center;
     background-color: #eeeecc;
     border: 1px solid #e0e0c0;
+    margin-top: 5px;
     margin-bottom: 0px;
     padding: 40px;
 }
@@ -20,9 +21,9 @@
     background-color: #eeeedd;
     border: 1px solid #e0e0c0;
     border-radius: 10px;
-    margin-bottom: 5px;
+    margin: 5px;
 }
-#page-aside-content {}
+#page-aside-content { display: none; }
 #page-primary-menu {
     text-align: justify;
     background-color: #eeeecc;
@@ -44,7 +45,7 @@
 .menu {}
 #page-primary-menu .link {
     display: inline-block;
-    padding: 3px; 
+    padding: 5px; 
     margin: 1px;
     text-decoration: none;
 }
