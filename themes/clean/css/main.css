@@ -3,16 +3,17 @@
     text-align: center;
     background-color: #eeeecc;
     border: 1px solid #e0e0c0;
-    height: 120px;
+    height: 0px;
     margin-bottom: 0px;
-    padding: 50% 0%;
+    padding: 60px;
 }
 #page-footer {
-    height: 80px;
+    height: 0px;
     text-align: center;
     background-color: #eeeecc;
     border: 1px solid #e0e0c0;
     margin-bottom: 0px;
+    padding: 40px;
 }
 #page-content {
     padding:10px;
@@ -28,7 +29,6 @@
     border: 1px solid #e0e0c0;
     height: 40px;
     margin-bottom: 0px;
-    padding: 50% 0%;
 }
 
 .node {}
