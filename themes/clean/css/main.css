@@ -28,7 +28,8 @@
     background-color: #eeeecc;
     border: 1px solid #e0e0c0;
     height: 40px;
-    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
 }
 
 .node {}
@@ -41,4 +42,11 @@
 .form-element {}
 
 .menu {}
+#page-primary-menu .link {
+    display: inline-block;
+    padding: 3px; 
+    margin: 1px;
+    text-decoration: none;
+}
+#page-primary-menu .link:hover { text-decoration: underline; }
 .menu-link {}
