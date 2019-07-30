@@ -21,7 +21,10 @@
     background-color: #eeeedd;
     border: 1px solid #e0e0c0;
     border-radius: 10px;
-    margin: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 80%;
+    min-width: 800px;
 }
 #page-aside-content { display: none; }
 #page-primary-menu {
