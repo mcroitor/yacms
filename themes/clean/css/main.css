@@ -12,7 +12,7 @@
     text-align: center;
     background-color: #ffffef;
     border: 1px solid #e0e0c0;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 0px;
     padding: 40px;
 }
@@ -21,8 +21,8 @@
     background-color: #fefeee;
     border: 1px solid #e0e0c0;
     border-radius: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-left: 10%;
     margin-right: 10%;
     width: 80%;
@@ -31,11 +31,11 @@
 #page-aside-content { display: none; }
 #page-primary-menu {
     text-align: justify;
-    background-color: #eeeecc;
+    background-color: #ffffef;
     border: 1px solid #e0e0c0;
     height: 40px;
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 #form-login{ display: inline-block; float: right; }
 
@@ -43,6 +43,8 @@
 .node-title {}
 .node-body {}
 .node-additional-info {}
+.even{background-color: #ffffee;}
+.odd{background-color: #fefeee;}
 
 .form {}
 .form-group {}

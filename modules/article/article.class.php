@@ -15,9 +15,12 @@ class article {
                 . "ORDER BY article_date_published DESC "
                 . "LIMIT {$_SESSION['articles_start']}, " . Page::$config['nr_articles']);
         $template = load_data(MODULE_PATH . $this->name . "/templates/article.tpl.php");
+        $oddity = false;
         foreach ($result as $article) {
             $data = [];
             $data["<!-- article_title -->"] = $article["article_title"];
+            $data["<!-- style_class -->"] = $oddity ? "even" : "odd";
+            $oddity = ! $oddity;
             $data["<!-- article_info -->"] = "<span class='author'>Author</span>, Published <span class='date'>{$article["article_date_published"]}</span>";
             $data["<!-- article_body -->"] = $article["article_body"];
             $data["<!-- article_footer -->"] = "";

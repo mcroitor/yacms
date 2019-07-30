@@ -1,4 +1,4 @@
-<article>
+<article class="<!-- style_class -->">
     <header>
         <h2><!-- article_title --></h2>
         <p class="info"><!-- article_info --></p>
