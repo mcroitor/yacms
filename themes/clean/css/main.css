@@ -1,0 +1,25 @@
+#page-container {
+    padding: 10px;
+}
+#page-header {
+    text-align: center;
+    background-color: #eeeecc;
+    border: 1px solid #e0e0c0;
+    border-radius: 10px;
+}
+#page-footer {}
+#page-content {}
+#page-aside-content {}
+#page-primary-menu {}
+
+.node {}
+.node-title {}
+.node-body {}
+.node-additional-info {}
+
+.form {}
+.form-group {}
+.form-element {}
+
+.menu {}
+.menu-link {}

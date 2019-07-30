@@ -17,3 +17,8 @@
 .footer{
     padding: 20px 120px;
 }
+
+#page-container { padding: 5px; }
+#page-header {}
+#page-footer {}
+#page-content {}
