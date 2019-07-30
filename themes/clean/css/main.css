@@ -6,9 +6,24 @@
     background-color: #eeeecc;
     border: 1px solid #e0e0c0;
     border-radius: 10px;
+    height: 120px;
+    margin-bottom: 5px;
 }
-#page-footer {}
-#page-content {}
+#page-footer {
+    height: 80px;
+    text-align: center;
+    background-color: #eeeecc;
+    border: 1px solid #e0e0c0;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+#page-content {
+    padding:10px;
+    background-color: #eeeedd;
+    border: 1px solid #e0e0c0;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
 #page-aside-content {}
 #page-primary-menu {}
 
