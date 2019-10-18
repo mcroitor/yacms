@@ -7,6 +7,7 @@ CREATE TABLE menu_links_tbl (
     PRIMARY KEY(menu_id)
 ) DEFAULT CHARSET=utf8;
 
-INSERT INTO menu_links_tbl VALUES (NULL, 'home', './', 0, 1);
+INSERT INTO menu_links_tbl (menu_name, menu_link, menu_level, menu_weight) 
+VALUES ('home', './', 0, 1);
 
--- INSERT INTO modules_tbl VALUES(NULL, 'Menu', '20161216');
+-- INSERT INTO modules_tbl (module_name, module_version) VALUES(NULL, 'Menu', '20161216');

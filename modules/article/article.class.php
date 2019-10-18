@@ -42,7 +42,8 @@ class article {
             return;
         }
 
-        sql_query("INSERT INTO articles_tbl VALUES (NULL, "
+        sql_query("INSERT INTO articles_tbl (article_title, article_body, article_author_id, article_date_published)"
+                . "VALUES ("
                 . "'{$article_title}', "
                 . "'{$article_body}', "
                 . "{$article_author_id}, "

@@ -7,17 +7,20 @@ CREATE TABLE articles_tbl(
     PRIMARY KEY(article_id)
 ) DEFAULT CHARSET=utf8;
 
-INSERT INTO menu_links_tbl VALUES (NULL, 'Articles', './?q=article/get', 0, 10);
-INSERT INTO menu_links_tbl VALUES (NULL, 'Add Article', './?q=article/post', 1, 10);
+INSERT INTO menu_links_tbl (menu_name, menu_link, menu_level, menu_weight) 
+VALUES ('Articles', './?q=article/get', 0, 10);
+INSERT INTO menu_links_tbl (menu_name, menu_link, menu_level, menu_weight)
+VALUES ('Add Article', './?q=article/post', 1, 10);
 
-INSERT INTO config_tbl VALUES (NULL, 'nr_articles', '10', 'integer');
+INSERT INTO config_tbl (variable_name, variable_value, variable_type)
+VALUES ('nr_articles', '10', 'integer');
 
-INSERT INTO articles_tbl VALUES(
-    NULL,
+INSERT INTO articles_tbl (article_title, article_body, article_author_id, article_date_published)
+VALUES(
     'First Message',
     '<p>This is a first page!</p><p>Nice to meet you here!</p>',
     1,
     NOW()
 );
 
--- INSERT INTO modules_tbl VALUES(NULL, 'Article', '20161221');
+-- INSERT INTO modules_tbl (module_name, module_version) VALUES(NULL, 'Article', '20161221');

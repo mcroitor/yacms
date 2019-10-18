@@ -11,11 +11,14 @@ CREATE TABLE users_tbl(
 ) DEFAULT CHARSET=utf8;
 
 -- login: admin, password: password
-INSERT INTO users_tbl VALUES(null, 'admin', 'advwtv/9yU5yQ', 'Admin', 'Super', 'admin@localhost', 100, '0');
+INSERT INTO users_tbl (user_login, user_password, user_firstname, user_lastname, user_email, user_level, user_registration)
+VALUES(null, 'admin', 'advwtv/9yU5yQ', 'Admin', 'Super', 'admin@localhost', 100, '0');
 
 -- if module menu is installed
-INSERT INTO menu_links_tbl VALUES(null, 'log out', './?q=user/logout', 1, 1000);
-INSERT INTO menu_links_tbl VALUES(null, 'manage properties', './?q=properties/manage', 100, 10);
+INSERT INTO menu_links_tbl (menu_name, menu_link, menu_level, menu_weight)
+VALUES(null, 'log out', './?q=user/logout', 1, 1000);
+INSERT INTO menu_links_tbl (menu_name, menu_link, menu_level, menu_weight)
+VALUES(null, 'manage properties', './?q=properties/manage', 100, 10);
 
 CREATE TABLE permissions_tbl(
     permission_id INT NOT NULL AUTO_INCREMENT,
@@ -24,8 +27,8 @@ CREATE TABLE permissions_tbl(
     PRIMARY KEY(permission_id)
 ) DEFAULT CHARSET=utf8;
 
-INSERT INTO permissions_tbl VALUES (NULL, 'guest', 0);
-INSERT INTO permissions_tbl VALUES (NULL, 'user', 1);
-INSERT INTO permissions_tbl VALUES (NULL, 'administrator', 100);
+INSERT INTO permissions_tbl (level_name, user_level)VALUES (NULL, 'guest', 0);
+INSERT INTO permissions_tbl (level_name, user_level)VALUES (NULL, 'user', 1);
+INSERT INTO permissions_tbl (level_name, user_level)VALUES (NULL, 'administrator', 100);
 
--- INSERT INTO modules_tbl VALUES(NULL, 'Users', '20161204');
+-- INSERT INTO modules_tbl (module_name, module_version) VALUES(NULL, 'Users', '20161204');
