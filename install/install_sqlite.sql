@@ -35,7 +35,7 @@ VALUES ('home', './', 0, 1);
 
 -- register Menu module
 INSERT INTO modules_tbl (module_name, module_version)
-VALUES('Menu', '20161204');
+VALUES('menu', '20161204');
 
 CREATE TABLE users_tbl(
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -73,7 +73,7 @@ VALUES ('administrator', 100);
 
 -- register Users module
 INSERT INTO modules_tbl (module_name, module_version)
-VALUES('Users', '20161204');
+VALUES('users', '20161204');
 
 INSERT INTO menu_links_tbl (menu_name, menu_link, menu_level, menu_weight) 
 VALUES ('manage modules', './?q=modules/manage', 100, 11);

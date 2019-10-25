@@ -77,10 +77,12 @@ class Page {
     }
 
     static function load_modules() {
-        $result = sql_query("SELECT * FROM modules_tbl");
+        $result = sql_query("SELECT module_name FROM modules_tbl");
 
         foreach ($result as $m) {
-            write_log("load module: " . $m["module_name"]);
+            if (DEBUG) {
+                write_log("load module: " . $m["module_name"]);            
+            }
             include_once(MODULE_PATH . strtolower($m["module_name"]) . "/{$m["module_name"]}.class.php");
             Page::$modules[$m["module_name"]] = new $m["module_name"]();
         }

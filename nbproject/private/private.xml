@@ -6,10 +6,6 @@
         <group>
             <file>file:/D:/WORK/srv/home/yacms/modules/modules/modules.class.php</file>
         </group>
-        <group name="Group 20190725-11:38:35">
-            <file>file:/D:/WORK/srv/home/yacms/modules/modules/modules.class.php</file>
-            <file>file:/D:/WORK/srv/home/yacms/install/install_sqlite.sql</file>
-            <file>file:/D:/WORK/srv/home/yacms/config.php</file>
-        </group>
+        <group name="Group 20190725-11:38:35"/>
     </open-files>
 </project-private>
