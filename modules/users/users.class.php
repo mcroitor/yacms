@@ -95,7 +95,7 @@ class users {
             return;
         }
         $query = "INSERT INTO config_tbl (variable_name, variable_value, variable_type) "
-                . "VALUES (null, '{$variable_name}', '{$variable_value}', '{$variable_type}')";
+                . "VALUES ('{$variable_name}', '{$variable_value}', '{$variable_type}')";
         sql_query($query, $error = "site property creation error: ", false);
         header("location:./?q=properties/manage");
         exit();

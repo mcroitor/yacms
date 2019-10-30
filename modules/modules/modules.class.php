@@ -26,7 +26,7 @@ class modules {
             $data["<!-- modules-list -->"] .= "<tr>"
                     . "<td>{$module['module_name']}</td>"
                     . "<td>{$module['module_version']}</td>"
-                    . "<td><a href='./q=module/remove/{$module['module_id']}'><div class='icon fa-remove'>&nbsp;</div></a></td>"
+                    . "<td><a href='./?q=module/remove/&mid={$module['module_id']}'><div class='icon fa-remove'>&nbsp;</div></a></td>"
                     . "<td>&nbsp;</td></tr>\n";
         }
         $data["<!-- modules-list -->"] .= "</table>";
@@ -36,9 +36,11 @@ class modules {
 
     function process_module_install() {
         Page::$modules["users"]->check_permissions(users::LEVEL_ADMINISTRATOR);
-        $module_name = filter_input(INPUT_POST, "module_name", FILTER_SANITIZE_STRING);
-        $this->module_upload();
-        module_install($module_name);
+        if ($this->module_upload() === true) {
+            $module_name = explode(".", $_FILES['module']['name'])[0];
+            module_install($module_name);
+            // TODO: if install failed?
+        }
         header("location:./?q=modules/manage");
         exit();
     }
@@ -68,4 +70,9 @@ class modules {
         return false;
     }
 
+    function process_module_remove(){
+        Page::$modules["users"]->check_permissions(users::LEVEL_ADMINISTRATOR);
+        header("location:./?q=modules/manage");
+        exit();
+    }
 }

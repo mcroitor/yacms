@@ -1,1 +1,1 @@
-INSERT INTO modules_tbl (module_name, module_version) VALUES(NULL, 'logview', '20180403');
+INSERT INTO modules_tbl (module_name, module_version) VALUES('logview', '20180403');

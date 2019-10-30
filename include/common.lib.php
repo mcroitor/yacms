@@ -197,6 +197,9 @@ function make_hook_name($path, $prefix = "", $postfix = "") {
  * @param type $module_name
  */
 function module_install($module_name) {
+    if(DEBUG){
+        write_log("install module: {$module_name}");
+    }
     $module_folder = MODULE_PATH . "{$module_name}/";
     $module_path = $module_folder . "{$module_name}.class.php";
     $module_install_sql = $module_folder . "install.sql";
