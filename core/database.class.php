@@ -30,5 +30,58 @@
  * @author Croitor Mihail <mcroitor@gmail.com>
  */
 class database {
+
     //put your code here
+    var $pdo;
+
+    function __construct() {
+        global $site;
+        try {
+            $this->pdo = new PDO($site->config->dsn);
+        } catch (Exception $exc) {
+            die('DB Error');
+        }
+    }
+
+    public function query_sql($query, $error = "Error: ", $need_fetch = true) {
+        global $site;
+        $array = array();
+        $result = $this->pdo->query($query);
+        if ($result === false) {
+            $aux = "{$error} {$query}: "
+                    . $this->pdo->errorInfo()[0]
+                    . " : "
+                    . $this->pdo->errorInfo()[1]
+                    . ", message = "
+                    . $this->pdo->errorInfo()[2];
+            $site->logger->debug($aux);
+            $site->logger->write($aux);
+            exit($aux);
+        }
+        if ($need_fetch) {
+            $array = $result->fetchAll();
+        }
+        return $array;
+    }
+
+    public function parse_sqldump($dump) {
+        if (file_exists($dump)) {
+            $sql = str_replace(["\n\r", "\r\n", "\n\n"], "\n", file_get_contents($dump));
+            $queries = explode(";", $sql);
+            foreach ($queries as $query) {
+                $query = $this->strip_sqlcomment(trim($query));
+                if ($query != '') {
+                    $this->query_sql($query, "parse error:", false);
+                }
+            }
+        }
+    }
+
+    private function strip_sqlcomment($string = '') {
+        $RXSQLComments = '@(--[^\r\n]*)|(/\*[\w\W]*?(?=\*/)\*/)@ms';
+        return (($string == '') ? '' : preg_replace($RXSQLComments, '', $string));
+    }
+
 }
+
+$site->database = new database();

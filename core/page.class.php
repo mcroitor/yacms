@@ -29,6 +29,86 @@
  *
  * @author Croitor Mihail <mcroitor@gmail.com>
  */
-class page{
-    
+class page {
+
+    /**
+     *
+     * @var array 
+     */
+    public static $data = [
+        "<!-- additional_meta -->" => "",
+        "<!-- theme_path -->" => "",
+        "<!-- additional_style -->" => "",
+        "<!-- additional_script -->" => "",
+        "<!-- page_title -->" => "This is a page title",
+        "<!-- page_header -->" => "This is a page header",
+        "<!-- page_primary_menu -->" => "Menu",
+        "<!-- page_content -->" => "Content",
+        "<!-- page_aside_content -->" => "Addblock",
+        "<!-- page_footer -->" => "This is a page footer"
+    ];
+
+    /**
+     *
+     * @var array 
+     */
+    static $modules = [];
+
+    /**
+     *
+     * @var array 
+     */
+    static $config = [];
+    private $site;
+
+    public function __construct() {
+        global $site;
+        $this->site = $site;
+
+        $_SESSION["user_level"] = isset($_SESSION["user_level"]) ? $_SESSION["user_level"] : 0;
+
+        $this->site->logger->writeDebug("--- PAGE OBJECT CREATING ---");
+
+        page::load_config();
+        page::load_modules();
+        if (!empty(Page::$config["page_title"])) {
+            page::$data["<!-- page_title -->"] = page::$config["page_title"];
+        }
+        if (!empty(page::$config["page_header"])) {
+            page::$data["<!-- page_header -->"] = page::$config["page_header"];
+        }
+    }
+
+    private static function load_config() {
+        global $site;
+        $query = "SELECT name, value FROM config";
+        $result = $site->database->query_sql($query);
+        foreach ($result as $value) {
+            Page::$config[$value["name"]] = $value["value"];
+        }
+    }
+
+    private static function load_modules() {
+        global $site;
+        $result = $site->database->query_sql("SELECT name FROM module");
+        foreach ($result as $m) {
+            $site->logger->writeDebug("load module: " . $m["name"]);
+//            include_once(MODULE_PATH . strtolower($m["name"]) . "/{$m["name"]}.class.php");
+//            Page::$modules[$m["name"]] = new $m["name"]();
+        }
+    }
+
+    public function render() {
+        global $site;
+        $site->logger->writeDebug("--- START PAGE GENERATING ---");
+        $site->logger->writeDebug("REQUEST_URI: " . filter_input(INPUT_SERVER, "REQUEST_URI"));
+        $site->logger->writeDebug("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
+
+        $tpl = file_get_contents("./templates/page.template.php");
+        $generator = new template($tpl);
+        return $generator->fill(page::$data)->data();
+    }
+
 }
+
+$site->page = new page();

@@ -24,7 +24,34 @@
  * THE SOFTWARE.
  */
 
-include_once './config.php';
-include_once './core/_all.php';
+/**
+ * Description of log
+ *
+ * @author Croitor Mihail <mcroitor@gmail.com>
+ */
+class logger {
+    var $logfile;
+    
+    public function __construct($logfile = "default.log") {
+        $this->logfile = $logfile;
+    }
 
-echo $site->page->render();
+    private function write($data, $logfile) {
+        $file = !empty($logfile) ? $logfile : $this->logfile;
+        if (isset($_SESSION["timezone"])) {
+            date_default_timezone_set($_SESSION["timezone"]);
+        }
+        $str = date("Y-m-d H:i:s") . "\t: {$data}\n";
+        file_put_contents($file, $str, FILE_APPEND );
+    }
+
+    public function writeDebug($data) {
+        global $site;
+        if($site->config->debug === true){
+            $this->write($data, $site->config->debugfile);
+        }
+    }
+
+}
+
+$site->logger = new logger($site->config->errorlogfile);

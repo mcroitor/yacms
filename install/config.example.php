@@ -3,10 +3,10 @@
 $site = new stdClass();
 $config = new stdClass();
 
-$config->dsn = "sqlite:./yacms.db";
+$config->dsn = "sqlite:./databasename.db";
 $config->debug = true;
-$config->debugfile = "php://stdout";
-$config->errorlogfile = "error.log";
+$config->debuglog = "php://stdout";
+$config->errorlog = "error.log";
 
 // start site populating
 $site->config = $config;
