@@ -82,6 +82,16 @@ class database {
         return (($string == '') ? '' : preg_replace($RXSQLComments, '', $string));
     }
 
+    /**
+     * select $data from $table 
+     * @param string $table
+     * @param string[] $data
+     */
+    public function select($table, $data){
+        $fields = implode(", ", $data);        
+        $query = "SELECT {$fields} FROM {$table}";
+        return $this->query_sql($query);
+    }
 }
 
 $site->database = new database();
