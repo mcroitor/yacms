@@ -6,7 +6,7 @@ Rewritten, uses microservices. Default database is sqlite.
 
 ## Structure:
 
-.
+<pre>**yacms**
 +-- **core** - default functionality
 +-- **help** - documentation
 +-- **install** - installation scripts
@@ -16,3 +16,4 @@ Rewritten, uses microservices. Default database is sqlite.
 |   +-- **default** - default theme
 +-- _index.php_ - entry point
 +-- _config.php_ - configuration file
+</pre>
