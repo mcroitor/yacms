@@ -6,12 +6,13 @@ Rewritten, uses microservices. Default database is sqlite.
 
 ## Structure:
 
- - _core_ - default functionality
- - _help_ - documentation
- - _install_ - installation scripts
- - _libs_ - external libraries
- - _modules_ - extentions
- - _themes_ - themes
-   - _default_ - default theme
- - index.php - entry point
- - config.php - configuration file
+.
++-- **core** - default functionality
++-- **help** - documentation
++-- **install** - installation scripts
++-- **libs** - external libraries
++-- **modules** - extentions
++-- **themes** - themes
+|   +-- **default** - default theme
++-- _index.php_ - entry point
++-- _config.php_ - configuration file
