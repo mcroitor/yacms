@@ -26,6 +26,8 @@
 <html>
     <head>
         <meta charset="utf8" />
+        <link rel="stylesheet" href="../themes/normalize.css" />
+        <link rel="stylesheet" href="../themes/skeleton.css" />
         <script type="text/javascript" src="../lib/api.js"></script>
         <script type="text/javascript">
             client.http.onload = function () {
@@ -41,10 +43,11 @@
                 result = client.request('/install/stages.php', data);
                 _d.get('stage').innerHTML = result;
             }
+            window.onload = get_stage();
         </script>
         <title>yacms installation</title>
     </head>
-    <body onload="get_stage();">
+    <body>
         <article>
             <header><h2>Setup</h2></header>
         </article>

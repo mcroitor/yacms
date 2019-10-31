@@ -1,5 +1,6 @@
 <?php
-/* 
+
+/*
  * The MIT License
  *
  * Copyright 2019 Croitor Mihail <mcroitor@gmail.com>.
@@ -24,22 +25,26 @@
  */
 
 include_once '../core/template.class.php';
-$stage = (int)filter_input(INPUT_POST, "stage");
+$stage = (int) filter_input(INPUT_POST, "stage");
 
 file_put_contents("php://stdout", "stage = {$stage}\n");
 
-if(empty($stage)){
+if (empty($stage)) {
     if (file_exists("../config.php")) {
-        die("<h2>site is installed!</h2>");
+        echo "<h2>site is installed!</h2>";
+        echo "<form method='post' name='stageform' action='../'>";
+        echo "<input class='button-primary' type='submit' value='Done' />";
+        echo "</form>";
+        exit();
     }
     echo "<h3>Configuring...</h3>";
     echo "<fieldset><legend>database configuration</legend>";
     echo "<form method='post' name='stageform'>";
-    ++ $stage;
+    ++$stage;
     echo "<input type='hidden' name='stage' value='{$stage}' />";
     echo "<table>";
-    echo "  <tr><td>DB name</td><td><input type='text' name='dbname' required='required' placeholder='mydatabase' /></td></tr>";
-    echo "  <tr><td colspan='2'><input type='button' value='install' onclick='get_stage();' /></td></tr>";
+    echo "  <tr><td>DB name</td><td><input class='u-full-width' type='text' name='dbname' required='required' placeholder='mydatabase' /></td></tr>";
+    echo "  <tr><td colspan='2'><input class='button-primary' type='button' value='install' onclick='get_stage();' /></td></tr>";
     echo "</table>";
     exit();
 }
@@ -49,9 +54,9 @@ if ($stage === 1) {
     // create config file here
     $cfgfile = file_get_contents("./config.example.php");
     $data["databasename"] = filter_input(INPUT_POST, "dbname");
-    file_put_contents("../config.php", (new template($cfgfile))->fill($data)->value());    
+    file_put_contents("../config.php", (new template($cfgfile))->fill($data)->value());
     echo "<p>done!</p>";
-    
+
     echo "<p>install tables ... </p>";
     include_once '../config.php';
     // fix sql connection string
@@ -61,9 +66,9 @@ if ($stage === 1) {
     $site->database->parse_sqldump("./sqlite.sql");
     echo "<p>tables installed!</p>";
     echo "<form method='post' name='stageform'>";
-    ++ $stage;
+    ++$stage;
     echo "<input type='hidden' name='stage' value='{$stage}' />";
-    echo "<input type='button' value='Next' onclick='get_stage();' />";
+    echo "<input class='button-primary' type='button' value='Next' onclick='get_stage();' />";
     echo "</form>";
     exit();
 }
@@ -71,9 +76,9 @@ if ($stage === 1) {
 if ($stage === 2) {
     echo "<h3>Done!</h3>";
     echo "<form method='post' name='stageform' action='../'>";
-    ++ $stage;
+    ++$stage;
     echo "<input type='hidden' name='stage' value='{$stage}' />";
-    echo "<input type='submit' value='Done' />";
+    echo "<input class='button-primary' type='submit' value='Done' />";
     echo "</form>";
     exit();
 }

@@ -4,6 +4,8 @@
         <meta encoding=UTF-8" />
         <!-- additional_meta -->
         <link rel="stylesheet" href="./themes/defines.css" />
+        <link rel="stylesheet" href="./themes/normalize.css" />
+        <link rel="stylesheet" href="./themes/skeleton.css" />
         <!-- additional_style -->
         <!-- additional_script -->
         <title><!-- page_title --></title>
