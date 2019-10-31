@@ -6,14 +6,14 @@ Rewritten, uses microservices. Default database is sqlite.
 
 ## Structure:
 
-<pre>**yacms**
-+-- **core** - default functionality
-+-- **help** - documentation
-+-- **install** - installation scripts
-+-- **libs** - external libraries
-+-- **modules** - extentions
-+-- **themes** - themes
-|   +-- **default** - default theme
-+-- _index.php_ - entry point
-+-- _config.php_ - configuration file
+<pre>yacms
++-- <b>core</b> - default functionality
++-- <b>help</b> - documentation
++-- <b>install</b> - installation scripts
++-- <b>libs</b> - external libraries
++-- <b>modules</b> - extentions
++-- <b>themes</b> - themes
+|   +-- <b>default</b> - default theme
++-- <i>index.php</i> - entry point
++-- <i>config.php</i> - configuration file
 </pre>
