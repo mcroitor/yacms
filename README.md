@@ -1,14 +1,17 @@
-_yacms_
-=====
+# _yacms_
 
-Yet another php+mysql CMS
+Yet another CMS, the 4th iteration.
 
-The 3rd iteration.
+Rewritten, uses microservices. Default database is sqlite.
 
-Rewritten, uses classes.
-============================
-For installing do following steps:
-    0) unpack / copy site in folder <DIR>
-    1) create a database, a user for this database.
-    2) set correct URL in <DIR>/include/common.lib.php
-    3) do script http://&lt;SITE&gt;/install/
+## Structure:
+
+ - _core_ - default functionality
+ - _help_ - documentation
+ - _install_ - installation scripts
+ - _libs_ - external libraries
+ - _modules_ - extentions
+ - _themes_ - themes
+   - _default_ - default theme
+ - index.php - entry point
+ - config.php - configuration file

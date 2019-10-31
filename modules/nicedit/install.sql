@@ -1,1 +1,0 @@
-INSERT INTO modules_tbl (module_name, module_version) VALUES('nicedit', '20170102');
