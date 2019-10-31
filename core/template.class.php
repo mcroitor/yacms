@@ -25,18 +25,35 @@
  */
 
 /**
- * Description of template
+ * simple template filler
  *
  * @author Croitor Mihail <mcroitor@gmail.com>
  */
 class template {
 
+    /**
+     * template
+     * @var string 
+     */
     var $template;
 
+    /**
+     * 
+     * @param string $template
+     */
     public function __construct($template) {
         $this->template = $template;
     }
 
+    /**
+     * $data is a simple list of pairs <i>$pattern</i> => <i>$value</i>
+     * Method replace <i>$pattern</i> with <i>$value</i> 
+     * and return new template object
+     * Example:
+     * <pre>$template->fill($data1)->fill(data2)->value();</pre>
+     * @param array $data
+     * @return \template
+     */
     public function fill($data) {
         $html = $this->template;
         foreach ($data as $pattern => $value) {
@@ -45,7 +62,12 @@ class template {
         return new template($html);
     }
 
-    public function data() {
+    /**
+     * returns template value
+     * @return string
+     */
+    public function value() {
         return $this->template;
     }
+
 }

@@ -61,6 +61,10 @@ class page {
     static $config = [];
     private $site;
 
+    /**
+     * 
+     * @global type $site
+     */
     public function __construct() {
         global $site;
         $this->site = $site;
@@ -79,6 +83,10 @@ class page {
         }
     }
 
+    /**
+     * 
+     * @global type $site
+     */
     private static function load_config() {
         global $site;
         $query = "SELECT name, value FROM config";
@@ -88,6 +96,10 @@ class page {
         }
     }
 
+    /**
+     * 
+     * @global type $site
+     */
     private static function load_modules() {
         global $site;
         $result = $site->database->query_sql("SELECT name FROM module");
@@ -98,6 +110,11 @@ class page {
         }
     }
 
+    /**
+     * 
+     * @global type $site
+     * @return string
+     */
     public function render() {
         global $site;
         $site->logger->writeDebug("--- START PAGE GENERATING ---");
@@ -106,7 +123,7 @@ class page {
 
         $tpl = file_get_contents("./templates/page.template.php");
         $generator = new template($tpl);
-        return $generator->fill(page::$data)->data();
+        return $generator->fill(page::$data)->value();
     }
 
 }
