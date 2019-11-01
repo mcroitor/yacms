@@ -61,6 +61,16 @@ class template {
         }
         return new template($html);
     }
+    
+    /**
+     * Replace single $pattern with $value
+     * @param string $pattern
+     * @param string $value
+     * @return \template
+     */
+    public function fill_value($pattern, $value){
+        return  new template(str_replace($pattern, $value, $this->template));        
+    }
 
     /**
      * returns template value

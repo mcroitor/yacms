@@ -71,11 +71,11 @@ class page {
 
         $_SESSION["user_level"] = isset($_SESSION["user_level"]) ? $_SESSION["user_level"] : 0;
 
-        $this->site->logger->writeDebug("--- PAGE OBJECT CREATING ---");
+        $this->site->logger->write_debug("--- PAGE OBJECT CREATING ---");
 
         page::load_config();
         page::load_modules();
-        if (!empty(Page::$config["page_title"])) {
+        if (!empty(page::$config["page_title"])) {
             page::$data["<!-- page_title -->"] = page::$config["page_title"];
         }
         if (!empty(page::$config["page_header"])) {
@@ -92,7 +92,7 @@ class page {
         $query = "SELECT name, value FROM config";
         $result = $site->database->query_sql($query);
         foreach ($result as $value) {
-            Page::$config[$value["name"]] = $value["value"];
+            page::$config[$value["name"]] = $value["value"];
         }
     }
 
@@ -104,7 +104,7 @@ class page {
         global $site;
         $result = $site->database->query_sql("SELECT name FROM module");
         foreach ($result as $m) {
-            $site->logger->writeDebug("load module: " . $m["name"]);
+            $site->logger->write_debug("load module: " . $m["name"]);
 //            include_once(MODULE_PATH . strtolower($m["name"]) . "/{$m["name"]}.class.php");
 //            Page::$modules[$m["name"]] = new $m["name"]();
         }
@@ -117,9 +117,9 @@ class page {
      */
     public function render() {
         global $site;
-        $site->logger->writeDebug("--- START PAGE GENERATING ---");
-        $site->logger->writeDebug("REQUEST_URI: " . filter_input(INPUT_SERVER, "REQUEST_URI"));
-        $site->logger->writeDebug("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
+        $site->logger->write_debug("--- START PAGE GENERATING ---");
+        $site->logger->write_debug("REQUEST_URI: " . filter_input(INPUT_SERVER, "REQUEST_URI"));
+        $site->logger->write_debug("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
 
         $tpl = file_get_contents("./templates/page.template.php");
         $generator = new template($tpl);

@@ -45,7 +45,7 @@ class logger {
         file_put_contents($file, $str, FILE_APPEND );
     }
 
-    public function writeDebug($data) {
+    public function write_debug($data) {
         global $site;
         if($site->config->debug === true){
             $this->write($data, $site->config->debugfile);
