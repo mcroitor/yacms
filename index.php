@@ -24,6 +24,9 @@
  * THE SOFTWARE.
  */
 
+if (file_exists('./config.php') === false) {
+    header("location:/install/");
+}
 include_once './config.php';
 include_once './core/_all.php';
 

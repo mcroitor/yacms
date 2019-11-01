@@ -4,6 +4,16 @@ Yet another CMS, the 4th iteration.
 
 Rewritten, uses microservices. Default database is sqlite.
 
+## how to install
+
+Do this:
+```bash
+git clone https://github.com/mcroitor/yacms
+php -t yacms/ -S localhost:8000
+```
+Site will be started at http://localhost:8000 using PHP built-in server.
+Access it and firstly you will be redirected to installation script.
+
 ## Structure:
 
 <pre>yacms
