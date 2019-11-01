@@ -26,3 +26,33 @@ THE SOFTWARE.
     Author     : Croitor Mihail <mcroitor@gmail.com>
 */
 
+#page-container{
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+#page-header{
+    font-size: 4.0rem; 
+    line-height: 1.2;  
+    letter-spacing: -.1rem;
+}
+
+#page-primary-menu{
+
+}
+#page-aside-content{
+
+}
+#page-content{
+
+}
+#page-footer{
+
+}
+#stage{
+
+}

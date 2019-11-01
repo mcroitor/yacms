@@ -12,11 +12,13 @@
     </head>
     <body>
         <div id="page-container">
-            <header id="page-header"><!-- page_header --></header>
-            <menu id="page-primary-menu"><!-- page_primary_menu --></menu>
-            <section id="page-content"><!-- page_content --></section>
-            <aside id="page-aside-content"><!-- page_aside_content --></aside>
-            <footer id="page-footer"><!-- page_footer --></footer>
+            <header id="page-header" class="row"><!-- page_header --></header>
+            <menu id="page-primary-menu" class="row"><!-- page_primary_menu --></menu>
+            <div class="row">
+                <section id="page-content" class="color-1 ten columns"><!-- page_content --></section>
+                <aside id="page-aside-content" class="color-1 two columns"><!-- page_aside_content --></aside>
+            </div>
+            <footer id="page-footer" class="row"><!-- page_footer --></footer>
         </div>
     </body>
 </html>

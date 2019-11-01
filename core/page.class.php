@@ -81,6 +81,9 @@ class page {
         if (!empty(page::$config["page_header"])) {
             page::$data["<!-- page_header -->"] = page::$config["page_header"];
         }
+        // set theme
+        page::$data["<!-- theme_path -->"]  = page::$config["default_theme"];
+        page::$data["<!-- additional_style -->"] .= "<link rel='stylesheet' href='./themes/" .page::$config['default_theme'] . "/main.css'>";
     }
 
     /**
