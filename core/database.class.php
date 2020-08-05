@@ -54,8 +54,8 @@ class database {
                     . $this->pdo->errorInfo()[1]
                     . ", message = "
                     . $this->pdo->errorInfo()[2];
-            $site->logger->debug($aux);
-            $site->logger->write($aux);
+            $site->logger->write_debug($aux);
+            //$site->logger->write($aux);
             exit($aux);
         }
         if ($need_fetch) {

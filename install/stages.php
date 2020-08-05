@@ -55,13 +55,13 @@ if ($stage === 1) {
     $cfgfile = file_get_contents("./config.example.php");
     $data["databasename"] = filter_input(INPUT_POST, "dbname");
     file_put_contents("../config.php", (new template($cfgfile))->fill($data)->value());
-    echo "<p>done!</p>";
+    echo "<p>Done!</p>";
 
     echo "<p>install tables ... </p>";
     include_once '../config.php';
     // fix sql connection string
     $site->config->dsn = str_replace("sqlite:./", "sqlite:../", $site->config->dsn);
-    include_once '../core/_all.php';
+    include_once '../core/database.class.php';
     // create tables here
     $site->database->parse_sqldump("./sqlite.sql");
     echo "<p>tables installed!</p>";

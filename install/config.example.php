@@ -5,8 +5,8 @@ $config = new stdClass();
 
 $config->dsn = "sqlite:./databasename.db";
 $config->debug = true;
-$config->debuglog = "php://stdout";
-$config->errorlog = "error.log";
+$config->debugfile = "php://stdout";
+$config->errorlogfile = "error.log";
 
 // start site populating
 $site->config = $config;
