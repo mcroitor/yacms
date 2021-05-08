@@ -3,13 +3,16 @@
     <coverage xmlns="http://www.netbeans.org/ns/code-coverage/1" enabled="false"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/WORK/srv/home/yacms/modules/modules/modules.class.php</file>
-        </group>
         <group name="Group 20190725-11:38:35">
             <file>file:/D:/WORK/srv/home/yacms/themes/default/main.css</file>
             <file>file:/D:/WORK/srv/home/yacms/core/page.class.php</file>
             <file>file:/D:/WORK/srv/home/yacms/core/database.class.php</file>
+        </group>
+        <group>
+            <file>file:/D:/projects/NetBeansProjects/git/yacms/README.md</file>
+            <file>file:/D:/projects/NetBeansProjects/git/yacms/index.php</file>
+            <file>file:/D:/projects/NetBeansProjects/git/yacms/lib/api.js</file>
+            <file>file:/D:/projects/NetBeansProjects/git/yacms/core/page.class.php</file>
         </group>
     </open-files>
 </project-private>

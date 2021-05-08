@@ -129,6 +129,10 @@ class page {
         return $generator->fill(page::$data)->value();
     }
 
+    public function process() {
+        global $site;
+        $post = filter_input(INPUT_POST, "q");
+    }
 }
 
 $site->page = new page();

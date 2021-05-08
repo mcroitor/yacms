@@ -38,12 +38,20 @@ class database {
         global $site;
         try {
             $this->pdo = new PDO($site->config->dsn);
-        } catch (Exception $exc) {
-            die('DB Error');
+        } catch (Exception $ex) {
+            die('DB init Error: ' . $ex->getMessage());
         }
     }
 
-    public function query_sql($query, $error = "Error: ", $need_fetch = true) {
+    /**
+     * 
+     * @global string $site
+     * @param string $query
+     * @param string $error
+     * @param bool $need_fetch
+     * @return array
+     */
+    public function query_sql(string $query, string $error = "Error: ", bool $need_fetch = true): array {
         global $site;
         $array = array();
         $result = $this->pdo->query($query);
@@ -64,7 +72,11 @@ class database {
         return $array;
     }
 
-    public function parse_sqldump($dump) {
+    /**
+     * 
+     * @param string $dump
+     */
+    public function parse_sqldump(string $dump) {
         if (file_exists($dump)) {
             $sql = str_replace(["\n\r", "\r\n", "\n\n"], "\n", file_get_contents($dump));
             $queries = explode(";", $sql);
@@ -77,9 +89,14 @@ class database {
         }
     }
 
-    private function strip_sqlcomment($string = '') {
+    /**
+     * 
+     * @param string $string
+     * @return string
+     */
+    private function strip_sqlcomment(string $string = ''): string {
         $RXSQLComments = '@(--[^\r\n]*)|(/\*[\w\W]*?(?=\*/)\*/)@ms';
-        return (($string == '') ? '' : preg_replace($RXSQLComments, '', $string));
+        return (empty($string) ? '' : preg_replace($RXSQLComments, '', $string));
     }
 
     /**
@@ -87,11 +104,60 @@ class database {
      * @param string $table
      * @param string[] $data
      */
-    public function select($table, $data){
-        $fields = implode(", ", $data);        
+    public function select(string $table, array $data = ['*'], array $where = [], array $limit = []): array {
+        $fields = implode(", ", $data);
+
         $query = "SELECT {$fields} FROM {$table}";
+        if (!empty($where)) {
+            $tmp = [];
+            foreach ($where as $key => $value) {
+                $tmp[] = "{$key}={$value}";
+            }
+            $query .= " WHERE " . implode(" AND ", $tmp);
+        }
+        if (!empty($limit)) {
+            $query .= "LIMIT {$limit['from']}, {$limit['total']}";
+        }
+
         return $this->query_sql($query);
     }
+
+    /**
+     * 
+     * @param string $table
+     * @param array $conditions
+     * @return array
+     */
+    public function delete(string $table, array $conditions): array {
+        $tmp = [];
+        foreach ($conditions as $key => $value) {
+            $tmp[] = "{$key}={$value}";
+        }
+        $query = "DELETE FROM {$table} WHERE " . implode(" AND ", $tmp);
+        return $this->query_sql($query, "Error: ", false);
+    }
+
+    /**
+     * 
+     * @param string $table
+     * @param array $values
+     * @param array $conditions
+     * @return array
+     */
+    public function update(string $table, array $values, array $conditions): array {
+        $tmp1 = [];
+        foreach ($conditions as $key => $value) {
+            $tmp1[] = "{$key}={$value}";
+        }
+        $tmp2 = [];
+        foreach ($values as $key => $value) {
+            $tmp2[] = "{$key}={$value}";
+        }
+
+        $query = "UPDATE {$table} SET " . implode(", ", $tmp2) . " WHERE " . implode(" AND ", $tmp1);
+        return $this->query_sql($query, "Error: ", false);
+    }
+
 }
 
 $site->database = new database();
