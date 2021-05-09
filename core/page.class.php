@@ -107,8 +107,8 @@ class page {
         $result = $site->database->select("module", ["name"]);
         foreach ($result as $m) {
             $site->logger->write_debug("load module: " . $m["name"]);
-//            include_once(MODULE_PATH . strtolower($m["name"]) . "/{$m["name"]}.class.php");
-//            Page::$modules[$m["name"]] = new $m["name"]();
+            include_once(MODULE_PATH . strtolower($m["name"]) . "/{$m["name"]}.class.php");
+            Page::$modules[$m["name"]] = new $m["name"]();
         }
     }
 
@@ -128,9 +128,16 @@ class page {
         return $generator->fill(page::$data)->value();
     }
 
+    /**
+     * 
+     * @global type $site
+     */
     public function process() {
         global $site;
         $post = filter_input(INPUT_POST, "q");
+        foreach (Page::$modules as $module_name => $module) {
+            
+        }
     }
 }
 
