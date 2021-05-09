@@ -100,9 +100,12 @@ class database {
     }
 
     /**
-     * select $data from $table 
+     * 
      * @param string $table
-     * @param string[] $data
+     * @param array $data
+     * @param array $where
+     * @param array $limit
+     * @return array
      */
     public function select(string $table, array $data = ['*'], array $where = [], array $limit = []): array {
         $fields = implode(", ", $data);

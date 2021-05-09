@@ -92,8 +92,7 @@ class page {
      */
     private static function load_config() {
         global $site;
-        $query = "SELECT name, value FROM config";
-        $result = $site->database->query_sql($query);
+        $result = $site->database->select("config", ["name", "value"]);
         foreach ($result as $value) {
             page::$config[$value["name"]] = $value["value"];
         }
@@ -105,7 +104,7 @@ class page {
      */
     private static function load_modules() {
         global $site;
-        $result = $site->database->query_sql("SELECT name FROM module");
+        $result = $site->database->select("module", ["name"]);
         foreach ($result as $m) {
             $site->logger->write_debug("load module: " . $m["name"]);
 //            include_once(MODULE_PATH . strtolower($m["name"]) . "/{$m["name"]}.class.php");
