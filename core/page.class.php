@@ -35,7 +35,7 @@ class page {
      *
      * @var array 
      */
-    public static $data = [
+    public $data = [
         "<!-- additional_meta -->" => "",
         "<!-- theme_path -->" => "",
         "<!-- additional_style -->" => "",
@@ -52,93 +52,94 @@ class page {
      *
      * @var array 
      */
-    static $modules = [];
+    public $modules = [];
 
     /**
      *
      * @var array 
      */
-    static $config = [];
+    public $config = [];
     private $site;
 
     /**
      * 
-     * @global type $site
      */
     public function __construct() {
         global $site;
         $this->site = $site;
 
-        $_SESSION["user_level"] = isset($_SESSION["user_level"]) ? $_SESSION["user_level"] : 0;
-
         $this->site->logger->write_debug("--- PAGE OBJECT CREATING ---");
 
-        page::load_config();
-        page::load_modules();
-        if (!empty(page::$config["page_title"])) {
-            page::$data["<!-- page_title -->"] = page::$config["page_title"];
+        $this->load_config();
+        $this->load_modules();
+        if (!empty($this->config["page_title"])) {
+            $this->data["<!-- page_title -->"] = $this->config["page_title"];
         }
-        if (!empty(page::$config["page_header"])) {
-            page::$data["<!-- page_header -->"] = page::$config["page_header"];
+        if (!empty($this->config["page_header"])) {
+            $this->data["<!-- page_header -->"] = $this->config["page_header"];
         }
         // set theme
-        page::$data["<!-- theme_path -->"]  = page::$config["default_theme"];
-        page::$data["<!-- additional_style -->"] .= "<link rel='stylesheet' href='./themes/" .page::$config['default_theme'] . "/main.css'>";
+        $this->data["<!-- theme_path -->"] = $this->config["default_theme"];
+        $this->data["<!-- additional_style -->"] .= "<link rel='stylesheet' href='./themes/" . $this->config['default_theme'] . "/main.css'>";
     }
 
     /**
      * 
-     * @global type $site
      */
-    private static function load_config() {
-        global $site;
-        $result = $site->database->select("config", ["name", "value"]);
+    private function load_config() {
+        $result = $this->site->database->select("config", ["name", "value"]);
         foreach ($result as $value) {
-            page::$config[$value["name"]] = $value["value"];
+            $this->config[$value["name"]] = $value["value"];
         }
     }
 
     /**
      * 
-     * @global type $site
      */
-    private static function load_modules() {
-        global $site;
-        $result = $site->database->select("module", ["name"]);
+    private function load_modules() {
+        $result = $this->site->database->select("module", ["name"]);
         foreach ($result as $m) {
-            $site->logger->write_debug("load module: " . $m["name"]);
-            include_once(MODULE_PATH . strtolower($m["name"]) . "/{$m["name"]}.class.php");
-            Page::$modules[$m["name"]] = new $m["name"]();
+            $this->site->logger->write_debug("load module: " . $m["name"]);
+            include_once(MODULE_DIR . strtolower($m["name"]) . "/{$m["name"]}.class.php");
+            $this->modules[$m["name"]] = new $m["name"]();
         }
     }
 
     /**
      * 
-     * @global type $site
      * @return string
      */
     public function render() {
-        global $site;
-        $site->logger->write_debug("--- START PAGE GENERATING ---");
-        $site->logger->write_debug("REQUEST_URI: " . filter_input(INPUT_SERVER, "REQUEST_URI"));
-        $site->logger->write_debug("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
+        $this->site->logger->write_debug("--- START PAGE GENERATING ---");
+        $this->site->logger->write_debug("REQUEST_URI: " . filter_input(INPUT_SERVER, "REQUEST_URI"));
+        $this->site->logger->write_debug("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
 
         $tpl = file_get_contents("./templates/page.template.php");
         $generator = new template($tpl);
-        return $generator->fill(page::$data)->value();
+        foreach($this->modules as $module){
+            if(method_exists($module, "data")){
+                $module->data();
+            }
+        }
+        return $generator->fill($this->data)->value();
     }
 
     /**
      * 
-     * @global type $site
      */
     public function process() {
-        global $site;
-        $post = filter_input(INPUT_POST, "q");
-        foreach (Page::$modules as $module_name => $module) {
-            
+        $this->site->logger->write_debug("page->process() call.");
+        //$this->site->logger->write_debug("get = " . print_r($_GET, true));
+        //$this->site->logger->write_debug("post = " . print_r($_POST, true));
+        $q = filter_input(INPUT_GET, "q");
+        $module_name = explode("/", $q)[0];
+        $this->site->logger->write_debug("q = {$q}");
+        $this->site->logger->write_debug("try to access module '{$module_name}'.");
+        if(!empty($this->modules[$module_name])){
+            $this->modules[$module_name]->process($q);
         }
     }
+
 }
 
 $site->page = new page();

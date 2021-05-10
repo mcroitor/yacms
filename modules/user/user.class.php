@@ -29,6 +29,82 @@
  *
  * @author Croitor Mihail <mcroitor@gmail.com>
  */
-class user {
-    //put your code here
+class user implements module {
+
+    const GUEST = 0;
+    const USER  = 1;
+    const ADMIN = 100;
+    
+    private $name;
+    private $level;
+    
+    
+    public function __construct() {
+        session_start();
+        if(empty($_SESSION['user'])){
+            $_SESSION['user'] = [];
+            $_SESSION['user']['level'] = user::GUEST;
+            $_SESSION['user']['name'] = 'Guest';
+        }
+        $this->name = $_SESSION['user']['name'];
+        $this->level = $_SESSION['user']['level'];
+    }
+    
+    public function data() {
+        global $site;
+        $site->logger->write_debug("complete page with login form");
+        if($this->level === user::GUEST){
+            $site->page->data["<!-- page_aside_content -->"] = file_get_contents(MODULE_DIR . "user/templates/login.template.php");
+        }
+        else{
+            $site->page->data["<!-- page_aside_content -->"] = file_get_contents(MODULE_DIR . "user/templates/logout.template.php");
+        }
+    }
+    
+    public function process(string $post): void {
+        global $site;
+        $site->logger->write_debug("user->process() call.");
+        $chunks = explode("/", $post);
+        unset($chunks[0]);
+        $method_name = implode("_", $chunks);
+        if(method_exists($this, $method_name)){
+            $this->$method_name();
+        }
+    }
+
+    private function login(): void {
+        // TODO #: authentication
+        global $site;
+        $db = $site->database;
+        $username = filter_input(INPUT_POST, "username");
+        $password = filter_input(INPUT_POST, "password");
+        $key = crypt($username . $password, $password);
+        $what = ["username" => $username, "password" => $key];
+        if($db->exists("user", $what)){
+            $user = $db->select("user", ["username", "email", "level"], $what)[0];
+            $this->name = $user["username"];
+            $this->level = $user["level"];
+        }
+        $_SESSION["user"]["name"] = $this->name;
+        $_SESSION["user"]["level"] = $this->level;
+    }
+    
+    private function logout(): void {
+        session_destroy();
+        header("location:/");
+        exit();
+    }
+
+    public function info(): string {
+        return "";
+    }
+
+    public function name(): string {
+        return "user";
+    }
+
+    public function version(): string {
+        return "202105101100";
+    }
+
 }

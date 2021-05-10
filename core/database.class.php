@@ -25,16 +25,16 @@
  */
 
 /**
- * Description of database
+ * PDO wrapper
  *
  * @author Croitor Mihail <mcroitor@gmail.com>
  */
 class database {
 
     //put your code here
-    var $pdo;
+    private $pdo;
 
-    function __construct() {
+    public function __construct() {
         global $site;
         try {
             $this->pdo = new PDO($site->config->dsn);
@@ -44,7 +44,7 @@ class database {
     }
 
     /**
-     * 
+     * Common query method
      * @global string $site
      * @param string $query
      * @param string $error
@@ -73,7 +73,7 @@ class database {
     }
 
     /**
-     * 
+     * Method for dump parsing and execution
      * @param string $dump
      */
     public function parse_sqldump(string $dump) {
@@ -90,7 +90,7 @@ class database {
     }
 
     /**
-     * 
+     * Method that removes SQL comments, used for dump execution.
      * @param string $string
      * @return string
      */
@@ -100,11 +100,11 @@ class database {
     }
 
     /**
-     * 
+     * Simplified selection.
      * @param string $table
-     * @param array $data
-     * @param array $where
-     * @param array $limit
+     * @param array $data enumerate columns for selection. Sample: ['id', 'name'].
+     * @param array $where associative conditions.
+     * @param array $limit definition sample: ['from' => '1', 'total' => '100'].
      * @return array
      */
     public function select(string $table, array $data = ['*'], array $where = [], array $limit = []): array {
@@ -114,7 +114,7 @@ class database {
         if (!empty($where)) {
             $tmp = [];
             foreach ($where as $key => $value) {
-                $tmp[] = "{$key}={$value}";
+                $tmp[] = "{$key}='{$value}'";
             }
             $query .= " WHERE " . implode(" AND ", $tmp);
         }
@@ -126,7 +126,7 @@ class database {
     }
 
     /**
-     * 
+     * Delete rows from table <b>$table</b>. Condition is required.
      * @param string $table
      * @param array $conditions
      * @return array
@@ -141,7 +141,8 @@ class database {
     }
 
     /**
-     * 
+     * Update fields <b>$values</b> in table <b>$table</b>. <b>$values</b> and 
+     * <b>$conditions</b> are required. 
      * @param string $table
      * @param array $values
      * @param array $conditions
@@ -150,17 +151,27 @@ class database {
     public function update(string $table, array $values, array $conditions): array {
         $tmp1 = [];
         foreach ($conditions as $key => $value) {
-            $tmp1[] = "{$key}={$value}";
+            $tmp1[] = "{$key}='{$value}'";
         }
         $tmp2 = [];
         foreach ($values as $key => $value) {
-            $tmp2[] = "{$key}={$value}";
+            $tmp2[] = "{$key}='{$value}'";
         }
 
         $query = "UPDATE {$table} SET " . implode(", ", $tmp2) . " WHERE " . implode(" AND ", $tmp1);
         return $this->query_sql($query, "Error: ", false);
     }
 
+    /**
+     * Check if exists row with value(s) in table.
+     * @param string $table
+     * @param array $where
+     * @return bool
+     */
+    public function exists(string $table, array $where): bool{
+        $result = $this->select($table, ["count(*) as count"], $where);
+        return $result[0]["count"] > 0;
+    }
 }
 
 $site->database = new database();

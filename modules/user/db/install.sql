@@ -1,9 +1,7 @@
-<?php
-
-/*
+/* 
  * The MIT License
  *
- * Copyright 2019 Croitor Mihail <mcroitor@gmail.com>.
+ * Copyright 2021 XiaomiPRO.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+/**
+ * Author:  XiaomiPRO
+ * Created: 10 мая 2021 г.
+ */
 
-if (file_exists('./config.php') === false) {
-    header("location:/install/");
-    exit();
-}
-include_once './config.php';
-include_once './core/_all.php';
+DROP TABLE IF EXISTS user;
 
-$site->page->process();
-echo $site->page->render();
+CREATE TABLE user (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    username TEXT,
+    password TEXT,
+    email TEXT,
+    level INT
+);
+
+INSERT INTO user (username, password, email, level) VALUES ('admin', 'password', 'i@love.you', 100);

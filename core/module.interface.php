@@ -25,10 +25,12 @@
  */
 
 /**
- * Description of modules
+ * Base for modules
  *
  * @author XiaomiPRO
  */
-class modules {
-    //put your code here
+interface module {
+    public function name(): string;
+    public function version(): string;
+    public function info(): string;
 }
