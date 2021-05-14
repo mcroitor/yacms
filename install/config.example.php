@@ -1,5 +1,8 @@
 <?php
 
+const WWW_DIR = __DIR__;
+const MODULE_DIR = WWW_DIR . "/modules/";
+
 $site = new stdClass();
 $config = new stdClass();
 

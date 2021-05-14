@@ -74,6 +74,28 @@ if ($stage === 1) {
 }
 
 if ($stage === 2) {
+    echo "<h3>Install plugins...</h3>";
+    include_once '../config.php';
+    $site->config->dsn = str_replace("sqlite:./", "sqlite:../", $site->config->dsn);
+    include_once '../core/_all.php';
+    include_once '../core/modulemanager.class.php';
+
+    $manager = new core\modulemanager();
+    $modules = $manager->get_modules();
+    foreach ($modules as $module) {
+        echo "<p>install module '{$module}'</p>";
+        $manager->install($module);
+        echo "<p>done!</p>";
+    }
+    echo "<form method='post' name='stageform'>";
+    ++$stage;
+    echo "<input type='hidden' name='stage' value='{$stage}' />";
+    echo "<input class='button-primary' type='submit' value='Done' />";
+    echo "</form>";
+    exit();
+}
+
+if ($stage === 3) {
     echo "<h3>Done!</h3>";
     echo "<form method='post' name='stageform' action='../'>";
     ++$stage;

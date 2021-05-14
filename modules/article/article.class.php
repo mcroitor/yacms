@@ -25,12 +25,47 @@
  */
 
 /**
- * Base for modules
+ * Description of article
  *
  * @author XiaomiPRO
  */
-interface module {
-    public static function name(): string;
-    public static function version(): string;
-    public static function info(): string;
+class article implements module {
+
+    protected $page;
+    protected $total;
+    
+    public function __construct() {
+        $this->page = 0;
+        $this->total = 12;
+    }
+    
+    public static function info(): string {
+        return "";
+    }
+
+    public static function name(): string {
+        return __CLASS__;
+    }
+
+    public static function version(): string {
+        return "202105101900";
+    }
+
+    public function process(string $param) {
+        $chunks = explode("/", $param);
+        // unset($chunks[0]);
+        $method_name = $chunks[1];
+        if(method_exists($this, $method_name)){
+            $this->$method_name($chunks);
+        }
+    }
+    
+    public function view(array $article_id = []){
+        if(empty($article_id)){
+            // show page of articles
+        }
+        else{
+            // show article
+        }
+    }
 }

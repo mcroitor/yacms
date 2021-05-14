@@ -161,6 +161,13 @@ class database {
         $query = "UPDATE {$table} SET " . implode(", ", $tmp2) . " WHERE " . implode(" AND ", $tmp1);
         return $this->query_sql($query, "Error: ", false);
     }
+    
+    public function insert(string $table, array $values): void {
+        $columns = implode(", ", array_keys($values));
+        $data = "'" . implode("',  '", array_values($values)) . "'";
+        $query = "INSERT INTO {$table} ($columns) VALUES ({$data})";
+        $this->query_sql($query, "Error: ", false);
+    }
 
     /**
      * Check if exists row with value(s) in table.

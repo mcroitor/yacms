@@ -95,15 +95,15 @@ class user implements module {
         exit();
     }
 
-    public function info(): string {
+    public static function info(): string {
         return "";
     }
 
-    public function name(): string {
+    public static function name(): string {
         return "user";
     }
 
-    public function version(): string {
+    public static function version(): string {
         return "202105101100";
     }
 

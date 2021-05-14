@@ -42,6 +42,7 @@ INSERT INTO config (name, value, type) VALUES ('default_theme', 'default', 'stri
 create table if not exists module(
     id INTEGER primary key AUTOINCREMENT,
     name text unique not null,
+    description text,
     version text not null
 );
 
@@ -55,38 +56,9 @@ CREATE TABLE menu_links (
 
 INSERT INTO menu_links (name, link, level, weight) VALUES ('home', './', 0, 1);
 
-CREATE TABLE user(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    login text NOT NULL UNIQUE,
-    password text NOT NULL,
-    firstname text NOT NULL,
-    lastname text NOT NULL DEFAULT 'Doe',
-    email text NOT NULL,
-    level INTEGER NOT NULL,
-    registration INTEGER NOT NULL
-);
-
--- login: admin, password: password
-INSERT INTO user (login, password, firstname, lastname, email, level, registration)
-VALUES('admin', 'advwtv/9yU5yQ', 'Admin', 'Super', 'admin@localhost', 100, '0');
-
 -- if module menu is installed
-INSERT INTO menu_links (name, link, level, weight) VALUES('log out', './?q=user/logout', 1, 1000);
-INSERT INTO menu_links (name, link, level, weight) VALUES('manage properties', './?q=properties/manage', 100, 10);
-
-CREATE TABLE permissions(
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    level_name text NOT NULL,
-    user_level INTEGER NOT NULL
-);
-
-INSERT INTO permissions (level_name, user_level) VALUES ('guest', 0);
-INSERT INTO permissions (level_name, user_level) VALUES ('user', 1);
-INSERT INTO permissions (level_name, user_level) VALUES ('administrator', 100);
-
--- register Users module
-INSERT INTO module (name, version) VALUES('users', '20161204');
-
+INSERT INTO menu_links (name, link, level, weight) VALUES ('log out', './?q=user/logout', 1, 1000);
+INSERT INTO menu_links (name, link, level, weight) VALUES ('manage properties', './?q=properties/manage', 100, 10);
 INSERT INTO menu_links (name, link, level, weight) VALUES ('manage modules', './?q=modules/manage', 100, 11);
 
-INSERT INTO module (name, version) VALUES('modules', '20180929');
+-- INSERT INTO module (name, version) VALUES('modules', '20180929');

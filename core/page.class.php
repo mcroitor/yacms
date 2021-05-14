@@ -129,8 +129,6 @@ class page {
      */
     public function process() {
         $this->site->logger->write_debug("page->process() call.");
-        //$this->site->logger->write_debug("get = " . print_r($_GET, true));
-        //$this->site->logger->write_debug("post = " . print_r($_POST, true));
         $q = filter_input(INPUT_GET, "q");
         $module_name = explode("/", $q)[0];
         $this->site->logger->write_debug("q = {$q}");

@@ -23,14 +23,3 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-/**
- * Base for modules
- *
- * @author XiaomiPRO
- */
-interface module {
-    public static function name(): string;
-    public static function version(): string;
-    public static function info(): string;
-}
