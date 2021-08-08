@@ -1,5 +1,5 @@
 <?php
-
+namespace core;
 /*
  * The MIT License
  *
@@ -37,8 +37,8 @@ class database {
     public function __construct() {
         global $site;
         try {
-            $this->pdo = new PDO($site->config->dsn);
-        } catch (Exception $ex) {
+            $this->pdo = new \PDO($site->config->dsn);
+        } catch (\Exception $ex) {
             die('DB init Error: ' . $ex->getMessage());
         }
     }
@@ -77,9 +77,9 @@ class database {
      * @param string $dump
      */
     public function parse_sqldump(string $dump) {
-        if (file_exists($dump)) {
-            $sql = str_replace(["\n\r", "\r\n", "\n\n"], "\n", file_get_contents($dump));
-            $queries = explode(";", $sql);
+        if (\file_exists($dump)) {
+            $sql = \str_replace(["\n\r", "\r\n", "\n\n"], "\n", file_get_contents($dump));
+            $queries = \explode(";", $sql);
             foreach ($queries as $query) {
                 $query = $this->strip_sqlcomment(trim($query));
                 if ($query != '') {
@@ -96,7 +96,7 @@ class database {
      */
     private function strip_sqlcomment(string $string = ''): string {
         $RXSQLComments = '@(--[^\r\n]*)|(/\*[\w\W]*?(?=\*/)\*/)@ms';
-        return (empty($string) ? '' : preg_replace($RXSQLComments, '', $string));
+        return (empty($string) ? '' : \preg_replace($RXSQLComments, '', $string));
     }
 
     /**
@@ -108,7 +108,7 @@ class database {
      * @return array
      */
     public function select(string $table, array $data = ['*'], array $where = [], array $limit = []): array {
-        $fields = implode(", ", $data);
+        $fields = \implode(", ", $data);
 
         $query = "SELECT {$fields} FROM {$table}";
         if (!empty($where)) {
@@ -116,7 +116,7 @@ class database {
             foreach ($where as $key => $value) {
                 $tmp[] = "{$key}='{$value}'";
             }
-            $query .= " WHERE " . implode(" AND ", $tmp);
+            $query .= " WHERE " . \implode(" AND ", $tmp);
         }
         if (!empty($limit)) {
             $query .= "LIMIT {$limit['from']}, {$limit['total']}";
@@ -136,7 +136,7 @@ class database {
         foreach ($conditions as $key => $value) {
             $tmp[] = "{$key}={$value}";
         }
-        $query = "DELETE FROM {$table} WHERE " . implode(" AND ", $tmp);
+        $query = "DELETE FROM {$table} WHERE " . \implode(" AND ", $tmp);
         return $this->query_sql($query, "Error: ", false);
     }
 
@@ -158,13 +158,13 @@ class database {
             $tmp2[] = "{$key}='{$value}'";
         }
 
-        $query = "UPDATE {$table} SET " . implode(", ", $tmp2) . " WHERE " . implode(" AND ", $tmp1);
+        $query = "UPDATE {$table} SET " . \implode(", ", $tmp2) . " WHERE " . implode(" AND ", $tmp1);
         return $this->query_sql($query, "Error: ", false);
     }
     
     public function insert(string $table, array $values): void {
-        $columns = implode(", ", array_keys($values));
-        $data = "'" . implode("',  '", array_values($values)) . "'";
+        $columns = \implode(", ", array_keys($values));
+        $data = "'" . \implode("',  '", array_values($values)) . "'";
         $query = "INSERT INTO {$table} ($columns) VALUES ({$data})";
         $this->query_sql($query, "Error: ", false);
     }
@@ -181,4 +181,3 @@ class database {
     }
 }
 
-$site->database = new database();

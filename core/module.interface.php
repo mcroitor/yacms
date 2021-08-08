@@ -1,5 +1,5 @@
 <?php
-
+namespace core;
 /*
  * The MIT License
  *

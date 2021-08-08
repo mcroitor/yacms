@@ -1,5 +1,5 @@
 <?php
-
+namespace module;
 /*
  * The MIT License
  *
@@ -29,7 +29,7 @@
  *
  * @author XiaomiPRO
  */
-class article implements module {
+class article implements \core\module {
 
     protected $page;
     protected $total;
@@ -52,20 +52,33 @@ class article implements module {
     }
 
     public function process(string $param) {
-        $chunks = explode("/", $param);
+        $chunks = \explode("/", $param);
         // unset($chunks[0]);
         $method_name = $chunks[1];
-        if(method_exists($this, $method_name)){
+        if(\method_exists($this, $method_name)){
             $this->$method_name($chunks);
         }
     }
     
     public function view(array $article_id = []){
+        global $site;
+        $database = $site->database;
+        $result = "";
+        $tpl = \file_get_contents(MODULE_DIR . "/article/templates/article.template.php");
+        $generator = new \core\template($tpl);
+        
         if(empty($article_id)){
             // show page of articles
+            $articles = $database->select("article", ['*'], [], ['from' => $this->page, 'total' => $this->total]);
+            foreach ($articles as $article) {
+                $result .= $generator->fill($article)->value();
+            }
         }
         else{
             // show article
+            $article = $database->select("article", ["*"], ["id" => $article_id[0]]);
+            $result .= $generator->fill($article)->value();
         }
+        return $result;
     }
 }

@@ -1,5 +1,5 @@
 <?php
-
+namespace core;
 /*
  * The MIT License
  *
@@ -39,10 +39,10 @@ class logger {
     private function write($data, $logfile) {
         $file = !empty($logfile) ? $logfile : $this->logfile;
         if (isset($_SESSION["timezone"])) {
-            date_default_timezone_set($_SESSION["timezone"]);
+            \date_default_timezone_set($_SESSION["timezone"]);
         }
-        $str = date("Y-m-d H:i:s") . "\t: {$data}\n";
-        file_put_contents($file, $str, FILE_APPEND );
+        $str = \date("Y-m-d H:i:s") . "\t: {$data}\n";
+        \file_put_contents($file, $str, FILE_APPEND );
     }
 
     public function write_debug($data) {
@@ -53,5 +53,3 @@ class logger {
     }
 
 }
-
-$site->logger = new logger($site->config->errorlogfile);

@@ -1,5 +1,5 @@
 <?php
-
+namespace module;
 /*
  * The MIT License
  *
@@ -29,7 +29,7 @@
  *
  * @author Croitor Mihail <mcroitor@gmail.com>
  */
-class user implements module {
+class user implements \core\module {
 
     const GUEST = 0;
     const USER  = 1;
@@ -40,7 +40,7 @@ class user implements module {
     
     
     public function __construct() {
-        session_start();
+        \session_start();
         if(empty($_SESSION['user'])){
             $_SESSION['user'] = [];
             $_SESSION['user']['level'] = user::GUEST;
@@ -64,10 +64,10 @@ class user implements module {
     public function process(string $post): void {
         global $site;
         $site->logger->write_debug("user->process() call.");
-        $chunks = explode("/", $post);
+        $chunks = \explode("/", $post);
         unset($chunks[0]);
-        $method_name = implode("_", $chunks);
-        if(method_exists($this, $method_name)){
+        $method_name = \implode("_", $chunks);
+        if(\method_exists($this, $method_name)){
             $this->$method_name();
         }
     }
@@ -76,9 +76,9 @@ class user implements module {
         // TODO #: authentication
         global $site;
         $db = $site->database;
-        $username = filter_input(INPUT_POST, "username");
-        $password = filter_input(INPUT_POST, "password");
-        $key = crypt($username . $password, $password);
+        $username = \filter_input(INPUT_POST, "username");
+        $password = \filter_input(INPUT_POST, "password");
+        $key = \crypt($username . $password, $password);
         $what = ["username" => $username, "password" => $key];
         if($db->exists("user", $what)){
             $user = $db->select("user", ["username", "email", "level"], $what)[0];
@@ -90,8 +90,8 @@ class user implements module {
     }
     
     private function logout(): void {
-        session_destroy();
-        header("location:/");
+        \session_destroy();
+        \header("location:/");
         exit();
     }
 

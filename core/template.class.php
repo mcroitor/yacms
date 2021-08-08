@@ -1,5 +1,5 @@
 <?php
-
+namespace core;
 /*
  * The MIT License
  *
@@ -57,7 +57,7 @@ class template {
     public function fill($data) {
         $html = $this->template;
         foreach ($data as $pattern => $value) {
-            $html = str_replace($pattern, $value, $html);
+            $html = \str_replace($pattern, $value, $html);
         }
         return new template($html);
     }

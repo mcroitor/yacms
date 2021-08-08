@@ -1,5 +1,6 @@
 <?php
 namespace core;
+
 /*
  * The MIT License
  *
@@ -24,39 +25,21 @@ namespace core;
  * THE SOFTWARE.
  */
 
-namespace core;
-
-class modulemanager {
-
-    public function get_modules() {
-        $content = \scandir(MODULE_DIR);
-        $result = [];
-        foreach ($content as $file) {
-            if (\is_dir(MODULE_DIR . $file) && \file_exists(MODULE_DIR . "{$file}/{$file}.class.php")) {
-                $result[] = $file;
-            }
-        }
-        return $result;
-    }
-
-    public function install($module) {
-        global $site;
-        if (\file_exists(MODULE_DIR . "{$module}/db/install.sql")) {
-            $site->database->parse_sqldump(MODULE_DIR . "{$module}/db/install.sql");
-        }
-
-        include_once MODULE_DIR . "{$module}/{$module}.class.php";
-
-        $data = [
-            "name" => $module::name(),
-            "description" => $module::info(),
-            "version" => $module::version()
-        ];
-        $site->database->insert("module", $data);
-    }
-
-    public function uninstall($module) {
-        
-    }
-
+/**
+ * Description of site
+ *
+ * @author XiaomiPRO
+ */
+class site {
+    public $config = null;
+    /**
+     * 
+     * @var page
+     */
+    public $page = null;
+    /**
+     * 
+     * @var database
+     */
+    public $database = null;
 }

@@ -1,6 +1,6 @@
 <?php
-namespace core;
-/*
+
+/* 
  * The MIT License
  *
  * Copyright 2021 XiaomiPRO.
@@ -24,39 +24,14 @@ namespace core;
  * THE SOFTWARE.
  */
 
-namespace core;
-
-class modulemanager {
-
-    public function get_modules() {
-        $content = \scandir(MODULE_DIR);
-        $result = [];
-        foreach ($content as $file) {
-            if (\is_dir(MODULE_DIR . $file) && \file_exists(MODULE_DIR . "{$file}/{$file}.class.php")) {
-                $result[] = $file;
-            }
+function load(string $dir, string $type = ""){
+    $filenames = scandir($dir);
+    if($type !== ""){
+        $type = ".{$type}";
+    }
+    foreach ($filenames as $filename) {
+        if(is_file("{$dir}{$filename}") && strstr($filename, $type)){
+            include_once "{$dir}{$filename}";
         }
-        return $result;
     }
-
-    public function install($module) {
-        global $site;
-        if (\file_exists(MODULE_DIR . "{$module}/db/install.sql")) {
-            $site->database->parse_sqldump(MODULE_DIR . "{$module}/db/install.sql");
-        }
-
-        include_once MODULE_DIR . "{$module}/{$module}.class.php";
-
-        $data = [
-            "name" => $module::name(),
-            "description" => $module::info(),
-            "version" => $module::version()
-        ];
-        $site->database->insert("module", $data);
-    }
-
-    public function uninstall($module) {
-        
-    }
-
 }
