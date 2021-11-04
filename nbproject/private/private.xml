@@ -8,13 +8,6 @@
             <file>file:/D:/WORK/srv/home/yacms/core/page.class.php</file>
             <file>file:/D:/WORK/srv/home/yacms/core/database.class.php</file>
         </group>
-        <group>
-            <file>file:/D:/projects/NetBeansProjects/git/yacms/core/modulemanager.class.php</file>
-            <file>file:/D:/projects/NetBeansProjects/git/yacms/modules/article/article.class.php</file>
-            <file>file:/D:/projects/NetBeansProjects/git/yacms/modules/article/templates/article.template.php</file>
-            <file>file:/D:/projects/NetBeansProjects/git/yacms/install/stages.php</file>
-            <file>file:/D:/projects/NetBeansProjects/git/yacms/config.php</file>
-            <file>file:/D:/projects/NetBeansProjects/git/yacms/core/site.class.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
