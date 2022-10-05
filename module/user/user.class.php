@@ -1,5 +1,5 @@
 <?php
-namespace module;
+namespace module\user;
 /*
  * The MIT License
  *
@@ -76,17 +76,19 @@ class user implements \core\module {
         // TODO #: authentication
         global $site;
         $db = $site->database;
-        $username = \filter_input(INPUT_POST, "username");
-        $password = \filter_input(INPUT_POST, "password");
+        $username = \filter_input(INPUT_POST, "username") ?? "";
+        $password = \filter_input(INPUT_POST, "password") ?? "";
         $key = \crypt($username . $password, $password);
-        $what = ["username" => $username, "password" => $key];
+        $what = ["login" => $username, "password" => $key];
+        //(new \core\logger())->write_debug(print_r($what, true));
         if($db->exists("user", $what)){
-            $user = $db->select("user", ["username", "email", "level"], $what)[0];
-            $this->name = $user["username"];
+            $user = $db->select("user", ["login", "email", "level"], $what)[0];
+            $this->name = $user["login"];
             $this->level = $user["level"];
         }
         $_SESSION["user"]["name"] = $this->name;
         $_SESSION["user"]["level"] = $this->level;
+        (new \core\logger())->write_debug(print_r($_SESSION["user"], true));
     }
     
     private function logout(): void {
@@ -107,4 +109,7 @@ class user implements \core\module {
         return "202105101100";
     }
 
+    public static function is_logged(){
+        return isset($_SESSION['user']) && $_SESSION['user']['level'] != user::GUEST;
+    }
 }

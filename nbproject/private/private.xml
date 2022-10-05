@@ -8,6 +8,11 @@
             <file>file:/D:/WORK/srv/home/yacms/core/page.class.php</file>
             <file>file:/D:/WORK/srv/home/yacms/core/database.class.php</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/D:/projects/NetBeansProjects/git/yacms/module/user/db/install.sql</file>
+            <file>file:/D:/projects/NetBeansProjects/git/yacms/module/user/templates/login.template.php</file>
+            <file>file:/D:/projects/NetBeansProjects/git/yacms/themes/default/main.css</file>
+            <file>file:/D:/projects/NetBeansProjects/git/yacms/module/pisa/pisa.class.php</file>
+        </group>
     </open-files>
 </project-private>

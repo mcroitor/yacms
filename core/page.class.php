@@ -104,7 +104,7 @@ class page {
             $module_name = $m["name"];
             $this->site->logger->write_debug("load module: " . $module_name);
             include_once(MODULE_DIR . \strtolower($module_name) . "/{$module_name}.class.php");
-            $class_name = "\\module\\{$module_name}";
+            $class_name = "\\module\\{$module_name}\\{$module_name}";
             $this->modules[$module_name] = new $class_name();
         }
     }
@@ -133,7 +133,7 @@ class page {
      */
     public function process() {
         $this->site->logger->write_debug("page->process() call.");
-        $q = \filter_input(INPUT_GET, "q");
+        $q = \filter_input(INPUT_GET, "q") ?? "";
         $module_name = \explode("/", $q)[0];
         $this->site->logger->write_debug("q = {$q}");
         $this->site->logger->write_debug("try to access module '{$module_name}'.");

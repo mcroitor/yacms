@@ -1,5 +1,5 @@
 <?php
-namespace module;
+namespace module\article;
 /*
  * The MIT License
  *
