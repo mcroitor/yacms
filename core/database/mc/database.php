@@ -1,8 +1,8 @@
 <?php
 
-namespace core\sql;
+namespace mc\sql;
 
-use \core\sql\query;
+use mc\sql\query;
 
 /**
  * PDO wrapper
@@ -15,6 +15,20 @@ class database {
         'limit' => 1,
         'offset' => 0
     ];
+    public const LIMIT10 = [
+        'limit' => 10,
+        'offset' => 0
+    ];
+    public const LIMIT20 = [
+        'limit' => 20,
+        'offset' => 0
+    ];
+    public const LIMIT100 = [
+        'limit' => 100,
+        'offset' => 0
+    ];
+
+    public const ALL = ["*"];
 
     private $pdo;
 
@@ -24,6 +38,13 @@ class database {
         } catch (\Exception $ex) {
             die("DB init Error: " . $ex->getMessage() . "DSN = {$dsn}");
         }
+    }
+
+    /**
+     * Close connection. After this queries are invalid and object recreating is obligatory.
+     */
+    public function close() {
+        $this->pdo = null;
     }
 
     /**
@@ -111,6 +132,22 @@ class database {
     }
 
     /**
+     * select column from table
+     * @param string $table
+     * @param string $column_name column name for selection.
+     * @param array $where associative conditions.
+     * @param string $limit definition sample: ['offset' => '1', 'limit' => '100'].
+     */
+    public function select_column(string $table, string $column_name, array $where = [], array $limit = []): array {
+        $tmp = $this->select($table, [$column_name], $where, $limit);
+        $result = [];
+        foreach ($tmp as $value) {
+            $result[] = $value[$column_name];
+        }
+        return $result;
+    }
+
+    /**
      * Delete rows from table <b>$table</b>. Condition is required.
      * @param string $table
      * @param array $conditions
@@ -142,7 +179,7 @@ class database {
         $tmp2 = [];
         foreach ($values as $key => $value) {
             $value = $this->pdo->quote($value);
-            $tmp2[] = "{$key}='{$value}'";
+            $tmp2[] = "{$key}={$value}";
         }
 
         $query = "UPDATE {$table} SET " . \implode(", ", $tmp2) . " WHERE " . implode(" AND ", $tmp1);
@@ -153,13 +190,13 @@ class database {
      * insert values in table, returns id of inserted data.
      * @param string $table
      * @param array $values
-     * @return int
+     * @return string|false
      */
-    public function insert(string $table, array $values): int {
+    public function insert(string $table, array $values): string|false {
         $columns = \implode(", ", \array_keys($values));
         // quoting values
         $quoted_values = \array_values($values);
-        foreach($quoted_values as $key => $value) {
+        foreach ($quoted_values as $key => $value) {
             $quoted_values[$key] = $this->pdo->quote($value);
         }
         $data = \implode(",  ", $quoted_values);
@@ -176,7 +213,7 @@ class database {
      */
     public function exists(string $table, array $where): bool {
         $result = $this->select($table, ["count(*) as count"], $where);
-        return count($result) >0 && $result[0]["count"] > 0;
+        return count($result) > 0 && $result[0]["count"] > 0;
     }
 
     /**

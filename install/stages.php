@@ -54,7 +54,7 @@ if ($stage === 1) {
     // create config file here
     $cfgfile = file_get_contents("./config.example.php");
     $data["databasename"] = filter_input(INPUT_POST, "dbname");
-    file_put_contents("../config.php", (new \core\template($cfgfile))->fill($data)->value());
+    file_put_contents("../config.php", (new \mc\template($cfgfile))->fill($data)->value());
     echo "<p>Done!</p>";
 
     echo "<p>install tables ... </p>";

@@ -1,5 +1,4 @@
 <?php
-namespace core;
 /*
  * The MIT License
  *
@@ -29,10 +28,11 @@ namespace core;
 class modulemanager {
 
     public function get_modules() {
-        $content = \scandir(MODULE_DIR);
+        $content = \scandir(\config::module_dir);
         $result = [];
         foreach ($content as $file) {
-            if (\is_dir(MODULE_DIR . $file) && \file_exists(MODULE_DIR . "{$file}/{$file}.class.php")) {
+            if (\is_dir(\config::module_dir . $file) &&
+                \file_exists(\config::module_dir . "{$file}/{$file}.class.php")) {
                 $result[] = $file;
             }
         }
@@ -41,11 +41,11 @@ class modulemanager {
 
     public function install($module) {
         global $site;
-        if (\file_exists(MODULE_DIR . "{$module}/db/install.sql")) {
-            $site->database->parse_sqldump(MODULE_DIR . "{$module}/db/install.sql");
+        if (\file_exists(\config::module_dir . "{$module}/db/install.sql")) {
+            $site->database->parse_sqldump(\config::module_dir . "{$module}/db/install.sql");
         }
 
-        include_once MODULE_DIR . "{$module}/{$module}.class.php";
+        include_once \config::module_dir . "{$module}/{$module}.class.php";
 
         $data = [
             "name" => $module::name(),
@@ -56,7 +56,7 @@ class modulemanager {
     }
 
     public function uninstall($module) {
-        
+        // TODO: implement this!
     }
 
 }

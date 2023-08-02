@@ -42,4 +42,9 @@ class site {
      * @var database
      */
     public $database = null;
+    /**
+     * 
+     * @var logger
+     */
+    public $logger = null;
 }

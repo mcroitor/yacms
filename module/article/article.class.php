@@ -25,6 +25,8 @@ namespace module\article;
  * THE SOFTWARE.
  */
 
+use \core\page;
+
 /**
  * Description of article
  *
@@ -60,37 +62,32 @@ class article implements \core\module
     public function process(string $param)
     {
         $chunks = \explode("/", $param);
-        // unset($chunks[0]);
-        $method_name = $chunks[1];
-        if (\method_exists($this, $method_name)) {
-            $this->$method_name($chunks);
+        $methodName = $chunks[1];
+        if (\method_exists($this, $methodName)) {
+            $this->$methodName($chunks);
         }
     }
 
-    public function view(array $article_id = [])
+    public function view(array $articleId = [])
     {
         global $site;
         $database = $site->database;
         $result = "";
-        $tpl = \file_get_contents(MODULE_DIR . "/article/templates/article.template.php");
-        $generator = new \core\template($tpl);
+        $tpl = \file_get_contents(\config::module_dir . "/article/templates/article.template.php");
+        $generator = new \mc\template($tpl, ["prefix" => "<!-- ", "suffix" => " -->"]);
 
-        if (empty($article_id)) {
+        if (empty($articleId)) {
             // show page of articles
             $articles = $database->select(
                 "article", ['*'], [],
                 ['offset' => $this->page, 'limit' => $this->total]
             );
             foreach ($articles as $article) {
-                $article['<!-- $node_title -->'] = $article["title"];
-                $article['<!-- $node_body -->'] = $article["body"];
-                unset($article["title"]);
-                unset($article["body"]);
                 $result .= $generator->fill($article)->value();
             }
         } else {
             // show article
-            $article = $database->select("article", ["*"], ["id" => $article_id[0]]);
+            $article = $database->select("article", ["*"], ["id" => $articleId[0]]);
             $result .= $generator->fill($article)->value();
         }
         return $result;
@@ -98,8 +95,8 @@ class article implements \core\module
 
     public function data() {
         global $site;
-        $site->page->data["<!-- page_content -->"] = $this->view([]);
-        $site->page->data["<!-- page_primary_menu -->"] = 
+        $site->page->data[page::CONTENT] = $this->view([]);
+        $site->page->data[page::PRIMARY_MENU] =
             "<a href='./?q=article/create'>create article</a>";
     }
 }

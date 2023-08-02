@@ -28,7 +28,7 @@ class pisa implements \core\module {
     private $schools;
     
     public static function info(): string {
-        ;
+        return "";
     }
     public static function name(): string {
         return "pisa";

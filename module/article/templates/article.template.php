@@ -1,5 +1,5 @@
 <article class="node">
-    <header class="node-title"><!-- $node_title --></header>
-    <aside class="node-additional-info"><!-- $node_additional_info --></aside>
-    <section class="node-body"><!-- $node_body --></section>
+    <header class="node-title"><!-- title --></header>
+    <aside class="node-additional-info"><!-- additional_info --></aside>
+    <section class="node-body"><!-- body --></section>
 </article>

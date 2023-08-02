@@ -1,6 +1,6 @@
 <?php
 
-namespace core\sql;
+namespace mc\sql;
 
 /**
  * SQL query builder.
