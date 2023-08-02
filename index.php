@@ -40,7 +40,7 @@ load(CORE_DIR, "class");
 $site = new core\site();
 // start site populating
 $site->config = $config;
-$site->database = new core\database();
+$site->database = new \core\sql\database($config->dsn);
 $site->logger = new core\logger($site->config->errorlogfile);
 $site->page = new core\page();
 

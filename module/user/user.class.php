@@ -54,10 +54,12 @@ class user implements \core\module {
         global $site;
         $site->logger->write_debug("complete page with login form");
         if($this->level === user::GUEST){
-            $site->page->data["<!-- page_aside_content -->"] = file_get_contents(MODULE_DIR . "user/templates/login.template.php");
+            $site->page->data["<!-- page_aside_content -->"] = file_get_contents(MODULE_DIR 
+                . "user/templates/login.template.php");
         }
         else{
-            $site->page->data["<!-- page_aside_content -->"] = file_get_contents(MODULE_DIR . "user/templates/logout.template.php");
+            $site->page->data["<!-- page_aside_content -->"] = file_get_contents(MODULE_DIR 
+                . "user/templates/logout.template.php");
         }
     }
     
@@ -80,7 +82,7 @@ class user implements \core\module {
         $password = \filter_input(INPUT_POST, "password") ?? "";
         $key = \crypt($username . $password, $password);
         $what = ["login" => $username, "password" => $key];
-        //(new \core\logger())->write_debug(print_r($what, true));
+        (new \core\logger())->write_debug(print_r($what, true));
         if($db->exists("user", $what)){
             $user = $db->select("user", ["login", "email", "level"], $what)[0];
             $this->name = $user["login"];
@@ -109,7 +111,11 @@ class user implements \core\module {
         return "202105101100";
     }
 
-    public static function is_logged(){
-        return isset($_SESSION['user']) && $_SESSION['user']['level'] != user::GUEST;
+    public static function is_authenticated(): bool {
+        return user::has_role(user::GUEST);
+    }
+
+    public static function has_role(string $role): bool {
+        return isset($_SESSION['user']) && $_SESSION['user']['level'] != $role;
     }
 }

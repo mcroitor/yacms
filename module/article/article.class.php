@@ -1,4 +1,5 @@
 <?php
+
 namespace module\article;
 /*
  * The MIT License
@@ -29,56 +30,76 @@ namespace module\article;
  *
  * @author XiaomiPRO
  */
-class article implements \core\module {
+class article implements \core\module
+{
 
     protected $page;
     protected $total;
-    
-    public function __construct() {
+
+    public function __construct()
+    {
         $this->page = 0;
         $this->total = 12;
     }
-    
-    public static function info(): string {
+
+    public static function info(): string
+    {
         return "";
     }
 
-    public static function name(): string {
+    public static function name(): string
+    {
         return __CLASS__;
     }
 
-    public static function version(): string {
+    public static function version(): string
+    {
         return "202105101900";
     }
 
-    public function process(string $param) {
+    public function process(string $param)
+    {
         $chunks = \explode("/", $param);
         // unset($chunks[0]);
         $method_name = $chunks[1];
-        if(\method_exists($this, $method_name)){
+        if (\method_exists($this, $method_name)) {
             $this->$method_name($chunks);
         }
     }
-    
-    public function view(array $article_id = []){
+
+    public function view(array $article_id = [])
+    {
         global $site;
         $database = $site->database;
         $result = "";
         $tpl = \file_get_contents(MODULE_DIR . "/article/templates/article.template.php");
         $generator = new \core\template($tpl);
-        
-        if(empty($article_id)){
+
+        if (empty($article_id)) {
             // show page of articles
-            $articles = $database->select("article", ['*'], [], ['from' => $this->page, 'total' => $this->total]);
+            $articles = $database->select(
+                "article", ['*'], [],
+                ['offset' => $this->page, 'limit' => $this->total]
+            );
             foreach ($articles as $article) {
+                $article['<!-- $node_title -->'] = $article["title"];
+                $article['<!-- $node_body -->'] = $article["body"];
+                unset($article["title"]);
+                unset($article["body"]);
                 $result .= $generator->fill($article)->value();
             }
-        }
-        else{
+        } else {
             // show article
             $article = $database->select("article", ["*"], ["id" => $article_id[0]]);
             $result .= $generator->fill($article)->value();
         }
         return $result;
+    }
+
+    public function data() {
+        global $site;
+        $site->page->data["<!-- page_content -->"] = $this->view([]);
+        $site->page->data["<!-- page_primary_menu -->"] = 
+            "<a href='./?q=article/create'>create article</a>";
     }
 }
