@@ -1,6 +1,6 @@
 <?php
-namespace core;
-/*
+namespace module\pisa;
+/* 
  * The MIT License
  *
  * Copyright 2021 XiaomiPRO.
@@ -24,39 +24,16 @@ namespace core;
  * THE SOFTWARE.
  */
 
-namespace core;
-
-class modulemanager {
-
-    public function get_modules() {
-        $content = \scandir(MODULE_DIR);
-        $result = [];
-        foreach ($content as $file) {
-            if (\is_dir(MODULE_DIR . $file) && \file_exists(MODULE_DIR . "{$file}/{$file}.class.php")) {
-                $result[] = $file;
-            }
-        }
-        return $result;
+class pisa implements \core\module {
+    private $schools;
+    
+    public static function info(): string {
+        ;
     }
-
-    public function install($module) {
-        global $site;
-        if (\file_exists(MODULE_DIR . "{$module}/db/install.sql")) {
-            $site->database->parse_sqldump(MODULE_DIR . "{$module}/db/install.sql");
-        }
-
-        include_once MODULE_DIR . "{$module}/{$module}.class.php";
-
-        $data = [
-            "name" => $module::name(),
-            "description" => $module::info(),
-            "version" => $module::version()
-        ];
-        $site->database->insert("module", $data);
+    public static function name(): string {
+        return "pisa";
     }
-
-    public function uninstall($module) {
-        
+    public static function version(): string {
+        return "202111041850";
     }
-
 }

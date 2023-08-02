@@ -28,8 +28,23 @@ if (file_exists('./config.php') === false) {
     header("location:/install/");
     exit();
 }
-include_once './config.php';
-include_once './core/_all.php';
 
+include_once './config.php';
+include_once './loader.php';
+
+load(CORE_DIR, "interface");
+load(CORE_DIR, "class");
+
+// include_once WWW_DIR . "/core/site.class.php";
+
+$site = new core\site();
+// start site populating
+$site->config = $config;
+$site->database = new \core\sql\database($config->dsn);
+$site->logger = new core\logger($site->config->errorlogfile);
+$site->page = new core\page();
+
+// process data, such as GET, POST, SESSION, COOKIE
 $site->page->process();
+// render page
 echo $site->page->render();

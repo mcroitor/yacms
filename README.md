@@ -34,6 +34,7 @@ Access it and firstly you will be redirected to installation script.
 +-- <b>modules</b> - extentions
 +-- <b>themes</b> - themes
 |   +-- <b>default</b> - default theme
-+-- <i>index.php</i> - entry point
 +-- <i>config.php</i> - configuration file
++-- <i>index.php</i> - entry point
++-- <i>loader.php</i> - loader function for classes
 </pre>

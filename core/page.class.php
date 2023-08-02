@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 /*
  * The MIT License
  *
@@ -99,9 +101,11 @@ class page {
     private function load_modules() {
         $result = $this->site->database->select("module", ["name"]);
         foreach ($result as $m) {
-            $this->site->logger->write_debug("load module: " . $m["name"]);
-            include_once(MODULE_DIR . strtolower($m["name"]) . "/{$m["name"]}.class.php");
-            $this->modules[$m["name"]] = new $m["name"]();
+            $module_name = $m["name"];
+            $this->site->logger->write_debug("load module: " . $module_name);
+            include_once(MODULE_DIR . \strtolower($module_name) . "/{$module_name}.class.php");
+            $class_name = "\\module\\{$module_name}\\{$module_name}";
+            $this->modules[$module_name] = new $class_name();
         }
     }
 
@@ -115,9 +119,9 @@ class page {
         $this->site->logger->write_debug("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
 
         $tpl = file_get_contents("./templates/page.template.php");
-        $generator = new template($tpl);
-        foreach($this->modules as $module){
-            if(method_exists($module, "data")){
+        $generator = new \core\template($tpl);
+        foreach ($this->modules as $module) {
+            if (\method_exists($module, "data")) {
                 $module->data();
             }
         }
@@ -129,15 +133,13 @@ class page {
      */
     public function process() {
         $this->site->logger->write_debug("page->process() call.");
-        $q = filter_input(INPUT_GET, "q");
-        $module_name = explode("/", $q)[0];
+        $q = \filter_input(INPUT_GET, "q") ?? "";
+        $module_name = \explode("/", $q)[0];
         $this->site->logger->write_debug("q = {$q}");
         $this->site->logger->write_debug("try to access module '{$module_name}'.");
-        if(!empty($this->modules[$module_name])){
+        if (!empty($this->modules[$module_name])) {
             $this->modules[$module_name]->process($q);
         }
     }
 
 }
-
-$site->page = new page();

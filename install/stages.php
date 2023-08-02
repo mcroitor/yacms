@@ -54,7 +54,7 @@ if ($stage === 1) {
     // create config file here
     $cfgfile = file_get_contents("./config.example.php");
     $data["databasename"] = filter_input(INPUT_POST, "dbname");
-    file_put_contents("../config.php", (new template($cfgfile))->fill($data)->value());
+    file_put_contents("../config.php", (new \core\template($cfgfile))->fill($data)->value());
     echo "<p>Done!</p>";
 
     echo "<p>install tables ... </p>";
@@ -80,7 +80,7 @@ if ($stage === 2) {
     include_once '../core/_all.php';
     include_once '../core/modulemanager.class.php';
 
-    $manager = new core\modulemanager();
+    $manager = new \core\modulemanager();
     $modules = $manager->get_modules();
     foreach ($modules as $module) {
         echo "<p>install module '{$module}'</p>";

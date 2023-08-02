@@ -1,28 +1,8 @@
 <?php
 
-/*
- * The MIT License
- *
- * Copyright 2019 Croitor Mihail <mcroitor@gmail.com>.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
+namespace core\sql;
+
+use \core\sql\query;
 
 /**
  * PDO wrapper
@@ -31,15 +11,18 @@
  */
 class database {
 
-    //put your code here
+    public const LIMIT1 = [
+        'limit' => 1,
+        'offset' => 0
+    ];
+
     private $pdo;
 
-    public function __construct() {
-        global $site;
+    public function __construct(string $dsn, ?string $login = null, ?string $password = null) {
         try {
-            $this->pdo = new PDO($site->config->dsn);
-        } catch (Exception $ex) {
-            die('DB init Error: ' . $ex->getMessage());
+            $this->pdo = new \PDO($dsn, $login, $password);
+        } catch (\Exception $ex) {
+            die("DB init Error: " . $ex->getMessage() . "DSN = {$dsn}");
         }
     }
 
@@ -52,22 +35,23 @@ class database {
      * @return array
      */
     public function query_sql(string $query, string $error = "Error: ", bool $need_fetch = true): array {
-        global $site;
         $array = array();
-        $result = $this->pdo->query($query);
-        if ($result === false) {
-            $aux = "{$error} {$query}: "
+        try {
+            $result = $this->pdo->query($query);
+            if ($result === false) {
+                $aux = "{$error} {$query}: "
                     . $this->pdo->errorInfo()[0]
                     . " : "
                     . $this->pdo->errorInfo()[1]
                     . ", message = "
                     . $this->pdo->errorInfo()[2];
-            $site->logger->write_debug($aux);
-            //$site->logger->write($aux);
-            exit($aux);
-        }
-        if ($need_fetch) {
-            $array = $result->fetchAll();
+                exit($aux);
+            }
+            if ($need_fetch) {
+                $array = $result->fetchAll(\PDO::FETCH_ASSOC);
+            }
+        } catch (\PDOException $ex) {
+            exit ($ex->getMessage() . ", query: " . $query);
         }
         return $array;
     }
@@ -77,9 +61,9 @@ class database {
      * @param string $dump
      */
     public function parse_sqldump(string $dump) {
-        if (file_exists($dump)) {
-            $sql = str_replace(["\n\r", "\r\n", "\n\n"], "\n", file_get_contents($dump));
-            $queries = explode(";", $sql);
+        if (\file_exists($dump)) {
+            $sql = \str_replace(["\n\r", "\r\n", "\n\n"], "\n", file_get_contents($dump));
+            $queries = \explode(";", $sql);
             foreach ($queries as $query) {
                 $query = $this->strip_sqlcomment(trim($query));
                 if ($query != '') {
@@ -96,7 +80,7 @@ class database {
      */
     private function strip_sqlcomment(string $string = ''): string {
         $RXSQLComments = '@(--[^\r\n]*)|(/\*[\w\W]*?(?=\*/)\*/)@ms';
-        return (empty($string) ? '' : preg_replace($RXSQLComments, '', $string));
+        return (empty($string) ? '' : \preg_replace($RXSQLComments, '', $string));
     }
 
     /**
@@ -104,22 +88,23 @@ class database {
      * @param string $table
      * @param array $data enumerate columns for selection. Sample: ['id', 'name'].
      * @param array $where associative conditions.
-     * @param array $limit definition sample: ['from' => '1', 'total' => '100'].
+     * @param array $limit definition sample: ['offset' => '1', 'limit' => '100'].
      * @return array
      */
     public function select(string $table, array $data = ['*'], array $where = [], array $limit = []): array {
-        $fields = implode(", ", $data);
+        $fields = \implode(", ", $data);
 
         $query = "SELECT {$fields} FROM {$table}";
         if (!empty($where)) {
             $tmp = [];
             foreach ($where as $key => $value) {
-                $tmp[] = "{$key}='{$value}'";
+                $value = $this->pdo->quote($value);
+                $tmp[] = "{$key}=$value";
             }
-            $query .= " WHERE " . implode(" AND ", $tmp);
+            $query .= " WHERE " . \implode(" AND ", $tmp);
         }
         if (!empty($limit)) {
-            $query .= "LIMIT {$limit['from']}, {$limit['total']}";
+            $query .= " LIMIT {$limit['offset']}, {$limit['limit']}";
         }
 
         return $this->query_sql($query);
@@ -136,7 +121,7 @@ class database {
         foreach ($conditions as $key => $value) {
             $tmp[] = "{$key}={$value}";
         }
-        $query = "DELETE FROM {$table} WHERE " . implode(" AND ", $tmp);
+        $query = "DELETE FROM {$table} WHERE " . \implode(" AND ", $tmp);
         return $this->query_sql($query, "Error: ", false);
     }
 
@@ -151,22 +136,36 @@ class database {
     public function update(string $table, array $values, array $conditions): array {
         $tmp1 = [];
         foreach ($conditions as $key => $value) {
-            $tmp1[] = "{$key}='{$value}'";
+            $value = $this->pdo->quote($value);
+            $tmp1[] = "{$key}={$value}";
         }
         $tmp2 = [];
         foreach ($values as $key => $value) {
+            $value = $this->pdo->quote($value);
             $tmp2[] = "{$key}='{$value}'";
         }
 
-        $query = "UPDATE {$table} SET " . implode(", ", $tmp2) . " WHERE " . implode(" AND ", $tmp1);
+        $query = "UPDATE {$table} SET " . \implode(", ", $tmp2) . " WHERE " . implode(" AND ", $tmp1);
         return $this->query_sql($query, "Error: ", false);
     }
-    
-    public function insert(string $table, array $values): void {
-        $columns = implode(", ", array_keys($values));
-        $data = "'" . implode("',  '", array_values($values)) . "'";
+
+    /**
+     * insert values in table, returns id of inserted data.
+     * @param string $table
+     * @param array $values
+     * @return int
+     */
+    public function insert(string $table, array $values): int {
+        $columns = \implode(", ", \array_keys($values));
+        // quoting values
+        $quoted_values = \array_values($values);
+        foreach($quoted_values as $key => $value) {
+            $quoted_values[$key] = $this->pdo->quote($value);
+        }
+        $data = \implode(",  ", $quoted_values);
         $query = "INSERT INTO {$table} ($columns) VALUES ({$data})";
         $this->query_sql($query, "Error: ", false);
+        return $this->pdo->lastInsertId();
     }
 
     /**
@@ -175,10 +174,26 @@ class database {
      * @param array $where
      * @return bool
      */
-    public function exists(string $table, array $where): bool{
+    public function exists(string $table, array $where): bool {
         $result = $this->select($table, ["count(*) as count"], $where);
-        return $result[0]["count"] > 0;
+        return count($result) >0 && $result[0]["count"] > 0;
+    }
+
+    /**
+     * Select unique values from column.
+     * @param string $table
+     * @param string $column
+     */
+    public function unique_values(string $table, string $column): array {
+        return $this->query_sql("SELECT {$column} FROM {$table} GROUP BY {$column}");
+    }
+    
+    /**
+     * Execute a query object.
+     * @param query $query
+     * @return array
+     */
+    public function exec(query $query): array {
+        return $this->query_sql($query->build(), "Error: ", $query->get_type() === query::SELECT);
     }
 }
-
-$site->database = new database();

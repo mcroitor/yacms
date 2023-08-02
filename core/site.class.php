@@ -1,4 +1,5 @@
 <?php
+namespace core;
 
 /*
  * The MIT License
@@ -23,3 +24,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
+/**
+ * Description of site
+ *
+ * @author XiaomiPRO
+ */
+class site {
+    public $config = null;
+    /**
+     * 
+     * @var page
+     */
+    public $page = null;
+    /**
+     * 
+     * @var database
+     */
+    public $database = null;
+}
