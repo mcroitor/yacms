@@ -24,6 +24,8 @@ namespace module\user;
  * THE SOFTWARE.
  */
 
+use \core\page;
+
 /**
  * Description of user
  *
@@ -52,20 +54,20 @@ class user implements \core\module {
     
     public function data() {
         global $site;
-        $site->logger->write_debug("complete page with login form");
+        $site->logger->debug("complete page with login form");
         if($this->level === user::GUEST){
-            $site->page->data["<!-- page_aside_content -->"] = file_get_contents(MODULE_DIR 
+            $site->page->data[page::ASIDE_CONTENT] = file_get_contents(\config::module_dir
                 . "user/templates/login.template.php");
         }
         else{
-            $site->page->data["<!-- page_aside_content -->"] = file_get_contents(MODULE_DIR 
+            $site->page->data[page::ASIDE_CONTENT] = file_get_contents(\config::module_dir
                 . "user/templates/logout.template.php");
         }
     }
     
     public function process(string $post): void {
         global $site;
-        $site->logger->write_debug("user->process() call.");
+        $site->logger->debug("user->process() call.");
         $chunks = \explode("/", $post);
         unset($chunks[0]);
         $method_name = \implode("_", $chunks);
@@ -82,7 +84,7 @@ class user implements \core\module {
         $password = \filter_input(INPUT_POST, "password") ?? "";
         $key = \crypt($username . $password, $password);
         $what = ["login" => $username, "password" => $key];
-        (new \core\logger())->write_debug(print_r($what, true));
+        (new \mc\logger())->debug(print_r($what, true));
         if($db->exists("user", $what)){
             $user = $db->select("user", ["login", "email", "level"], $what)[0];
             $this->name = $user["login"];
@@ -90,7 +92,7 @@ class user implements \core\module {
         }
         $_SESSION["user"]["name"] = $this->name;
         $_SESSION["user"]["level"] = $this->level;
-        (new \core\logger())->write_debug(print_r($_SESSION["user"], true));
+        (new \mc\logger())->debug(print_r($_SESSION["user"], true));
     }
     
     private function logout(): void {

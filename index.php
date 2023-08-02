@@ -32,16 +32,14 @@ if (file_exists('./config.php') === false) {
 include_once './config.php';
 include_once './loader.php';
 
-load(CORE_DIR, "interface");
-load(CORE_DIR, "class");
-
-// include_once WWW_DIR . "/core/site.class.php";
+load(config::core_dir, "interface");
+load(config::core_dir, "class");
 
 $site = new core\site();
 // start site populating
-$site->config = $config;
-$site->database = new \core\sql\database($config->dsn);
-$site->logger = new core\logger($site->config->errorlogfile);
+$site->database = new \mc\sql\database(config::dsn);
+$site->logger = new \mc\logger(config::$errorlogfile);
+$site->logger->enableDebug(config::$debug);
 $site->page = new core\page();
 
 // process data, such as GET, POST, SESSION, COOKIE

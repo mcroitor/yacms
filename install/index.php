@@ -23,7 +23,8 @@
  * THE SOFTWARE.
  */
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="utf8" />
         <link rel="stylesheet" href="../themes/normalize.css" />
@@ -31,7 +32,7 @@
         <script type="text/javascript" src="../lib/api.js"></script>
         <script type="text/javascript">
             client.http.onload = function () {
-                document.getElementById("stage").innerHTML = client.http.responseText;
+                _d.get("stage").innerHTML = client.http.responseText;
                 console.log('response: ' + client.http.responseText);
             };
             function get_stage() {

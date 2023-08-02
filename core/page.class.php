@@ -33,32 +33,43 @@ namespace core;
  */
 class page {
 
+    public const ADDITIONAL_META = "additional_meta";
+    public const THEME_PATH = "theme_path";
+    public const ADDITIONAL_STYLE = "additional_style";
+    public const ADDITIONAL_SCRIPT = "additional_script";
+    public const TITLE = "page_title";
+    public const HEADER = "page_header";
+    public const PRIMARY_MENU = "page_primary_menu";
+    public const CONTENT = "page_content";
+    public const ASIDE_CONTENT = "page_aside_content";
+    public const FOOTER = "page_footer";
+
     /**
      *
-     * @var array 
+     * @var array
      */
     public $data = [
-        "<!-- additional_meta -->" => "",
-        "<!-- theme_path -->" => "",
-        "<!-- additional_style -->" => "",
-        "<!-- additional_script -->" => "",
-        "<!-- page_title -->" => "This is a page title",
-        "<!-- page_header -->" => "This is a page header",
-        "<!-- page_primary_menu -->" => "Menu",
-        "<!-- page_content -->" => "Content",
-        "<!-- page_aside_content -->" => "Addblock",
-        "<!-- page_footer -->" => "This is a page footer"
+        self::ADDITIONAL_META => "",
+        self::THEME_PATH => "",
+        self::ADDITIONAL_STYLE => "",
+        self::ADDITIONAL_SCRIPT => "",
+        self::TITLE => "This is a page title",
+        self::HEADER => "This is a page header",
+        self::PRIMARY_MENU => "Menu",
+        self::CONTENT => "Content",
+        self::ASIDE_CONTENT => "Addblock",
+        self::FOOTER => "This is a page footer"
     ];
 
     /**
      *
-     * @var array 
+     * @var array
      */
     public $modules = [];
 
     /**
      *
-     * @var array 
+     * @var array
      */
     public $config = [];
     private $site;
@@ -70,23 +81,24 @@ class page {
         global $site;
         $this->site = $site;
 
-        $this->site->logger->write_debug("--- PAGE OBJECT CREATING ---");
+        $this->site->logger->debug("--- PAGE OBJECT CREATING ---");
 
         $this->load_config();
         $this->load_modules();
         if (!empty($this->config["page_title"])) {
-            $this->data["<!-- page_title -->"] = $this->config["page_title"];
+            $this->data[page::TITLE] = $this->config["page_title"];
         }
         if (!empty($this->config["page_header"])) {
-            $this->data["<!-- page_header -->"] = $this->config["page_header"];
+            $this->data[page::HEADER] = $this->config["page_header"];
         }
         // set theme
-        $this->data["<!-- theme_path -->"] = $this->config["default_theme"];
-        $this->data["<!-- additional_style -->"] .= "<link rel='stylesheet' href='./themes/" . $this->config['default_theme'] . "/main.css'>";
+        $this->data[self::THEME_PATH] = $this->config["default_theme"];
+        $this->data[self::ADDITIONAL_STYLE] .=
+            "<link rel='stylesheet' href='./themes/" . $this->config['default_theme'] . "/main.css'>";
     }
 
     /**
-     * 
+     * load site configuration
      */
     private function load_config() {
         $result = $this->site->database->select("config", ["name", "value"]);
@@ -96,30 +108,30 @@ class page {
     }
 
     /**
-     * 
+     * load registered modules
      */
     private function load_modules() {
         $result = $this->site->database->select("module", ["name"]);
         foreach ($result as $m) {
-            $module_name = $m["name"];
-            $this->site->logger->write_debug("load module: " . $module_name);
-            include_once(MODULE_DIR . \strtolower($module_name) . "/{$module_name}.class.php");
-            $class_name = "\\module\\{$module_name}\\{$module_name}";
-            $this->modules[$module_name] = new $class_name();
+            $moduleName = $m["name"];
+            $this->site->logger->debug("load module: " . $moduleName);
+            include_once \config::module_dir . \strtolower($moduleName) . "/{$moduleName}.class.php";
+            $className = "\\module\\{$moduleName}\\{$moduleName}";
+            $this->modules[$moduleName] = new $className();
         }
     }
 
     /**
-     * 
+     * render HTML
      * @return string
      */
     public function render() {
-        $this->site->logger->write_debug("--- START PAGE GENERATING ---");
-        $this->site->logger->write_debug("REQUEST_URI: " . filter_input(INPUT_SERVER, "REQUEST_URI"));
-        $this->site->logger->write_debug("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
+        $this->site->logger->debug("--- START PAGE GENERATING ---");
+        $this->site->logger->debug("REQUEST_URI: " . filter_input(INPUT_SERVER, "REQUEST_URI"));
+        $this->site->logger->debug("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
 
         $tpl = file_get_contents("./templates/page.template.php");
-        $generator = new \core\template($tpl);
+        $generator = new \mc\template($tpl, ["prefix" => "<!-- ", "suffix" => " -->"]);
         foreach ($this->modules as $module) {
             if (\method_exists($module, "data")) {
                 $module->data();
@@ -129,16 +141,16 @@ class page {
     }
 
     /**
-     * 
+     * execute all modules
      */
     public function process() {
-        $this->site->logger->write_debug("page->process() call.");
+        $this->site->logger->debug("page->process() call.");
         $q = \filter_input(INPUT_GET, "q") ?? "";
-        $module_name = \explode("/", $q)[0];
-        $this->site->logger->write_debug("q = {$q}");
-        $this->site->logger->write_debug("try to access module '{$module_name}'.");
-        if (!empty($this->modules[$module_name])) {
-            $this->modules[$module_name]->process($q);
+        $moduleName = \explode("/", $q)[0];
+        $this->site->logger->debug("q = {$q}");
+        $this->site->logger->debug("try to access module '{$moduleName}'.");
+        if (!empty($this->modules[$moduleName])) {
+            $this->modules[$moduleName]->process($q);
         }
     }
 
