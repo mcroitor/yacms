@@ -24,13 +24,13 @@
  * THE SOFTWARE.
  */
 
-include_once '../core/template.class.php';
+include_once __DIR__ . '/../core/template/mc/template.php';
 $stage = (int) filter_input(INPUT_POST, "stage");
 
 file_put_contents("php://stdout", "stage = {$stage}\n");
 
 if (empty($stage)) {
-    if (file_exists("../config.php")) {
+    if (file_exists(__DIR__ . "/../config.php")) {
         echo "<h2>site is installed!</h2>";
         echo "<form method='post' name='stageform' action='../'>";
         echo "<input class='button-primary' type='submit' value='Done' />";
@@ -52,18 +52,18 @@ if (empty($stage)) {
 if ($stage === 1) {
     echo "<h3>configuring...</h3>";
     // create config file here
-    $cfgfile = file_get_contents("./config.example.php");
+    $cfgfile = file_get_contents(__DIR__ . "/config.example.php");
     $data["databasename"] = filter_input(INPUT_POST, "dbname");
-    file_put_contents("../config.php", (new \mc\template($cfgfile))->fill($data)->value());
+    file_put_contents(__DIR__ . "/../config.php", (new \mc\template($cfgfile))->fill($data)->value());
     echo "<p>Done!</p>";
 
     echo "<p>install tables ... </p>";
-    include_once '../config.php';
+    include_once __DIR__ . '/../config.php';
     // fix sql connection string
-    $site->config->dsn = str_replace("sqlite:./", "sqlite:../", $site->config->dsn);
-    include_once '../core/database.class.php';
+    $database = new \mc\sql\database(config::dsn);
+    
     // create tables here
-    $site->database->parse_sqldump("./sqlite.sql");
+    $database->parse_sqldump(__DIR__ . "/sqlite.sql");
     echo "<p>tables installed!</p>";
     echo "<form method='post' name='stageform'>";
     ++$stage;
@@ -75,10 +75,10 @@ if ($stage === 1) {
 
 if ($stage === 2) {
     echo "<h3>Install plugins...</h3>";
-    include_once '../config.php';
-    $site->config->dsn = str_replace("sqlite:./", "sqlite:../", $site->config->dsn);
-    include_once '../core/_all.php';
-    include_once '../core/modulemanager.class.php';
+    include_once __DIR__ . '/../config.php';
+    \core\site::$database = new \mc\sql\database(config::dsn);
+    
+    include_once __DIR__ . '/../core/modulemanager.class.php';
 
     $manager = new \core\modulemanager();
     $modules = $manager->get_modules();

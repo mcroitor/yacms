@@ -1,6 +1,7 @@
 <?php
 
-class config {
+class config
+{
     public const www_dir = __DIR__;
     public const module_dir = self::www_dir . "/module/";
     public const core_dir = self::www_dir . "/core/";
@@ -21,11 +22,27 @@ class config {
     public static $debugfile = "php://stdout";
     public static $errorlogfile = "error.log";
 
-    public static function load() {
+    public static function loadCore()
+    {
         foreach (self::core as $class_name) {
             include_once self::core_dir . "{$class_name}.php";
         }
     }
+
+    public static function load(string $dir, string $type = "")
+    {
+        $filenames = scandir($dir);
+        if ($type !== "") {
+            $type = ".{$type}";
+        }
+        foreach ($filenames as $filename) {
+            if (is_file("{$dir}{$filename}") && strstr($filename, $type)) {
+                include_once "{$dir}{$filename}";
+            }
+        }
+    }
 }
 
-\config::load();
+\config::loadCore();
+\config::load(\config::core_dir, "interface");
+\config::load(\config::core_dir, "class");

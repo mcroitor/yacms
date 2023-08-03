@@ -29,20 +29,19 @@ if (file_exists('./config.php') === false) {
     exit();
 }
 
-include_once './config.php';
-include_once './loader.php';
+include_once __DIR__ . '/config.php';
 
-load(config::core_dir, "interface");
-load(config::core_dir, "class");
-
-$site = new core\site();
 // start site populating
-$site->database = new \mc\sql\database(config::dsn);
-$site->logger = new \mc\logger(config::$errorlogfile);
-$site->logger->enableDebug(config::$debug);
-$site->page = new core\page();
+\core\site::$database = new \mc\sql\database(config::dsn);
+\core\site::$logger = new \mc\logger();
+\core\site::$logger->enableDebug(config::$debug);
+\core\site::$page = new core\page();
 
-// process data, such as GET, POST, SESSION, COOKIE
-$site->page->process();
+// use routes for parse GET, POST and SESSION, populate in \core\site::$page
+\mc\router::init();
+\mc\router::run();
+
+\core\site::$logger->debug(json_encode(\core\site::$page->get_data(\core\page::ASIDE_CONTENT)));
+
 // render page
-echo $site->page->render();
+echo \core\site::$page->render();
