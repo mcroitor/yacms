@@ -1,4 +1,5 @@
 <?php
+
 namespace module\user;
 /*
  * The MIT License
@@ -25,99 +26,134 @@ namespace module\user;
  */
 
 use \core\page;
+use \core\site;
+use \mc\route;
 
 /**
  * Description of user
  *
  * @author Croitor Mihail <mcroitor@gmail.com>
  */
-class user implements \core\module {
+class user implements \core\module
+{
+    public const AUTHENTICATED = 'user_authenticated';
 
-    const GUEST = 0;
-    const USER  = 1;
-    const ADMIN = 100;
-    
-    private $name;
-    private $level;
-    
-    
-    public function __construct() {
+    private static $props = [];
+
+    public static function init()
+    {
         \session_start();
-        if(empty($_SESSION['user'])){
-            $_SESSION['user'] = [];
-            $_SESSION['user']['level'] = user::GUEST;
-            $_SESSION['user']['name'] = 'Guest';
+        if (empty($_SESSION['user'])) {
+            $userId = 1;
+            $user = site::$database->select("user", ["*"], ["id" => $userId])[0];
+            $_SESSION['user'] = $user;
+            $userId = $_SESSION['user']['id'];
+            $_SESSION['user']['role'] = self::getRole($userId);
+            $roleId = $_SESSION['user']['role']['id'];
+            $_SESSION['user']['capabilities'] = self::getCapabilities($roleId);
         }
-        $this->name = $_SESSION['user']['name'];
-        $this->level = $_SESSION['user']['level'];
+        self::$props = $_SESSION['user'];
+        site::$logger->debug("session: " . json_encode($_SESSION['user']), true);
     }
-    
-    public function data() {
-        global $site;
-        $site->logger->debug("complete page with login form");
-        if($this->level === user::GUEST){
-            $site->page->data[page::ASIDE_CONTENT] = file_get_contents(\config::module_dir
-                . "user/templates/login.template.php");
-        }
-        else{
-            $site->page->data[page::ASIDE_CONTENT] = file_get_contents(\config::module_dir
-                . "user/templates/logout.template.php");
-        }
+
+    public static function getProperty(string $property)
+    {
+        return self::$props[$property] ?? null;
     }
-    
-    public function process(string $post): void {
-        global $site;
-        $site->logger->debug("user->process() call.");
-        $chunks = \explode("/", $post);
-        unset($chunks[0]);
-        $method_name = \implode("_", $chunks);
-        if(\method_exists($this, $method_name)){
-            $this->$method_name();
+
+    public static function hasCapability(string $capability)
+    {
+        return isset(self::getProperty("capabilities")[$capability]);
+    }
+
+    private static function getRole($userId) {
+        $userRole = site::$database->select(
+            "user_role",
+            ["*"],
+            ["user_id" => $userId]);
+        if(empty($userRole)) {
+            return ['id' => 1, 'name' => 'guest', "description" => null];
+        }
+        return site::$database->select("role",["*"],["id" => $userRole[0]["role_id"]])[0];
+    }
+
+    private static function getCapabilities($roleId) {
+        $capabilityIds = site::$database->select(
+            "role_capability",
+            ["capability_id AS id"],
+            ["role_id" => $roleId]);
+        $capabilities = [];
+        foreach ($capabilityIds as $capabilityId) {
+            $capability = site::$database->select(
+                "capability",
+                ["*"],
+                ["id" => $capabilityId["id"]])[0];
+            $capabilities[$capability["name"]] = $capability;
+        }
+        return $capabilities;
+    }
+
+    public static function data()
+    {
+        site::$logger->debug("complete page with login form");
+        if (self::hasCapability(user::AUTHENTICATED)) {
+            site::$logger->debug("is authenticated");
+            site::$page->set_data(page::ASIDE_CONTENT,
+                file_get_contents(\config::module_dir . "user/templates/logout.template.php"));
+        } else {
+            site::$page->set_data(page::ASIDE_CONTENT,
+            file_get_contents(\config::module_dir . "user/templates/login.template.php"));
         }
     }
 
-    private function login(): void {
-        // TODO #: authentication
-        global $site;
-        $db = $site->database;
+    #[route('user/login')]
+    private static function login(): void
+    {
+        $db = site::$database;
         $username = \filter_input(INPUT_POST, "username") ?? "";
         $password = \filter_input(INPUT_POST, "password") ?? "";
         $key = \crypt($username . $password, $password);
         $what = ["login" => $username, "password" => $key];
-        (new \mc\logger())->debug(print_r($what, true));
-        if($db->exists("user", $what)){
-            $user = $db->select("user", ["login", "email", "level"], $what)[0];
-            $this->name = $user["login"];
-            $this->level = $user["level"];
+        site::$logger->debug(print_r($what, true));
+        if ($db->exists("user", $what)) {
+            $user = $db->select("user", ["*"], $what)[0];
+            self::$props = $user;
+            // get role
+            $role = self::getRole($user["id"]);
+            self::$props["role"] = $role;
+            // get capabilities
+            self::$props["capabilities"] = self::getCapabilities($role["id"]);
         }
-        $_SESSION["user"]["name"] = $this->name;
-        $_SESSION["user"]["level"] = $this->level;
-        (new \mc\logger())->debug(print_r($_SESSION["user"], true));
+        $_SESSION["user"] = self::$props;
+        \header("location:/");
+        exit();
     }
-    
-    private function logout(): void {
+
+    #[route('user/logout')]
+    private static function logout(): void
+    {
         \session_destroy();
         \header("location:/");
         exit();
     }
 
-    public static function info(): string {
+    public static function info(): string
+    {
         return "";
     }
 
-    public static function name(): string {
+    public static function name(): string
+    {
         return "user";
     }
 
-    public static function version(): string {
+    public static function version(): string
+    {
         return "202105101100";
     }
 
-    public static function is_authenticated(): bool {
-        return user::has_role(user::GUEST);
-    }
-
-    public static function has_role(string $role): bool {
-        return isset($_SESSION['user']) && $_SESSION['user']['level'] != $role;
+    public static function isAuthenticated(): bool
+    {
+        return self::hasCapability(user::AUTHENTICATED);
     }
 }

@@ -31,20 +31,24 @@ namespace core;
  * @author XiaomiPRO
  */
 class site {
-    public $config = null;
     /**
-     * 
+     * site configuration
+     * @var array
+     */
+    public static $config = null;
+    /**
+     * page data
      * @var page
      */
-    public $page = null;
+    public static $page = null;
     /**
-     * 
+     * reference to database
      * @var database
      */
-    public $database = null;
+    public static $database = null;
     /**
-     * 
+     * basic logger
      * @var logger
      */
-    public $logger = null;
+    public static $logger = null;
 }

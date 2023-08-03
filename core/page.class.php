@@ -48,7 +48,7 @@ class page {
      *
      * @var array
      */
-    public $data = [
+    private $data = [
         self::ADDITIONAL_META => "",
         self::THEME_PATH => "",
         self::ADDITIONAL_STYLE => "",
@@ -72,36 +72,29 @@ class page {
      * @var array
      */
     public $config = [];
-    private $site;
 
-    /**
-     * 
-     */
     public function __construct() {
-        global $site;
-        $this->site = $site;
-
-        $this->site->logger->debug("--- PAGE OBJECT CREATING ---");
+        \core\site::$logger->debug("--- PAGE OBJECT CREATING ---");
 
         $this->load_config();
         $this->load_modules();
         if (!empty($this->config["page_title"])) {
-            $this->data[page::TITLE] = $this->config["page_title"];
+            $this->set_data(page::TITLE, $this->config["page_title"]);
         }
         if (!empty($this->config["page_header"])) {
-            $this->data[page::HEADER] = $this->config["page_header"];
+            $this->set_data(page::HEADER, $this->config["page_header"]);
         }
         // set theme
-        $this->data[self::THEME_PATH] = $this->config["default_theme"];
-        $this->data[self::ADDITIONAL_STYLE] .=
-            "<link rel='stylesheet' href='./themes/" . $this->config['default_theme'] . "/main.css'>";
+        $this->set_data(self::THEME_PATH, $this->config["default_theme"]);
+        $this->attachData(self::ADDITIONAL_STYLE,
+            "<link rel='stylesheet' href='./themes/{$this->config['default_theme']}/main.css'>");
     }
 
     /**
      * load site configuration
      */
     private function load_config() {
-        $result = $this->site->database->select("config", ["name", "value"]);
+        $result = \core\site::$database->select("config", ["name", "value"]);
         foreach ($result as $value) {
             $this->config[$value["name"]] = $value["value"];
         }
@@ -111,14 +104,20 @@ class page {
      * load registered modules
      */
     private function load_modules() {
-        $result = $this->site->database->select("module", ["name"]);
+        $result = \core\site::$database->select("module", ["name"]);
         foreach ($result as $m) {
             $moduleName = $m["name"];
-            $this->site->logger->debug("load module: " . $moduleName);
+            \core\site::$logger->debug("load module: " . $moduleName);
             include_once \config::module_dir . \strtolower($moduleName) . "/{$moduleName}.class.php";
-            $className = "\\module\\{$moduleName}\\{$moduleName}";
-            $this->modules[$moduleName] = new $className();
+            $this->modules[$moduleName] = "\\module\\{$moduleName}\\{$moduleName}";
+            if (\method_exists($this->modules[$moduleName], "init")) {
+                $this->modules[$moduleName]::init();
+            }
         }
+    }
+
+    public function get_module($moduleName) {
+        return $this->modules[$moduleName];
     }
 
     /**
@@ -126,32 +125,43 @@ class page {
      * @return string
      */
     public function render() {
-        $this->site->logger->debug("--- START PAGE GENERATING ---");
-        $this->site->logger->debug("REQUEST_URI: " . filter_input(INPUT_SERVER, "REQUEST_URI"));
-        $this->site->logger->debug("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
+        \core\site::$logger->debug("--- START PAGE GENERATING ---");
+        \core\site::$logger->debug("REQUEST_URI: " . filter_input(INPUT_SERVER, "REQUEST_URI"));
+        \core\site::$logger->debug("REMOTE_ADDR: " . filter_input(INPUT_SERVER, "REMOTE_ADDR"));
 
         $tpl = file_get_contents("./templates/page.template.php");
         $generator = new \mc\template($tpl, ["prefix" => "<!-- ", "suffix" => " -->"]);
         foreach ($this->modules as $module) {
             if (\method_exists($module, "data")) {
-                $module->data();
+                $module::data();
             }
         }
         return $generator->fill($this->data)->value();
     }
 
     /**
-     * execute all modules
+     * Set data by property
+     * @param string $property
+     * @param string $value
      */
-    public function process() {
-        $this->site->logger->debug("page->process() call.");
-        $q = \filter_input(INPUT_GET, "q") ?? "";
-        $moduleName = \explode("/", $q)[0];
-        $this->site->logger->debug("q = {$q}");
-        $this->site->logger->debug("try to access module '{$moduleName}'.");
-        if (!empty($this->modules[$moduleName])) {
-            $this->modules[$moduleName]->process($q);
-        }
+    public function set_data($property, $value) {
+        $this->data[$property] = $value;
     }
 
+    /**
+     * Get data by property
+     * @param string $property
+     */
+    public function get_data($property) {
+        return $this->data[$property];
+    }
+
+    /**
+     * append to data (concat) by property
+     * @param string $property
+     * @param string $value
+     */
+    public function attachData($property, $value) {
+        $this->data[$property] .= $value;
+    }
 }

@@ -163,8 +163,8 @@ class database {
     }
 
     /**
-     * Update fields <b>$values</b> in table <b>$table</b>. <b>$values</b> and 
-     * <b>$conditions</b> are required. 
+     * Update fields <b>$values</b> in table <b>$table</b>. <b>$values</b> and
+     * <b>$conditions</b> are required.
      * @param string $table
      * @param array $values
      * @param array $conditions

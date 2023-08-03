@@ -26,6 +26,7 @@ namespace module\article;
  */
 
 use \core\page;
+use module\user\user;
 
 /**
  * Description of article
@@ -35,14 +36,8 @@ use \core\page;
 class article implements \core\module
 {
 
-    protected $page;
-    protected $total;
-
-    public function __construct()
-    {
-        $this->page = 0;
-        $this->total = 12;
-    }
+    protected static $page = 0;
+    protected static $total = 12;
 
     public static function info(): string
     {
@@ -51,7 +46,7 @@ class article implements \core\module
 
     public static function name(): string
     {
-        return __CLASS__;
+        return "article";
     }
 
     public static function version(): string
@@ -59,19 +54,9 @@ class article implements \core\module
         return "202105101900";
     }
 
-    public function process(string $param)
+    public static function view(array $articleId = [])
     {
-        $chunks = \explode("/", $param);
-        $methodName = $chunks[1];
-        if (\method_exists($this, $methodName)) {
-            $this->$methodName($chunks);
-        }
-    }
-
-    public function view(array $articleId = [])
-    {
-        global $site;
-        $database = $site->database;
+        $database = \core\site::$database;
         $result = "";
         $tpl = \file_get_contents(\config::module_dir . "/article/templates/article.template.php");
         $generator = new \mc\template($tpl, ["prefix" => "<!-- ", "suffix" => " -->"]);
@@ -80,7 +65,7 @@ class article implements \core\module
             // show page of articles
             $articles = $database->select(
                 "article", ['*'], [],
-                ['offset' => $this->page, 'limit' => $this->total]
+                ['offset' => self::$page, 'limit' => self::$total]
             );
             foreach ($articles as $article) {
                 $result .= $generator->fill($article)->value();
@@ -93,10 +78,11 @@ class article implements \core\module
         return $result;
     }
 
-    public function data() {
-        global $site;
-        $site->page->data[page::CONTENT] = $this->view([]);
-        $site->page->data[page::PRIMARY_MENU] =
-            "<a href='./?q=article/create'>create article</a>";
+    public static function data() {
+        \core\site::$page->set_data(page::CONTENT, self::view([]));
+        if(\core\site::$page->get_module("user")::isAuthenticated()) {
+            \core\site::$page->set_data(page::PRIMARY_MENU,
+                "<a href='./?q=article/create'>create article</a>");
+        }
     }
 }

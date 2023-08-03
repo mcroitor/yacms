@@ -40,19 +40,20 @@ class modulemanager {
     }
 
     public function install($module) {
-        global $site;
         if (\file_exists(\config::module_dir . "{$module}/db/install.sql")) {
-            $site->database->parse_sqldump(\config::module_dir . "{$module}/db/install.sql");
+            \core\site::$database->parse_sqldump(\config::module_dir . "{$module}/db/install.sql");
         }
 
         include_once \config::module_dir . "{$module}/{$module}.class.php";
 
+        $className = "\\module\\$module\\$module";
+
         $data = [
-            "name" => $module::name(),
-            "description" => $module::info(),
-            "version" => $module::version()
+            "name" => $className::name(),
+            "description" => $className::info(),
+            "version" => $className::version()
         ];
-        $site->database->insert("module", $data);
+        \core\site::$database->insert("module", $data);
     }
 
     public function uninstall($module) {
